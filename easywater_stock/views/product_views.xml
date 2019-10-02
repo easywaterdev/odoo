@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_normal_form_view_inherit_easywater" model="ir.ui.view">
+        <field name="name">product.product.form.inherit.easywater</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']" position="inside">
+                <group string="Default Packaging Types">
+                    <field name="packaging_type_ids" mode="tree,kanban" nolabel="1">
+                        <form>
+                            <div class="oe_title">
+                                <h1><field name="name"/></h1>
+                            </div>
+
+                            <goup>
+                                <group>
+                                    <field name="product_id"/>
+                                    <field name="package_carrier_type"/>
+                                    <field name="qty"/>
+                                </group>
+                                <group>
+                                    <field name="max_weight"/>
+                                    <field name="length"/>
+                                    <field name="width"/>
+                                    <field name="height"/>
+                                </group>
+                            </goup>
+                        </form>
+                        <tree string="Packaging Types" editable="bottom">
+                            <control>
+                                <create string="Add a Packaging Type"/>
+                            </control>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="package_carrier_type"/>
+                            <field name="qty"/>
+                            <field name="max_weight"/>
+                            <field name="length"/>
+                            <field name="width"/>
+                            <field name="height"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
