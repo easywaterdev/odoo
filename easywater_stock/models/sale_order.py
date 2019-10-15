@@ -12,13 +12,14 @@ class SaleOrder(models.Model):
         res = super(SaleOrder, self).action_confirm()
         print("HELLO I'M HERE")
 
-        for delivery in self.picking_ids.filtered(lambda p: p.picking_type_id.is_auto_packing == True):
-            print(delivery)
-            # TODO: Might need to move this to super action_assign on a stock.picking
-            for move in delivery.move_ids_without_package:
-
-
-
-                move.product_id
-                move.quantity_done = move.reserved_availability
+        # for delivery in self.picking_ids.filtered(lambda p: p.picking_type_id.is_auto_packing):
+        #     print(delivery)
+        #     # TODO: Might need to move this to super action_assign on a stock.picking
+        #     for move in delivery.move_ids_without_package:
+        #         # Reverse sorted list of the package types(biggest package qty first)
+        #         pack_list = move.product_id.packaging_type_ids.sorted(key=lambda r: r.qty, reverse=True)
+        #         if pack_list:
+        #             print(pack_list.name_get())
+        #             move.pack_move(move.reserved_availability, pack_list)
+        #             # move.quantity_done = move.reserved_availability
         return res

@@ -50,9 +50,7 @@ The user should be able to manually edit the packages after their automatic crea
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
         'views/stock_views.xml',
         'views/product_views.xml',
-        # 'views/packaging_type_views.xml',
     ],
 }

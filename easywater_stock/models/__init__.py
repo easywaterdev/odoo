@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from . import stock, product, sale_order
-# from . import packaging_type
+from . import stock, product
+# from . import stock, product, sale_order

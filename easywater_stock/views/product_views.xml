@@ -32,7 +32,7 @@
                                 <create string="Add a Packaging Type"/>
                             </control>
                             <field name="name"/>
-                            <field name="product_id"/>
+<!--                            <field name="product_id"/>-->
                             <field name="package_carrier_type"/>
                             <field name="qty"/>
                             <field name="max_weight"/>
