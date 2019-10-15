@@ -25,13 +25,16 @@ class StockPicking(models.Model):
     def action_assign(self):
         res = super(StockPicking, self).action_assign()
         print("WE ARE INSIDE ACTION ASSIGN")
-        auto_picks = self.filtered(lambda p: p.picking_type_id.is_auto_packing)
+        # If the type is auto_packing and the delivery method is set
+        auto_picks = self.filtered(lambda p: p.picking_type_id.is_auto_packing and p.sale_id.carrier_id)
         for pick in auto_picks:
             print("this is a auto designated type")
             print(pick)
             for move in pick.move_ids_without_package:
                 # Reverse sorted list of the package types(biggest package qty first)
-                pack_list = move.product_id.packaging_type_ids.sorted(key=lambda r: r.qty, reverse=True)
+                pack_list = move.product_id.packaging_type_ids.filtered(
+                    lambda l: l.package_carrier_type == pick.carrier_id.delivery_type
+                ).sorted(key=lambda r: r.qty, reverse=True)
                 if pack_list:
                     print(pack_list.name_get())
                     move.pack_move(move.reserved_availability, pack_list)
@@ -91,7 +94,6 @@ class StockMove(models.Model):
 
                 if qty_to_pack < 1:
                     raise UserError(_('Package Types for %s must have max quantity greater than 0 for auto pack.' % pack_list[fit_index].name_get()))
-
                 # ex: cur_res_qty = 3 and qty_to_pack = 3
                 if cur_res_qty == qty_to_pack:
                     move_line_ids.qty_done = qty_to_pack
