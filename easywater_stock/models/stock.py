@@ -8,6 +8,7 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+
 class PickingType(models.Model):
     _inherit = "stock.picking.type"
 
@@ -18,25 +19,17 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     @api.multi
-    def auto_pack(self):
-        print("Inside auto_pack")
-
-    @api.multi
     def action_assign(self):
         res = super(StockPicking, self).action_assign()
-        print("WE ARE INSIDE ACTION ASSIGN")
         # If the type is auto_packing and the delivery method is set
         auto_picks = self.filtered(lambda p: p.picking_type_id.is_auto_packing and p.sale_id.carrier_id)
         for pick in auto_picks:
-            print("this is a auto designated type")
-            print(pick)
             for move in pick.move_ids_without_package:
                 # Reverse sorted list of the package types(biggest package qty first)
                 pack_list = move.product_id.packaging_type_ids.filtered(
                     lambda l: l.package_carrier_type == pick.carrier_id.delivery_type
                 ).sorted(key=lambda r: r.qty, reverse=True)
                 if pack_list:
-                    print(pack_list.name_get())
                     move.pack_move(move.reserved_availability, pack_list)
         return res
 
@@ -109,7 +102,3 @@ class StockMove(models.Model):
                     move_line_ids.qty_done = cur_res_qty
                     self.do_auto_pack(pack_list, fit_index, qty_to_pack)
                     cur_res_qty = 0
-
-
-class ProductPackaging(models.Model):
-    _inherit = 'product.packaging'
