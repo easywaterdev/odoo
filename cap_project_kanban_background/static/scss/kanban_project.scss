@@ -17,3 +17,41 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: 1.2;
     color: #709ac1;
 }
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --menu: #F9F9F9;
+    --footer: #F9F9F9;
+    --primary: #00A09D;
+    --secondary: #6c757d;
+    --success: #00A04A;
+    --info: #87C0D1;
+    --warning: #F0AD4E;
+    --danger: #DC6965;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --alpha: #0078ae;
+    --beta: #875A7B;
+    --gamma: #5C5B80;
+    --delta: #5B899E;
+    --epsilon: #E46F78;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Roboto", "Noto";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
