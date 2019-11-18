@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="project_kanban_style" name="Project Kanban Style" inherit_id="web.assets_backend">
+    <xpath expr="link[last()]" position="after">
+        <link rel="stylesheet" type="text/scss" href="/cap_project_kanban_background/static/scss/kanban_project.scss"/>
+    </xpath>
+  </template>
+</odoo>
