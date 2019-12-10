@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ba_activity_deadline.notification" t-extend="Notification">
+        <t t-jquery=".o_notification_title > t" t-operation="replace">
+            <span  t-attf-class="ba_activity_deadline_activity aid_{{widget.aid}}">
+                <t t-esc="widget.title"/>
+            </span>
+        </t>
+        <t t-jquery=".o_notification_content" t-operation="append">
+            <br/><br/>
+            <button type="button" class="btn btn-link ba_activity_deadline_showed oe_highlight">OK</button>
+            <button type="button" class="btn btn-link ba_activity_deadline_activity oe_highlight">Activity</button>
+            <button type="button" class="btn btn-link ba_activity_deadline_record oe_highlight"><t t-esc="widget.resModelName"/></button>
+        </t>
+    </t>
+
+</templates>

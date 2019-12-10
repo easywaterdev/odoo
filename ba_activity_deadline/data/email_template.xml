@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="activity_due_date_template" model="mail.template">
+            <field name="name">Reminder for Activity Deadline</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="model_id" ref="ba_activity_deadline.model_ba_activity_deadline_alarm"/>
+            <field name="subject"><![CDATA[Reminder: ${ctx['rec_name']} for ${ctx['model_name']} -> ${ctx['record']['name']}]]></field>
+            <field name="body_html">
+<![CDATA[<br/>
+<b>${ctx['model_name']}: </b>
+<a href="${ object.get_url_for_record(ctx['activity']['res_id'], ctx['activity']['res_model'], ctx['user_id']) }">
+    ${ctx['record']['name']}
+</a>
+<br/>
+<b>Due Date: </b>
+${format_tz(ctx['activity']['dd'])}]]>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="project assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/ba_activity_deadline/static/src/js/script.js"/>
+        </xpath>
+    </template>
+
+    <record id="action_open_activity" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Activity</field>
+        <field name="res_model">mail.activity</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="mail_activity_view_form_popup" model="ir.ui.view">
+        <field name="name">Mail Activity Due Date in datetime format</field>
+        <field name="model">mail.activity</field>
+        <field name="inherit_id" ref="mail.mail_activity_view_form_popup"/>
+        <field name="arch" type="xml">
+
+            <field name="date_deadline" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="date_deadline" position="after">
+                <field name="dd"/>
+                <field name="reminder_ids" widget="many2many_tags" options="{'no_create_edit': True}"/>
+            </field>
+
+        </field>
+    </record>
+
+    <record id="view_activity_alarm_search" model="ir.ui.view">
+        <field name="name">ba_activity_deadline.alarm.search</field>
+        <field name="model">ba_activity_deadline.alarm</field>
+        <field name="arch" type="xml">
+            <search string="Search Alarm">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_activity_alarm_tree" model="ir.ui.view">
+        <field name="name">ba_activity_deadline.alarm.tree</field>
+        <field name="model">ba_activity_deadline.alarm</field>
+        <field name="arch" type="xml">
+            <tree string="Calendar Alarm" editable="bottom">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="duration"/>
+                <field name="interval"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_activity_alarm_form" model="ir.ui.view">
+            <field name="name">ba_activity_deadline.alarm.form</field>
+            <field name="model">ba_activity_deadline.alarm</field>
+            <field name="arch" type="xml">
+                <form string="Calendar Alarm">
+                 <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="type"/>
+                    </group>
+                    <group>
+                        <label for="duration"/>
+                        <div>
+                            <field name="duration" class="oe_inline"/>
+                            <field name="interval" class="oe_inline ml8"/>
+                        </div>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_activity_alarms" model="ir.actions.act_window">
+        <field name="name">Activity Alarms</field>
+        <field name="res_model">ba_activity_deadline.alarm</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_activity_alarms_settings"
+        name="Activity"
+        parent="base.menu_custom"
+        groups="base.group_no_one"/>
+
+    <menuitem
+        id="menu_activity_alarms"
+        name="Activity Alarm"
+        parent="menu_activity_alarms_settings"
+        action="action_activity_alarms"
+        groups="base.group_no_one"/>
+
+</odoo>
