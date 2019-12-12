@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend"
+              name="mail_composer_full_view"
+              inherit_id="web.assets_backend"
+    >
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/mail_composer_on_send_message/static/src/js/mail_composer_on_send_message.js"
+            />
+        </xpath>
+    </template>
+
+</odoo>
