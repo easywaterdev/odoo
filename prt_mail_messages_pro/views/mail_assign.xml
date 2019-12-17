@@ -1,0 +1,29 @@
+<odoo>
+    <!--#################
+   # Mail Assign Author #
+   ######################-->
+
+    <!-- ## Form view ## -->
+    <record model="ir.ui.view" id="cx_message_assign_partner">
+        <field name="name">cx.message.assign.partner</field>
+        <field name="model">cx.message.partner.assign.wiz</field>
+        <field name="inherit_id" ref="prt_mail_messages.cx_message_assign_partner"/>
+        <field name="arch" type="xml">
+            <div name="pro" position="replace"/>
+            <field name="partner_id" position="replace">
+                <field name="partner_id"
+                       context="{'default_email':email, 'default_name':name}"/>
+            </field>
+            <button name="cancel" position="before">
+                <button string="Assign" name="assign_one"
+                        type="object" class="btn-primary"
+                        help="Update Author for this message only"
+                        attrs="{'invisible':[('partner_id', '=', False)]}"/>
+                <button string="Assign All" name="assign_all" type="object"
+                        class="btn-primary"
+                        attrs="{'invisible':[('partner_id', '=', False)]}"
+                        help="Update Author for all usassigned messages from this address"/>
+            </button>
+        </field>
+    </record>
+</odoo>

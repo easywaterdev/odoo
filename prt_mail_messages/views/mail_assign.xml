@@ -1,0 +1,29 @@
+<odoo>
+    <!--#################
+   # Mail Assign Author #
+   ######################-->
+
+    <!-- ## Form view ## -->
+    <record model="ir.ui.view" id="cx_message_assign_partner">
+        <field name="name">cx.message.assign.partner</field>
+        <field name="model">cx.message.partner.assign.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Assign Author">
+                <div name="pro" colspan="2" class="oe_form_box_info oe_text_center">
+                    <p>
+                        Please purchase <a target="_blank" href="https://apps.odoo.com/apps/modules/12.0/prt_mail_messages_pro">Pro Version</a> to use this feature
+                    </p>
+                </div>
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="same_email"/>
+                    <field name="partner_id" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="cancel" string="Cancel" special="cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!--      Chatter (mail_thread widget) buttons  -->
+    <t t-name="mail.chatter.Buttons">
+        <button t-if="newMessageButton" type="button" class="btn btn-link o_chatter_button_new_message" title="Send a message" disabled="disabled">
+            Send message
+        </button>
+        <button t-if="logNoteButton" class="btn btn-link o_chatter_button_log_note" title="Log a note. Followers will not be notified." disabled="disabled">
+            Log note
+        </button>
+        <button t-if="scheduleActivityButton" class="btn btn-link o_chatter_button_schedule_activity" title="Log or schedule an activity" disabled="disabled">
+            <i class="fa fa-clock-o" role="img" aria-label="Dates" title="Dates"/> <t t-if="isMobile">Activity</t><t t-else="">Schedule activity</t>
+        </button>
+        <t t-if="newMessageButton"> <!-- We will not show it unless other buttons are shown -->
+            <label class="btn btn-link o_filter_checkbox_label" title="Hide notifications">
+                <i class="fa fa-eye-slash"/> <t t-if="isMobile">Hide</t><t t-else="">Hide notifications</t>
+                <input type="checkbox" class="btn btn-sm btn-link o_filter_checkbox" title="Hide notifications"/>
+            </label>
+        </t>
+
+    </t>
+    <!-- Show buttons in chatter -->
+    <t t-extend="mail.widget.Thread.Message">
+        <t t-jquery="span:last" t-operation="append">
+            <i class="fa fa-quote-left o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_quote"
+               t-att-data-message-id="message.getID()" id="quote_message" title="Quote"/>
+            <i class="fa fa-copy o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_forward"
+               t-att-data-message-id="message.getID()" id="forward_message" title="Forward"/>
+            <i class="fa fa-arrow-right o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_move"
+               t-att-data-message-id="message.getID()" id="move_message" title="Move"/>
+            <i class='fa fa-trash o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_delete'
+               t-att-data-message-id="message.getID()" id="delete_message" title="Delete"/>
+        </t>
+    </t>
+
+    <t t-name="mail.widget.Thread.Content">
+        <t t-set="messages" t-value="messages"/>
+        <t t-call="mail.widget.Thread.Content.DESC"/>
+    </t>
+</templates>
