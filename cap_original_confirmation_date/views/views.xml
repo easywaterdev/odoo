@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- CRM Opportunity Form -->
+    <record id="crm_case_form_view_oppor_custom_id_inherited" model="ir.ui.view">
+        <field name="name">oppor.custom.id.inherited</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="custom_id" attrs="{'invisible' : [('id', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- CRM Opportunity Kanban -->
+    <record id="crm_case_kanban_view_leads_custom_id_inherited" model="ir.ui.view">
+        <field name="name">crm.case.kanban.inherited</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <field name="name" position="replace">
+                <field name="custom_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Contact form -->
+    <record id="res_partner_form_custom_id_inherit" model="ir.ui.view">
+        <field name="name">contact.custom.id.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="priority">200</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="allow_credit_field" position="before">
+                <field name="custom_id" attrs="{'invisible' : [('id', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <!--CRM Project Form -->
+    <record id="project_project_form_custom_id_inherit" model="ir.ui.view">
+        <field name="name">project.form.custom.id.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="before">
+                <field name="custom_id" attrs="{'invisible' : [('id', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <!--CRM Project Kanban -->
+    <record id="view_crm_project_kanban_custom_id_inherit" model="ir.ui.view">
+        <field name="name">crm.project.project.kanban.custom.id.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="cap_crm_project.view_crm_project_kanban"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="custom_id"/>
+            </field>
+            <t t-esc="record.name.value" position="replace">
+                <t t-esc="record.custom_id.value"/>
+            </t>
+        </field>
+    </record>
+
+    <!--Project Kanban -->
+    <record id="view_project_kanban_custom_id_inherit" model="ir.ui.view">
+        <field name="name">project.project.kanban.custom.id.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="custom_id"/>
+            </field>
+            <t t-esc="record.name.value" position="replace">
+                <t t-esc="record.custom_id.value"/>
+            </t>
+        </field>
+    </record>
+</odoo>
