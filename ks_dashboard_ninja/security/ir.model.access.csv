@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ks_dashboard_ninja_board,ks_dashboard_ninja.board,model_ks_dashboard_ninja_board,,1,1,1,1
+access_ks_dashboard_ninja_item,ks_dashboard_ninja.item,model_ks_dashboard_ninja_item,,1,1,1,1
+access_ks_dashboard_ninja_board_template,ks_dashboard_ninja.board_template,model_ks_dashboard_ninja_board_template,,1,1,1,1
+access_ks_dashboard_ninja_item_goal,ks_dashboard_ninja_item_goal,model_ks_dashboard_ninja_item_goal,,1,1,1,1
+access_ks_dashboard_ninja_item_action,ks_dashboard_ninja_item_action,model_ks_dashboard_ninja_item_action,,1,1,1,1
