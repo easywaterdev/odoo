@@ -10,7 +10,7 @@ class ResPartner(models.Model):
 	type = fields.Selection(
 	[('contact', 'Contact'),
 	 ('invoice', 'Billing address'),
-	 ('delivery', 'Job address'),
+	 ('delivery', 'Delivery address'),
 	 ('other', 'Installation address'),
 	 ('private', 'Private address'),
 	], string='Address Type',
