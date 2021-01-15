@@ -11,8 +11,9 @@ class ResPartner(models.Model):
 	[('contact', 'Contact'),
 	 ('invoice', 'Billing address'),
 	 ('delivery', 'Delivery address'),
-	 ('other', 'Installation address'),
+	 ('other', 'Other address'),
 	 ('private', 'Private address'),
+	 ('install', 'Installation address'),
 	], string='Address Type',
 	default='contact',
         help="Used by Sales and Purchase Apps to select the relevant address depending on the context.")
