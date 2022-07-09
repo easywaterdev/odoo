@@ -8,5 +8,6 @@
     'summary': "Rename Other Address to Installation Address",
     'depends': [],
     'data': [],
-    'installable': True
+    'installable': True,
+    'license': 'LGPL-3'
 }
