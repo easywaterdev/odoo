@@ -14,7 +14,7 @@ class ResConfigSettings(models.TransientModel):
         [('sandbox', 'Sandbox'), ('prod', 'production')],
         config_parameter='avatax_connector.avatax_api_environment')
 
-    @api.multi
+     
     def avatax_test(self):
         Category = self.env['product.tic.category']
         request = TaxCloudRequest(self.taxcloud_api_id, self.taxcloud_api_key)

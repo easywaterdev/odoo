@@ -14,7 +14,7 @@ class PRTMailThread(models.AbstractModel):
     """
     We may have readonly access to model so we need special method for RPC
     """
-    @api.multi
+     
     def write_sudo(self, vals):
         return self.sudo().write(vals)
 
@@ -30,7 +30,7 @@ class PRTMailMessage(models.Model):
     _inherit = "mail.message"
 
     # -- Unlink
-    @api.multi
+     
     def unlink(self):
 
         # Store lead ids from messages in case we want to delete empty leads later
@@ -90,7 +90,7 @@ class PRTMailMove(models.TransientModel):
     _inherit = 'prt.message.move.wiz'
 
     # -- Move messages
-    @api.multi
+     
     def message_move(self):
         self.ensure_one()
         if not self.model_to:

@@ -250,7 +250,7 @@ class AccountInvoice(models.Model):
         })
         return values
 
-    @api.multi
+     
     def action_cancel(self):
         account_tax_obj = self.env['account.tax']
         avatax_config = self.env['avalara.salestax'].get_avatax_config_company()

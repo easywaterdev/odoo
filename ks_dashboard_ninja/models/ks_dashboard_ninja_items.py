@@ -503,7 +503,7 @@ class KsDashboardNinjaItems(models.Model):
                         'Minute and Hour case.')
                 }}
 
-    @api.multi
+     
     @api.onchange('ks_chart_date_groupby', 'ks_chart_date_sub_groupby')
     def ks_date_target(self):
         for rec in self:
@@ -513,7 +513,7 @@ class KsDashboardNinjaItems(models.Model):
                     "Cannot set aggregation having Date time (Hour, Minute) when target lines per date are being used."
                     " To proceed this, first delete target lines"))
 
-    @api.multi
+     
     def copy_data(self, default=None):
         if default is None:
             default = {}
@@ -525,7 +525,7 @@ class KsDashboardNinjaItems(models.Model):
 
         return super(KsDashboardNinjaItems, self).copy_data(default)
 
-    @api.multi
+     
     def name_get(self):
         res = []
         for rec in self:
@@ -549,7 +549,7 @@ class KsDashboardNinjaItems(models.Model):
         return super(KsDashboardNinjaItems, self).create(
             values)
 
-    @api.multi
+     
     def write(self, values):
         for rec in self:
             if rec['ks_many2many_field_ordering']:
@@ -697,7 +697,7 @@ class KsDashboardNinjaItems(models.Model):
             if self.ks_dashboard_item_theme == "white":
                 self.ks_default_icon_color = "#000000,0.99"
 
-    @api.multi
+     
     @api.depends('ks_record_count_type', 'ks_model_id', 'ks_domain', 'ks_record_field', 'ks_date_filter_field',
                  'ks_item_end_date', 'ks_item_start_date', 'ks_compare_period', 'ks_year_period',
                  'ks_dashboard_item_type', 'ks_domain_extension')
@@ -986,7 +986,7 @@ class KsDashboardNinjaItems(models.Model):
                     "'<value_to_compare>']]")
 
 
-    @api.multi
+     
     @api.onchange('ks_chart_relation_groupby')
     def get_chart_groupby_type(self):
         for rec in self:
@@ -1027,7 +1027,7 @@ class KsDashboardNinjaItems(models.Model):
     def ks_chart_load(self):
         return True
 
-    @api.multi
+     
     @api.depends('ks_chart_measure_field', 'ks_chart_relation_groupby', 'ks_chart_date_groupby', 'ks_domain',
                  'ks_dashboard_item_type', 'ks_model_id', 'ks_sort_by_field', 'ks_sort_by_order',
                  'ks_record_data_limit', 'ks_chart_data_count_type', 'ks_chart_measure_field_2', 'ks_goal_enable',
@@ -1605,7 +1605,7 @@ class KsDashboardNinjaItems(models.Model):
                 rec.ks_chart_measure_field_2 = False
                 rec.ks_chart_relation_groupby = False
 
-    @api.multi
+     
     @api.depends('ks_domain', 'ks_dashboard_item_type', 'ks_model_id', 'ks_sort_by_field', 'ks_sort_by_order',
                  'ks_record_data_limit', 'ks_list_view_fields', 'ks_list_view_type', 'ks_list_view_group_fields',
                  'ks_chart_groupby_type', 'ks_chart_date_groupby', 'ks_date_filter_field', 'ks_item_end_date',
@@ -1990,7 +1990,7 @@ class KsDashboardNinjaItems(models.Model):
                 rec.ks_chart_item_color = "default"
 
     #  Time Filter Calculation
-    @api.multi
+     
     @api.onchange('ks_date_filter_selection')
     def ks_set_date_filter(self):
         for rec in self:
@@ -2002,7 +2002,7 @@ class KsDashboardNinjaItems(models.Model):
                 rec.ks_item_start_date = ks_date_data["selected_start_date"]
                 rec.ks_item_end_date = ks_date_data["selected_end_date"]
 
-    @api.multi
+     
     @api.depends('ks_dashboard_item_type', 'ks_goal_enable', 'ks_standard_goal_value', 'ks_record_count',
                  'ks_record_count_2', 'ks_previous_period', 'ks_compare_period', 'ks_year_period',
                  'ks_compare_period_2', 'ks_year_period_2')
@@ -2171,7 +2171,7 @@ class KsDashboardNinjaItems(models.Model):
             return []
         return data
 
-    @api.multi
+     
     @api.onchange('ks_date_filter_selection_2')
     def ks_set_date_filter_2(self):
         for rec in self:

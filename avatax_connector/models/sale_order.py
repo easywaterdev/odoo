@@ -18,7 +18,7 @@ class SaleOrder(models.Model):
         self.tax_on_shipping_address = bool(self.partner_shipping_id)
         self.is_add_validate = bool(self.partner_id.validation_method)
 
-    @api.multi
+     
     def _prepare_invoice(self):
         invoice_vals = super(SaleOrder, self)._prepare_invoice()
         invoice_vals.update({
@@ -169,13 +169,13 @@ class SaleOrder(models.Model):
         self.write({'tax_amount': tax_amount, 'order_line': []})
         return True
 
-    @api.multi
+     
     def avalara_compute_taxes(self):
         """ It used to called manually calculation method of avalara and get tax amount"""
         self.with_context(avatax_recomputation=True).compute_tax()
         return True
 
-    @api.multi
+     
     def action_confirm(self):
         res =  super(SaleOrder, self).action_confirm()
         self.with_context(avatax_recomputation=True).compute_tax()

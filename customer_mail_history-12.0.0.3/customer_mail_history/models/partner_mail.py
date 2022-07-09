@@ -9,7 +9,7 @@ from email.utils import formataddr
 class res_partner(models.Model):
     _inherit = 'res.partner'
     
-    @api.multi
+     
     def action_view_send_mail(self):
         mail_pool = self.env['mail.message']
         result = []
@@ -26,7 +26,7 @@ class res_partner(models.Model):
             return result
         
         
-    @api.multi
+     
     def action_view_recieve_mail(self):
         mail_pool = self.env['mail.message']
         result = []
@@ -40,7 +40,7 @@ class res_partner(models.Model):
                 result = self.env['ir.actions.act_window'].for_xml_id('customer_mail_history', 'action_view_mail_message_recieve')
             return result
 
-    @api.multi
+     
     def _get_send_mail_count(self):
         for send in self:
             if send.email:
@@ -48,7 +48,7 @@ class res_partner(models.Model):
                 send_mail_ids = self.env['mail.message'].search([('email_from','=',partner_email)])
                 send.send_mail_count = len(send_mail_ids)
             
-    @api.multi
+     
     def _get_receive_mail_count(self):
         for receive in self:
             receive_mail_ids = self.env['mail.message'].search([('partner_ids','=',receive.id)])

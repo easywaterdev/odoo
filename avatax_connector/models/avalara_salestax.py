@@ -8,7 +8,7 @@ class ExemptionCode(models.Model):
     name = fields.Char('Name', required=True)
     code = fields.Char('Code')
 
-    @api.multi
+     
     @api.depends('name', 'code')
     def name_get(self):
         name = lambda r: r.code and '(%s) %s' % (r.code, r.name) or r.name

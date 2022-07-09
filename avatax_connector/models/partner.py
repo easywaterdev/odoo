@@ -37,7 +37,7 @@ class ResPartner(models.Model):
         ('name_uniq', 'unique(customer_code)', 'Customer Code must be unique!'),
     ]
 
-    @api.multi
+     
     def generate_cust_code(self):
         "Auto populate customer code"
         for partner in self:
@@ -91,7 +91,7 @@ class ResPartner(models.Model):
         country_obj = self.env['res.country']
         return country_id and country_obj.browse(country_id).code
 
-    @api.multi
+     
     def multi_address_validation(self):
         for partner in self:
             vals = partner.read(['street', 'street2', 'city', 'state_id', 'zip', 'country_id'])[0]
@@ -123,7 +123,7 @@ class ResPartner(models.Model):
 
         return True
 
-    @api.multi
+     
     def button_avatax_validate_address(self):
         """Method is used to verify of state and country """
         view_ref = self.env.ref('avatax_connector.view_avalara_salestax_address_validate', False)
@@ -265,7 +265,7 @@ class ResPartner(models.Model):
         cust_id.write({'customer_code': customer_code})
         return cust_id
 
-    @api.multi
+     
     def write(self, vals):
         if any(address_field in vals for address_field in ADDRESS_FIELDS) and not vals.get('date_validation'):
             vals.update({

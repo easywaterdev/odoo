@@ -117,7 +117,7 @@ class KsDashboardNinjaBoard(models.Model):
                 if rec.ks_dashboard_start_date >= rec.ks_dashboard_end_date:
                     raise ValidationError(_("Start Date should be less than End Date"))
 
-    @api.multi
+     
     def write(self, vals):
         if vals.get('ks_date_filter_selection', False) and vals.get('ks_date_filter_selection') != 'l_custom':
             vals.update({
@@ -153,7 +153,7 @@ class KsDashboardNinjaBoard(models.Model):
 
         return record
 
-    @api.multi
+     
     def unlink(self):
         if self.env.ref('ks_dashboard_ninja.ks_my_default_dashboard_board').id in self.ids:
             raise ValidationError(_("Default Dashboard can't be deleted."))

@@ -50,7 +50,7 @@ class ProductTemplate(models.Model):
             p_brw.write({'tax_code_id': False})
         return p_brw
 
-    @api.multi
+     
     def write(self, vals):
         if 'categ_id' in vals:
             p_brw = self.env['product.category'].browse(vals['categ_id'])

@@ -100,7 +100,7 @@ class AvalaraSalestaxAddressValidate(models.TransientModel):
                 res.update({'partner_longitude': valid_address.Longitude or 0})
         return res
 
-    @api.multi
+     
     def accept_valid_address(self):
         """ Updates the existing address with the valid address returned by the service. """
         valid_address = self.read()[0]
