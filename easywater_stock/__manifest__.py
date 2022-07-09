@@ -44,6 +44,7 @@ The user should be able to manually edit the packages after their automatic crea
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
     'depends': ['stock', 'delivery'],
