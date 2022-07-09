@@ -27,7 +27,7 @@ class DpPrintZpl(models.Model):
     print_visible = fields.Boolean('Print is Visible', default=False, copy=False)
     configuration_code = fields.Text('Configuration Code', help='Configuration')
 
-    @api.multi
+#     @api.multi
     def create_action(self):
         """ Create a contextual action for each server action. """
         zpl_model = self.env['ir.model'].search([('model', '=', 'dp.print.zpl')])
@@ -51,7 +51,7 @@ class DpPrintZpl(models.Model):
 
         return True
 
-    @api.multi
+#     @api.multi
     def unlink_action(self):
         for record in self:
             if record.ir_action_id:
@@ -59,7 +59,7 @@ class DpPrintZpl(models.Model):
             record.print_visible = False
         return True
 
-    @api.multi
+#     @api.multi
     def start_printing(self):
         if not self:
             raise ValidationError(_('Configuration Error: Please configure the ZPL right'))
@@ -71,13 +71,13 @@ class DpPrintZpl(models.Model):
 
         self.print_model(records)
 
-    @api.multi
+#     @api.multi
     def send_configuration(self):
         self.ensure_one()
         if self.configuration_code:
             self.print_zpl(self.configuration_code)
 
-    @api.multi
+#     @api.multi
     def print_model(self, record):
         self.ensure_one()
 
