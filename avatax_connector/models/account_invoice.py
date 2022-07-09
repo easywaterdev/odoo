@@ -38,13 +38,11 @@ class AccountInvoice(models.Model):
     warehouse_id = fields.Many2one('stock.warehouse', 'Warehouse')
     disable_tax_calculation = fields.Boolean('Disable Avatax Tax calculation')
 
-#     @api.multi
     @api.depends('tax_on_shipping_address', 'partner_id', 'partner_shipping_id')
     def _compute_shipping_add_id(self):
         for invoice in self:
             invoice.shipping_add_id = invoice.partner_shipping_id if invoice.tax_on_shipping_address else invoice.partner_id
 
-#     @api.multi
     def get_origin_tax_date(self):
         for inv_obj in self:
             if inv_obj.origin:
@@ -64,7 +62,6 @@ class AccountInvoice(models.Model):
         # else:
         return False
 
-#     @api.multi
     def avatax_compute_taxes(self, commit_avatax=False):
         """
         Called from Invoice's Action menu.
@@ -81,7 +78,6 @@ class AccountInvoice(models.Model):
             invoice.tax_line_ids = tax_lines
         return True
 
-#     @api.multi
     def action_invoice_open(self):
         # We should compute taxes before validating the invoice, to ensure correct account moves
         # We can only commit to Avatax after validating the invoice, because we need the generated Invoice number
@@ -90,7 +86,6 @@ class AccountInvoice(models.Model):
         self.avatax_compute_taxes(commit_avatax=True)
         return True
 
-#     @api.multi
     def get_taxes_values(self, contact_avatax=False, commit_avatax=False):
         """
         Extends the stantard method reponsible for computing taxes.
