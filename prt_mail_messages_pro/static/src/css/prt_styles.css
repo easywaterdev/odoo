@@ -1,0 +1,12 @@
+ /* On mouse over */
+/*		.in:hover {
+      cursor: pointer;
+    }
+*/
+    .o_filter_checkbox_label {
+      margin: 2px auto;
+    }
+
+    .o_thread_message_prt_button {
+      padding: 4px;
+    }
