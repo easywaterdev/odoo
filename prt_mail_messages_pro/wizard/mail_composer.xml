@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+   Odoo Proprietary License v1.0
+ 
+   This software and associated files (the "Software") may only be used (executed,
+   modified, executed after modifications) if you have purchased a valid license
+   from the authors, typically via Odoo Apps, or if you have received a written
+   agreement from the authors of the Software (see the COPYRIGHT file).
+ 
+   You may develop Odoo modules that use the Software as a library (typically
+   by depending on it, importing it and using its resources), but without copying
+   any source code or material from the Software. You may distribute those
+   modules under the license of your choice, provided that this license is
+   compatible with the terms of the Odoo Proprietary License (For example:
+   LGPL, MIT, or proprietary licenses similar to this one).
+ 
+   It is forbidden to publish, distribute, sublicense, or sell copies of the Software
+   or modified copies of the Software.
+ 
+   The above copyright notice and this permission notice must be included in all
+   copies or substantial portions of the Software.
+ 
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+-->
+<odoo>
+    <!--########################
+       # Mail Composer
+       ########################-->
+    <record id="email_compose_message_wizard_form" model="ir.ui.view">
+        <field name="name">messages.pro.mail.composer</field>
+        <field name="model">mail.compose.message</field>
+        <field
+            name="inherit_id"
+            ref="prt_mail_messages.prt_mail_compose_messae_view_form"
+        />
+        <!-- Wizard Type -->
+        <field name="arch" type="xml">
+            <field name="composition_mode" position="before">
+                <field
+                    name="wizard_type"
+                    widget="radio"
+                    options="{'horizontal': true}"
+                    attrs="{'invisible':[('composition_mode', '!=', 'comment')]}"
+                />
+            </field>
+            <!-- Recipients is required -->
+            <field name="partner_ids" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('composition_mode', '!=', 'comment')],
+                    'required': [('wizard_type', '=', 'email')]}
+                </attribute>
+            </field>
+            <!-- "Followers of this document" -->
+            <xpath
+                expr="//div[field[@name='partner_ids']]/span[2]"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {'invisible':['|', '|', ('wizard_type', '=', 'email'), ('model',
+                    '=', False), ('composition_mode', '=', 'mass_mail')]}
+                </attribute>
+            </xpath>
+            <!-- CC and BCC -->
+            <xpath expr="//field[@name='partner_ids']/.." position="after">
+                <field
+                    name="partner_cc_ids"
+                    widget="many2many_tags_email"
+                    attrs="{'invisible':[('wizard_type', '!=', 'email')]}"
+                    context="{'force_email':True, 'show_email':True}"
+                />
+                <field
+                    name="partner_bcc_ids"
+                    widget="many2many_tags_email"
+                    attrs="{'invisible':[('wizard_type', '!=', 'email')]}"
+                    context="{'force_email':True, 'show_email':True}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
