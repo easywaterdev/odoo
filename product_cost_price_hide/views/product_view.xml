@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="car_to_point_product_specification_custom" model="ir.ui.view">
+            <field name="name">product.product.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="product_template_only_form_view_inherit_group_costprice_manager" model="ir.ui.view">
+            <field name="name">product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="product_variant_easy_edit_view_inherit_group_costprice_manager" model="ir.ui.view">
+            <field name="name">product.product.view.form.easy</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="product_template_tree_view_inherit_groupcostprice_manager" model="ir.ui.view">
+            <field name="name">product.template.view.form.easy</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="product_product_treeview_inherit_groupcostprice_manager" model="ir.ui.view">
+            <field name="name">product.product.view.form.easy</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+         <record id="view_change_standard_price_inheritcostprice" model="ir.ui.view">
+            <field name="name">stock.change.standard.price.inherit_costprice</field>
+            <field name="model">stock.change.standard.price</field>
+            <field name="inherit_id" ref="stock_account.view_change_standard_price"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='new_price']" position="attributes">
+                   <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!--        Default Templates -->
+        <record id="ks_blank" model="ks_dashboard_ninja.board_template">
+            <field name="name">Blank</field>
+            <field name="ks_item_count">0</field>
+        </record>
+
+        <record id="ks_template_1" model="ks_dashboard_ninja.board_template">
+            <field name="name">Template 1</field>
+            <field name="ks_gridstack_config">[
+                {"item_id":"ks_dashboard_ninja.ks_default_item_1", "data": {"x": 0, "y": 0, "width": 9, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_2", "data": {"x": 9, "y": 0, "width": 8, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_3", "data": {"x": 17, "y": 0, "width": 9, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_4", "data": {"x": 26, "y": 0, "width": 9, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_5", "data": {"x": 0, "y": 2, "width": 35, "height": 4}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_6", "data": {"x": 0, "y": 6, "width": 18, "height": 4}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_7", "data": {"x": 18, "y": 6, "width": 17, "height": 4}}
+                ]
+            </field>
+            <field name="ks_item_count">7</field>
+        </record>
+
+        <record id="ks_template_2" model="ks_dashboard_ninja.board_template">
+            <field name="name">Template 2</field>
+            <field name="ks_gridstack_config">[
+                {"item_id":"ks_dashboard_ninja.ks_default_item_1", "data": {"x": 25, "y": 6, "width": 10, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_2", "data": {"x": 25, "y": 0, "width": 10, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_3", "data": {"x": 25, "y": 2, "width": 10, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_4", "data": {"x": 25, "y": 4, "width": 10, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_5", "data": {"x": 0, "y": 0, "width": 25, "height": 4}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_6", "data": {"x": 12, "y": 4, "width": 13, "height": 4}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_7", "data": {"x": 0, "y": 4, "width": 12, "height": 4}}
+                ]
+            </field>
+            <field name="ks_item_count">7</field>
+        </record>
+
+        <record id="ks_template_3" model="ks_dashboard_ninja.board_template">
+            <field name="name">Template 3</field>
+            <field name="ks_gridstack_config">[
+                {"item_id":"ks_dashboard_ninja.ks_default_item_1", "data": {"x": 25, "y": 2, "width": 10, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_2", "data": {"x": 25, "y": 4, "width": 10, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_3", "data": {"x": 0, "y": 0, "width": 18, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_4", "data": {"x": 18, "y": 0, "width": 17, "height": 2}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_5", "data": {"x": 0, "y": 6, "width": 35, "height": 4}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_6", "data": {"x": 12, "y": 2, "width": 13, "height": 4}},
+                {"item_id":"ks_dashboard_ninja.ks_default_item_7", "data": {"x": 0, "y": 2, "width": 12, "height": 4}}
+                ]
+            </field>
+            <field name="ks_item_count">7</field>
+        </record>
+
+
+        <!--Default items (7 right now) created here that will be used for default templates in future dashboards-->
+
+        <record id="ks_default_item_1" model="ks_dashboard_ninja.item">
+            <field name="name">Item 1</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <field name="ks_domain">[["id","&gt;",150]]</field>
+            <field name="ks_default_icon">bar-chart</field>
+            <field name="ks_dashboard_item_theme">blue</field>
+            <field name="ks_background_color">#337ab7,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout1</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+
+        <record id="ks_default_item_2" model="ks_dashboard_ninja.item">
+            <field name="name">Item 2</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <field name="ks_default_icon">users</field>
+            <field name="ks_dashboard_item_theme">red</field>
+            <field name="ks_background_color">#d9534f,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout3</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+
+        <record id="ks_default_item_3" model="ks_dashboard_ninja.item">
+            <field name="name">Item 3</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <field name="ks_domain">[["id","&lt;",50]]</field>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">green</field>
+            <field name="ks_background_color">#5cb85c,0.99</field>
+            <field name="ks_font_color">#5cb85c,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout4</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+
+        <record id="ks_default_item_4" model="ks_dashboard_ninja.item">
+            <field name="name">Item 4</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <field name="ks_domain">[["id","&lt;",100]]</field>
+            <field name="ks_default_icon">paper-plane</field>
+            <field name="ks_dashboard_item_theme">yellow</field>
+            <field name="ks_background_color">#f0ad4e,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout5</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+
+        <record id="ks_default_item_5" model="ks_dashboard_ninja.item">
+            <field name="name">Item 5 Bar Chart</field>
+            <field name="ks_chart_data_count_type">sum</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <field name="ks_chart_measure_field" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <!--            <field name="ks_chart_measure_field" eval="[ref('base.field_res_country__phone_code')]"/>-->
+            <field name="ks_chart_relation_groupby" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="ks_domain">[["id","&lt;",40]]</field>
+            <field name="ks_dashboard_item_type">ks_bar_chart</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+
+        <record id="ks_default_item_6" model="ks_dashboard_ninja.item">
+            <field name="name">Item 6 Line Chart</field>
+            <field name="ks_chart_data_count_type">sum</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <!--            <field name="ks_chart_measure_field" eval="[ref('base.field_res_country__phone_code')]"/>-->
+            <field name="ks_chart_measure_field" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="ks_chart_relation_groupby" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="ks_domain">[["id","&lt;",10]]</field>
+            <field name="ks_dashboard_item_type">ks_line_chart</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+
+        <record id="ks_default_item_7" model="ks_dashboard_ninja.item">
+            <field name="name">Item 7 Pie Chart</field>
+            <field name="ks_chart_data_count_type">sum</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_model_id" eval="ref('base.model_res_country')"/>
+            <field name="ks_chart_measure_field" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="ks_chart_relation_groupby" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="ks_domain">[["id","&lt;",10]]</field>
+            <field name="ks_dashboard_item_type">ks_pie_chart</field>
+            <field name="ks_company_id" eval="0"/>
+
+        </record>
+    </data>
+
+
+    <!--    Default dashboard Data -->
+    <data noupdate="1">
+        <record id="ks_my_default_dashboard_board" model="ks_dashboard_ninja.board">
+            <field name="name">My Dashboard</field>
+            <field name="ks_dashboard_state">Locked</field>
+            <field name="ks_dashboard_menu_name">My Dashboard</field>
+            <field name="ks_dashboard_active">1</field>
+            <field name="ks_dashboard_default_template" ref="ks_dashboard_ninja.ks_blank"/>
+        </record>
+
+    </data>
+
+
+</odoo>
