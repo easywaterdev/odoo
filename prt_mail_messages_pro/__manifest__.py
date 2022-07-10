@@ -53,7 +53,7 @@ Show Lost Messages, Move Messages, Reply, Forward,
  Move or Delete from Chatter, Hide Messages Notes Notifications
   in Chatter, CC BCC
 """,
-    "depends": ["prt_mail_messages","base"],
+    "depends": ["prt_mail_messages"],
     "data": [
         "security/groups.xml",
         "data/templates.xml",
