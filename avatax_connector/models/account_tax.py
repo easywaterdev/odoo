@@ -1,100 +1,118 @@
-import logging
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from .avalara_api import AvaTaxService, BaseAddress
+from math import copysign
 
-
-_logger = logging.getLogger(__name__)
+from odoo import _, api, exceptions, fields, models
+from odoo.tools.float_utils import float_compare
 
 
 class AccountTax(models.Model):
     """Inherit to implement the tax using avatax API"""
+
     _inherit = "account.tax"
 
-    is_avatax = fields.Boolean('Is Avatax')
+    is_avatax = fields.Boolean()
 
     @api.model
-    def _get_compute_tax(self, avatax_config, doc_date, doc_code, doc_type, partner, ship_from_address, shipping_address,
-                         lines, user=None, exemption_number=None, exemption_code_name=None, commit=False, invoice_date=False,
-                         reference_code=False, location_code=False, is_override=False, currency_id=False):
-        currency_code = self.env.user.company_id.currency_id.name
-        if currency_id:
-            currency_code = currency_id.name
-
-        if not partner.customer_code:
-            if not avatax_config.auto_generate_customer_code:
-                raise UserError(_(
-                    'Customer Code for customer %s not defined.\n\n  '
-                    'You can edit the Customer Code in customer profile. '
-                    'You can fix by clicking "Generate Customer Code" button in the customer contact information"'
-                    % (partner.name)))
-            else:
-                partner.generate_cust_code()
-
-        if not shipping_address:
-            raise UserError(_('There is no source shipping address defined for partner %s.') % partner.name)
-
-        if not ship_from_address:
-            raise UserError(_('There is no company address defined.'))
-
-        #this condition is required, in case user select force address validation on AvaTax API Configuration
-        if not avatax_config.address_validation:
-            if avatax_config.force_address_validation:
-                if not shipping_address.date_validation:
-                    raise UserError(_(
-                        'Please validate the shipping address for the partner %s.'
-                        % (partner.name)))
-
-        # if not avatax_config.address_validation:
-            if not ship_from_address.date_validation:
-                raise UserError(_('Please validate the company address.'))
-
-        if avatax_config.disable_tax_calculation:
-            _logger.info('Avatax tax calculation is disabled. Skipping %s %s.', doc_code, doc_type)
-            return False
-
-        #For check credential
-        avalara_obj = AvaTaxService(
-            avatax_config.account_number, avatax_config.license_key,
-            avatax_config.service_url, avatax_config.request_timeout, avatax_config.logging)
-        avalara_obj.create_tax_service()
-        addSvc = avalara_obj.create_address_service().addressSvc
-        origin = BaseAddress(addSvc, ship_from_address.street or None,
-                             ship_from_address.street2 or None,
-                             ship_from_address.city, ship_from_address.zip,
-                             ship_from_address.state_id and ship_from_address.state_id.code or None,
-                             ship_from_address.country_id and ship_from_address.country_id.code or None, 0).data
-        destination = BaseAddress(addSvc, shipping_address.street or None,
-                                  shipping_address.street2 or None,
-                                  shipping_address.city, shipping_address.zip,
-                                  shipping_address.state_id and shipping_address.state_id.code or None,
-                                  shipping_address.country_id and shipping_address.country_id.code or None, 1).data
-
-        # using get_tax method to calculate tax based on address
-        result = avalara_obj.get_tax(avatax_config.company_code, doc_date, doc_type,
-                                     partner.customer_code, doc_code, origin, destination,
-                                     lines, exemption_number,
-                                     exemption_code_name,
-                                     user and user.name or None, commit, invoice_date, reference_code,
-                                     location_code, currency_code, partner.vat_id or None, is_override)
-        return result
+    def _get_avalara_tax_domain(self, tax_rate, doc_type):
+        return [
+            ("amount", "=", tax_rate),
+            ("is_avatax", "=", True),
+            (
+                "company_id",
+                "=",
+                self.env.company.id,
+            ),
+        ]
 
     @api.model
-    def cancel_tax(self, avatax_config, doc_code, doc_type, cancel_code):
-        """Sometimes we have not need to tax calculation, then method is used to cancel taxation"""
-        if avatax_config.disable_tax_calculation:
-            _logger.info('Avatax tax calculation is disabled. Skipping %s %s.', doc_code, doc_type)
-            return False
+    def _get_avalara_tax_name(self, tax_rate, doc_type=None):
+        return _("{}%*").format(str(tax_rate))
 
-        avalara_obj = AvaTaxService(
-            avatax_config.account_number, avatax_config.license_key,
-            avatax_config.service_url, avatax_config.request_timeout,
-            avatax_config.logging)
-        avalara_obj.create_tax_service()
-        # Why the silent failure? Let explicitly raise the error.
-        #try:
-        result = avalara_obj.get_tax_history(avatax_config.company_code, doc_code, doc_type)
-        #except:
-        #    return True
-        result = avalara_obj.cancel_tax(avatax_config.company_code, doc_code, doc_type, cancel_code)
-        return result
+    @api.model
+    def get_avalara_tax(self, tax_rate, doc_type):
+        domain = self._get_avalara_tax_domain(tax_rate, doc_type)
+        tax = self.with_context(active_test=False).search(domain, limit=1)
+        if tax and not tax.active:
+            tax.active = True
+        if not tax:
+            domain = self._get_avalara_tax_domain(0, doc_type)
+            tax_template = self.search(domain, limit=1)
+            if not tax_template:
+                raise exceptions.UserError(
+                    _("Please configure Avatax Tax for Company %s:")
+                    % self.env.company.name
+                )
+            # If you get a unique constraint error here,
+            # check the data for your existing Avatax taxes.
+            vals = {
+                "amount": tax_rate,
+                "name": self._get_avalara_tax_name(tax_rate, doc_type),
+            }
+            tax = tax_template.sudo().copy(default=vals)
+            # Odoo core does not use the name set in default dict
+            tax.name = vals.get("name")
+        return tax
+
+    def compute_all(
+        self,
+        price_unit,
+        currency=None,
+        quantity=1.0,
+        product=None,
+        partner=None,
+        is_refund=False,
+        handle_price_include=True,
+        include_caba_tags=False,
+    ):
+        """
+        Adopted as the central point to inject custom tax computations.
+        Avatax logic is triggered if the "avatax_invoice" is set in the context.
+        To find the Avatax amount, we search an Invoice line with the same
+        quantity, price and product.
+        """
+        res = super().compute_all(
+            price_unit,
+            currency,
+            quantity,
+            product,
+            partner,
+            is_refund,
+            handle_price_include,
+            include_caba_tags=False,
+        )
+        avatax_invoice = self.env.context.get("avatax_invoice")
+        if avatax_invoice:
+            # Find the Avatax amount in the invoice Lines
+            # Looks up the line for the current product, price_unit, and quantity
+            # Note that the price_unit used must consider discount
+            base = res["total_excluded"]
+            digits = 6
+            avatax_amount = None
+            for line in avatax_invoice.invoice_line_ids:
+                price_unit = line.currency_id._convert(
+                    price_unit,
+                    avatax_invoice.company_id.currency_id,
+                    avatax_invoice.company_id,
+                    avatax_invoice.date,
+                )
+                if (
+                    line.product_id == product
+                    and float_compare(line.quantity, quantity, digits) == 0
+                ):
+                    line_price = line._get_avatax_amount(qty=1)
+                    if float_compare(line_price, -price_unit, digits) == 0:
+                        avatax_amount = copysign(line.avatax_amt_line, base)
+                        break
+            if avatax_amount is None:
+                avatax_amount = 0.0
+                raise exceptions.UserError(
+                    _(
+                        "Incorrect retrieval of Avatax amount for Invoice %(avatax_invoice)s:"
+                        " product %(product.display_name)s, price_unit %(-price_unit)f"
+                        " , quantity %(quantity)f"
+                    )
+                )
+            for tax_item in res["taxes"]:
+                if tax_item["amount"] != 0:
+                    tax_item["amount"] = avatax_amount
+            res["total_included"] = base + avatax_amount
+        return res

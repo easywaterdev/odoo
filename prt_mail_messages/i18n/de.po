@@ -1,0 +1,1222 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prt_mail_messages
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-23 12:22+0000\n"
+"PO-Revision-Date: 2020-10-26 00:40+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 2.4.1\n"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "<b>Participants</b>"
+msgstr "Teilnehmer"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:915
+#, python-format
+msgid "<div font-style=normal;><br/></div><blockquote>----- Original message ----- <br/> Date: {} <br/> From: {} <br/> Subject: {} <br/><br/>{}</blockquote>"
+msgstr "<div font-style=normal;><br/></div><blockquote>----- Originale Nachricht ----- <br/> Datum: {} <br/> Von: {} <br/> Betreff: {} <br/><br/>{}</blockquote>"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:13
+#, python-format
+msgid "Apr"
+msgstr "Apr"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Archive"
+msgstr "Archiv"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_search
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Are you sure?"
+msgstr "Sind Sie sicher?"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:967
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_assign_partner
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+#, python-format
+msgid "Assign Author"
+msgstr "Dem Autor zuweisen"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_cx_message_partner_assign_wiz
+msgid "Assign Partner to Messages"
+msgstr "Dem Partner Nachrichten zuweisen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__partner_id
+msgid "Assign To"
+msgstr "Zuweisen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__forward_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__forward_ref
+msgid "Attach to record"
+msgstr "Zum Datensatz anhängen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_attachment_count
+msgid "Attachment Count"
+msgstr "Anzahl Anhänge"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__attachment_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__attachment_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__attachment_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__attachment_allowed_ids
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Attachments"
+msgstr "Anhänge"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__attachment_count
+msgid "Attachments count"
+msgstr "Anzahl der Anhänge"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:17
+#, python-format
+msgid "Aug"
+msgstr "Aug"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__author_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__author_display
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_search
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "Author"
+msgstr "Autor"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Author not detected"
+msgstr "Autor nicht erkannt"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_res_config_settings__messages_easy_color_note
+msgid "Background color for internal notes in HTML format (e.g. #fbd78b)"
+msgstr "Hintergrundfarbe für interne Notizen im HTML-Format (z. B. # fbd78b)"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.res_config_settings_view_form
+msgid "Background color for internal notes in HTML format (e.g. #fbd78b)<br/>"
+msgstr "Hintergrundfarbe für interne Notizen im HTML-Format (z. B. # fbd78b)"
+
+#. module: prt_mail_messages
+#: selection:mail.compose.message,signature_location:0
+msgid "Before quote"
+msgstr "Vor dem Zitat"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Body"
+msgstr "Nachrichtentext"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__can_edit
+msgid "Can Edit"
+msgstr "Man kann bearbeiten"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_assign_partner
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_edit_wiz_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.res_config_settings_view_form
+msgid "Cetmix Mail Messages Easy"
+msgstr "Cetmix Mail-Nachrichten Easy"
+
+#. module: prt_mail_messages
+#: model_terms:ir.actions.act_window,help:prt_mail_messages.action_prt_mail_messages_contacts
+msgid "Click to add a contact in your address book."
+msgstr "Klicken Sie hier, um einen Kontakt zu Ihrem Adressbuch hinzuzufügen."
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfigurationeinstellungen"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.action_prt_mail_messages_contacts
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_contacts
+msgid "Contacts"
+msgstr "Kontakte"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_cetmix_conversation
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__is_conversation
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Conversation"
+msgstr "Konversation"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Conversation will be deleted after messages are moved! Are you sure?"
+msgstr "Die Konversation wird gelöscht, nachdem die Nachrichten verschoben werden! Sind Sie sicher?"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.action_conversations
+#: model:ir.ui.menu,name:prt_mail_messages.menu_conversations
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_tree
+#: model:res.partner.category,name:prt_mail_messages.cetmix_conversations_partner_cat
+msgid "Conversations"
+msgstr "Konversationen"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Copy message to other record. Original message text will be qouted and kept. Followers of the other record will be notified!"
+msgstr "Die Nachricht in einen anderen Datensatz kopieren. Der ursprüngliche Nachrichtentext wird zitiert und aufbewahrt. Die Abonnenten des anderen Datensatzes werden benachrichtigt!"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__create_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__create_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__create_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__create_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__create_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__create_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Date"
+msgstr "Datum"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:21
+#, python-format
+msgid "Dec"
+msgstr "Dez"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Delete"
+msgstr "Löschen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__lead_delete
+msgid "Delete Empty Leads"
+msgstr "Leere Leads löschen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__opp_delete
+msgid "Delete Empty Opportunities"
+msgstr "Leere Opportunities löschen"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_delete_category
+msgid "Delete Messages"
+msgstr "Nachrichten löschen"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_delete_any
+msgid "Delete any message"
+msgstr "Eine Nachricht löschen"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_delete_any
+msgid "Delete any message (must have DELETE access to record!)"
+msgstr "Eine Nachricht löschen (man muss den LÖSCHEN-Zugriff zum Datensatz haben)"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Delete message"
+msgstr "Nachricht löschen"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_delete
+msgid "Delete own messages"
+msgstr "Eigene Nachrichten löschen"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_delete
+msgid "Delete own messages (must have DELETE access to record!)"
+msgstr "Eigene Nachrichten löschen (man muss den LÖSCHEN-Zugriff zum Datensatz haben)"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__display_name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__display_name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__display_name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Do not notify"
+msgstr "Nicht benachrichtigen"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:984
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_edit_wiz_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+#, python-format
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_cx_message_edit_wiz
+msgid "Edit Message or Note"
+msgstr "Nachricht oder Notiz bearbeiten"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_category_edit_msg
+msgid "Edit Messages"
+msgstr "Nachrichten bearbeiten"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_category_edit_note
+msgid "Edit Notes"
+msgstr "Notizen bearbeiten"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_messages_edit_all
+#: model:res.groups,name:prt_mail_messages.group_messages_edit_all
+msgid "Edit any message"
+msgstr "Eine Nachricht bearbeiten"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_notes_edit_all
+#: model:res.groups,name:prt_mail_messages.group_notes_edit_all
+msgid "Edit any note"
+msgstr "Eine Notiz bearbeiten"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Edit message"
+msgstr "Nachricht bearbeiten"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_messages_edit_own
+#: model:res.groups,name:prt_mail_messages.group_messages_edit_own
+msgid "Edit own messages"
+msgstr "Eigene Nachrichten bearbeiten"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_notes_edit_own
+#: model:res.groups,name:prt_mail_messages.group_notes_edit_own
+msgid "Edit own notes"
+msgstr "Eigene Notizen bearbeiten"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__cx_edit_message
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__cx_edit_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__cx_edit_message
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__cx_edit_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__cx_edit_message
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__cx_edit_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__cx_edit_message
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__cx_edit_uid
+msgid "Edited by"
+msgstr "Bearbeitet von"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:151
+#, python-format
+msgid "Edited by %s %s"
+msgstr "Bearbeitet von %s %s"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__cx_edit_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__cx_edit_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__cx_edit_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__cx_edit_date
+msgid "Edited on"
+msgstr "Bearbeitet am"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Email Messages"
+msgstr "E-Mail-Nachrichten"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_thread
+msgid "Email Thread"
+msgstr "E-Mail-Thread"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "E-Mail-Assistent"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Error while sending message. Please check error log under \"Email Messages\" tab"
+msgstr "Fehler beim Senden der Nachricht. Bitte überprüfen Sie das Fehlerprotokoll auf der Registerkarte \"E-Mail-Nachrichten\""
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:11
+#, python-format
+msgid "Feb"
+msgstr "Feb"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_follower_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__ref_partner_ids
+msgid "Followers"
+msgstr "Abonnenten"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Abonnenten (Kanäle)"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnenten (Partner)"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Forward"
+msgstr "Weiterleiten"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_search
+msgid "From Conversations"
+msgstr "Aus den Konversationen"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:1338
+#, python-format
+msgid "Fwd:"
+msgstr "Fwd:"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.action_messages_config_settings
+#: model:ir.ui.menu,name:prt_mail_messages.menu_messages_general_settings
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_search
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Group By"
+msgstr "Gruppieren nach"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__is_participant
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_search
+msgid "I participate"
+msgstr "Ich nehme teil"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__id
+msgid "ID"
+msgstr "ID"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz__lead_delete
+msgid "If all messages are moved from lead and there are no other messages left except for notifications lead will be deleted"
+msgstr "Falls alle Nachrichten vom Lead verschoben werden und außer den Benachrichtigungen keine weiteren Nachrichten mehr vorhanden sind, wird der Lead gelöscht"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz__opp_delete
+msgid "If all messages are moved from opportunity and there are no other messages left except for notifications opportunity will be deleted"
+msgstr "Falls alle Nachrichten von der Opportunity verschoben werden und keine anderen Nachrichten außer Benachrichtigungen übrig sind, wird die Opportunity gelöscht"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Das Senden mancher Nachrichten ist fehlgeschlagen wenn dieses Fenster angekreuzt ist."
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "In thread"
+msgstr "Im Thread"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:490
+#, python-format
+msgid "Internal Note"
+msgstr "Interne Notiz"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Internal Notes"
+msgstr "Interne Notizen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_is_follower
+msgid "Is Follower"
+msgstr "Ist ein Abonnent"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__is_mail_mail
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__is_mail_mail
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__is_mail_mail
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__is_mail_mail
+msgid "Is Mail Mail"
+msgstr "Ist Mail Mail"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:10
+#, python-format
+msgid "Jan"
+msgstr "Jan"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Join"
+msgstr "Verbinden"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:16
+#, python-format
+msgid "Jul"
+msgstr "Jul"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:15
+#, python-format
+msgid "Jun"
+msgstr "Jun"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__last_message_by
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__last_message_post
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_search
+msgid "Last Message"
+msgstr "Letzte Nachricht"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation____last_update
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz____last_update
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz____last_update
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__write_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__write_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__write_uid
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__write_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__write_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__write_date
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__is_lead
+msgid "Lead"
+msgstr "Lead"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Leave"
+msgstr "Verlassen"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Log internal note"
+msgstr "Interne Notiz protokollieren"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:179
+#, python-format
+msgid "Lost Message"
+msgstr "Verlorene Nachricht"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_conversations
+msgid "Mail Conversations"
+msgstr "Mail-Gespräche"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__mail_mail_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__mail_mail_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__mail_mail_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__mail_mail_ids
+msgid "Mail Mail"
+msgstr "Mail Mail"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Hauptanhänge"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_category
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_category_edit_msg
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_category_edit_note
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_delete_category
+msgid "Manage Odoo Messages Easy"
+msgstr "Odoo Nachrichten Easy verwalten"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:12
+#, python-format
+msgid "Mar"
+msgstr "März"
+
+#. module: prt_mail_messages
+#: model:ir.actions.server,name:prt_mail_messages.message_mark_read_multi
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Mark read"
+msgstr "Als gelesen markieren"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__same_email
+msgid "Match Email"
+msgstr "E-Mail abgleichen"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:14
+#, python-format
+msgid "May"
+msgstr "Mai"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:490
+#: model:ir.model,name:prt_mail_messages.model_mail_message
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__body
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_edit_wiz__message_id
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_tree
+#, python-format
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_has_error
+msgid "Message Delivery error"
+msgstr "Error beim Senden der Nachricht"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__record_ref
+msgid "Message Record"
+msgstr "Nachrichtendatensatz"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.res_config_settings_view_form
+msgid "Message body preview length for List View, characters<br/>"
+msgstr "Länge der Vorschau des Nachrichtentexts für die Listenansicht, Zeichen <br/>"
+
+#. module: prt_mail_messages
+#: selection:mail.compose.message,signature_location:0
+msgid "Message bottom"
+msgstr "Nachrichtenende"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:583
+#: code:addons/prt_mail_messages/models/prt_mail.py:1234
+#: model:ir.actions.act_window,name:prt_mail_messages.action_prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_needaction_count
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_messages
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_root
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_tree
+#, python-format
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_category
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.res_config_settings_view_form
+msgid "Messages Easy"
+msgstr "Nachrichten Easy"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_partner__messages_from_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_users__messages_from_count
+msgid "Messages From"
+msgstr "Nachrichten von"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Messages Only"
+msgstr "Nur Nachrichten"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_partner__messages_to_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_users__messages_to_count
+msgid "Messages To"
+msgstr "Nachrichten an"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__thread_messages_count
+msgid "Messages in thread"
+msgstr "Nachrichten im Thread"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__model_name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__model_name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__model_name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__model_name
+msgid "Model"
+msgstr "Modell"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.message_move_multi
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Move"
+msgstr "Verschieben"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Move Messages"
+msgstr "Nachrichten verschieben"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_prt_message_move_wiz
+msgid "Move Messages To Other Thread"
+msgstr "Nachrichten in einen anderen Thread verschieben"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_move
+msgid "Move any message"
+msgstr "Eine Nachricht verschieben"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_move
+msgid "Move any message (must have WRITE access to records!)"
+msgstr "Eine Nachricht verschieben (man muss den SCHREIBEN-Zugriff haben)"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Move message from current to other record"
+msgstr "Nachricht aus dem aktuellen in einen anderen Thread verschieben"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/conversation.py:178
+#: code:addons/prt_mail_messages/models/prt_mail.py:954
+#: model:ir.actions.act_window,name:prt_mail_messages.cetmix_move_conversation
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+#, python-format
+msgid "Move messages"
+msgstr "Nachrichten verschieben"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__model_to
+msgid "Move to"
+msgstr "Verschieben in"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cx_message_partner_assign_wiz__name
+msgid "Name"
+msgstr "Name"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:465
+#: code:addons/prt_mail_messages/models/prt_mail.py:939
+#: code:addons/prt_mail_messages/models/prt_mail.py:1248
+#, python-format
+msgid "New message"
+msgstr "Neue Nachricht"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/conversation.py:131
+#, python-format
+msgid "No messages"
+msgstr "Keine Nachrichten"
+
+#. module: prt_mail_messages
+#: selection:mail.compose.message,signature_location:0
+msgid "No signature"
+msgstr "Keine Unterschrift"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_edit_wiz_form
+msgid "Not enough access rights to edit this message"
+msgstr "Nicht genügend Zugriffsrechte, um diese Nachricht zu bearbeiten"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_config_settings__messages_easy_color_note
+msgid "Note Background"
+msgstr "Notizhintergrund"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__notify
+msgid "Notify"
+msgstr "Benachrichtigen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz__notify
+msgid "Notify followers of destination record"
+msgstr "Die Abonnenten des Zieldatensatzes benachrichtigen"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:20
+#, python-format
+msgid "Nov"
+msgstr "Nov"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_has_error_counter
+msgid "Number of error"
+msgstr "Anzahl der Fehler"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Anzahl der Nachrichten mit einem Fehler beim Senden"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesener Nachrichten"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:19
+#, python-format
+msgid "Oct"
+msgstr "Okt"
+
+#. module: prt_mail_messages
+#: model_terms:ir.actions.act_window,help:prt_mail_messages.action_prt_mail_messages_contacts
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"            a customer: discussions, history of business opportunities,\n"
+"            documents, etc."
+msgstr ""
+"Mit Odoo können Sie auf einfache Weise alle Aktivitäten eines zugehörigen Kunden verfolgen: \n"
+"Diskussionen, Verlauf der Geschäftsmöglichkeiten,\n"
+"             Dokumente usw."
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "Postausgang"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__partner_ids
+msgid "Participants"
+msgstr "Teilnehmer"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_assign_partner
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Please purchase"
+msgstr "Bitte kaufen Sie"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Post new message to record. Original message text will be quoted. Record followers will be notified!"
+msgstr "Neue Nachricht zum Datensatz posten. Der ursprüngliche Nachrichtentext wird zitiert. Datensatzverfolger werden benachrichtigt!"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Post new message to record. Record followers will be notified!"
+msgstr "Neue Nachricht zum Datensatz posten. Datensatzverfolger werden benachrichtigt!"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid ""
+"Posted messages will be sent to all participants<br/>\n"
+"                            If all messages are moved or deleted from Conversation it will be deleted"
+msgstr ""
+"Gepostete Nachrichten werden an alle Teilnehmer gesendet. <br/>\n"
+"                             Falls alle Nachrichten aus der Konversation verschoben oder gelöscht werden, wird sie gelöscht"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Private Inbox"
+msgstr "Privater Posteingang"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_assign_partner
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Pro Version"
+msgstr "Pro-Version"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Quote"
+msgstr "Zitat"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:1338
+#, python-format
+msgid "Re:"
+msgstr "Re:"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "Recipient"
+msgstr "Empfänger"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__partner_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__partner_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__partner_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__partner_allowed_ids
+msgid "Recipients"
+msgstr "Empfänger"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__partner_count
+msgid "Recipients count"
+msgstr "Anzahl der Empfänger"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Reply"
+msgstr "Antworten"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_edit_wiz_form
+msgid "Save"
+msgstr "Speichern"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Send message"
+msgstr "Nachricht senden"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:471
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__is_error
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__is_error
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__is_error
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__is_error
+#, python-format
+msgid "Sending Error"
+msgstr "Fehler beim Senden"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Sent by Me"
+msgstr "Von mir gesendet"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/common.py:18
+#, python-format
+msgid "Sep"
+msgstr "Sep"
+
+#. module: prt_mail_messages
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_settings
+msgid "Settings"
+msgstr "Einstellungen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__shared_inbox
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__shared_inbox
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__shared_inbox
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__shared_inbox
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Shared Inbox"
+msgstr "Freigegebener Posteingang"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cx_message_partner_assign_wiz__same_email
+msgid "Show Partners with same email address only"
+msgstr "Partner nur mit derselben E-Mail-Adresse anzeigen"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_technical
+msgid "Show technical fields in mail messages"
+msgstr "Technische Felder in E-Mail-Nachrichten anzeigen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__signature_location
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__signature_location
+msgid "Signature Location"
+msgstr "Unterschriftsort"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Star"
+msgstr "Markieren"
+
+#. module: prt_mail_messages
+#: model:ir.actions.server,name:prt_mail_messages.message_star_multi
+msgid "Star/Unstar"
+msgstr "Markieren/Entmarkieren"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:468
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+#, python-format
+msgid "Starred"
+msgstr "Markiert"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Started by"
+msgstr "Angefangen von"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__name
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__subject_display
+msgid "Subject"
+msgstr "Betreff"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Subject..."
+msgstr "Betreff..."
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Technical"
+msgstr "Technisches"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_config_settings__messages_easy_text_preview
+msgid "Text preview length"
+msgstr "Länge der Textvorschau"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_account_invoice_send__thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_compose_message__thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_mail__thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_message__thread_messages_count
+msgid "Total number of messages in thread"
+msgstr "Gesamtzahl der Nachrichten im Thread"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_form
+msgid "Unarchive"
+msgstr "Unarchivieren"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Unread"
+msgstr "Ungelesen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_unread
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cetmix_conversation_search
+msgid "Unread Messages"
+msgstr "Ungelesene Nachrichten"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Anzahl der ungelesenen Nachrichten"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Unstar"
+msgstr "Entmarkieren"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_conversations
+msgid "Use Conversations"
+msgstr "Konversationen verwenden"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_account_invoice_send__shared_inbox
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_compose_message__shared_inbox
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_mail__shared_inbox
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_message__shared_inbox
+msgid "Used for Shared Inbox filter only"
+msgstr "Wird nur für den Filter für freigegebene Posteingänge verwendet"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_conversation_own
+msgid "View Conversation participating in"
+msgstr "Die teilnehmende Konversation anzeigen"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_conversation_all
+msgid "View all Conversations"
+msgstr "Alle Konversationen anzeigen"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_conversation_all
+msgid "View any Conversation"
+msgstr "Eine Konversation anzeigen"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_conversation_own
+msgid "View own Conversation"
+msgstr "Eigene Konversation anzeigen"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_technical
+msgid "View technical fields"
+msgstr "Technische Felder anzeigen"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_cetmix_conversation__website_message_ids
+msgid "Website Messages"
+msgstr "Website-Nachrichten"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_cetmix_conversation__website_message_ids
+msgid "Website communication history"
+msgstr "Website-Kommunikationshistorie"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_account_invoice_send__signature_location
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_compose_message__signature_location
+msgid "Whether to put signature before or after the quoted text."
+msgstr "Unterschrift entweder vor oder nach dem zitierten Text setzen."
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__wizard_mode
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__wizard_mode
+msgid "Wizard mode"
+msgstr "Assistent-Modus"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/conversation.py:118
+#: code:addons/prt_mail_messages/models/prt_mail.py:146
+#: code:addons/prt_mail_messages/models/prt_mail.py:456
+#, python-format
+msgid "Yesterday"
+msgstr "Gestern"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:230
+#, python-format
+msgid "You cannot delete messages!"
+msgstr "Sie können keine Nachrichten löschen!"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:250
+#: code:addons/prt_mail_messages/models/prt_mail.py:259
+#: code:addons/prt_mail_messages/models/prt_mail.py:266
+#: code:addons/prt_mail_messages/models/prt_mail.py:273
+#, python-format
+msgid ""
+"You cannot delete the following message\n"
+"\n"
+" Subject: %s \n"
+"\n"
+" Reason: %s"
+msgstr ""
+"Die folgende Nachricht kann nicht gelöscht werden.\n"
+"\n"
+"Betreff: %s \n"
+"\n"
+"Grund: %s"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/conversation.py:134
+#, python-format
+msgid "message"
+msgstr "Nachricht"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/conversation.py:134
+#, python-format
+msgid "messages"
+msgstr "Nachrichten"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/conversation.py:138
+#, python-format
+msgid "new"
+msgstr "Neu"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.cx_message_assign_partner
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "to use this feature"
+msgstr "um diese Funktion zu nutzen"

@@ -61,7 +61,6 @@ class ResCompany(models.Model):
         records.scss_create_or_update_attachment()
         return records
 
-     
     def unlink(self):
         result = super().unlink()
         IrAttachmentObj = self.env['ir.attachment']
@@ -71,7 +70,6 @@ class ResCompany(models.Model):
             ]).sudo().unlink()
         return result
 
-     
     def write(self, values):
         if not self.env.context.get('ignore_company_color', False):
             fields_to_check = ('color_navbar_bg',
@@ -103,7 +101,6 @@ class ResCompany(models.Model):
             result = super().write(values)
         return result
 
-     
     def _scss_get_sanitized_values(self):
         self.ensure_one()
         # Clone company_color as dictionary to avoid ORM operations
@@ -120,7 +117,6 @@ class ResCompany(models.Model):
         })
         return values
 
-     
     def _scss_generate_content(self):
         self.ensure_one()
         # ir.attachment need files with content to work
@@ -135,13 +131,11 @@ class ResCompany(models.Model):
         NTEMPLATE = '.'.join(URL_SCSS_GEN_TEMPLATE.split('.')[:2])
         return NTEMPLATE % self.id
 
-     
     def scss_get_url(self, timestamp=None):
         self.ensure_one()
         return URL_SCSS_GEN_TEMPLATE % (self.id,
                                         timestamp or self.scss_modif_timestamp)
 
-     
     def scss_create_or_update_attachment(self):
         IrAttachmentObj = self.env['ir.attachment']
         # The time window is 1 second

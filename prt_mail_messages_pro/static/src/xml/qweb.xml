@@ -1,40 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <!--      Chatter (mail_thread widget) buttons  -->
-    <t t-name="mail.chatter.Buttons">
-        <button t-if="newMessageButton" type="button" class="btn btn-link o_chatter_button_new_message" title="Send a message" disabled="disabled">
-            Send message
-        </button>
-        <button t-if="logNoteButton" class="btn btn-link o_chatter_button_log_note" title="Log a note. Followers will not be notified." disabled="disabled">
-            Log note
-        </button>
-        <button t-if="scheduleActivityButton" class="btn btn-link o_chatter_button_schedule_activity" title="Log or schedule an activity" disabled="disabled">
-            <i class="fa fa-clock-o" role="img" aria-label="Dates" title="Dates"/> <t t-if="isMobile">Activity</t><t t-else="">Schedule activity</t>
-        </button>
-        <t t-if="newMessageButton"> <!-- We will not show it unless other buttons are shown -->
-            <label class="btn btn-link o_filter_checkbox_label" title="Hide notifications">
-                <i class="fa fa-eye-slash"/> <t t-if="isMobile">Hide</t><t t-else="">Hide notifications</t>
-                <input type="checkbox" class="btn btn-sm btn-link o_filter_checkbox" title="Hide notifications"/>
-            </label>
-        </t>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
 
+   Odoo Proprietary License v1.0
+ 
+   This software and associated files (the "Software") may only be used (executed,
+   modified, executed after modifications) if you have purchased a valid license
+   from the authors, typically via Odoo Apps, or if you have received a written
+   agreement from the authors of the Software (see the COPYRIGHT file).
+ 
+   You may develop Odoo modules that use the Software as a library (typically
+   by depending on it, importing it and using its resources), but without copying
+   any source code or material from the Software. You may distribute those
+   modules under the license of your choice, provided that this license is
+   compatible with the terms of the Odoo Proprietary License (For example:
+   LGPL, MIT, or proprietary licenses similar to this one).
+ 
+   It is forbidden to publish, distribute, sublicense, or sell copies of the Software
+   or modified copies of the Software.
+ 
+   The above copyright notice and this permission notice must be included in all
+   copies or substantial portions of the Software.
+ 
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+-->
+<templates>
+    <!--  Show/hide messages by type  -->
+    <t t-extend="mail.chatter.Buttons">
+        <t t-jquery="button:last" t-operation="after">
+            <t t-if="newMessageButton">
+                <!-- We will not show it unless other buttons are shown -->
+                <span class="btn btn-link" title="Message Filter">
+                    <i
+                        class="fa fa-info-circle"
+                        role="img"
+                        title="Show Notifications"
+                    />
+                    <input
+                        type="checkbox"
+                        class="btn btn-link notif_checkbox"
+                        style="margin-bottom:0px;"
+                        title="Show Notifications"
+                    />
+                    <i class="fa fa-edit" role="img" title="Show Notes" />
+                    <input
+                        type="checkbox"
+                        class="btn btn-link note_checkbox"
+                        style="margin-bottom:0px;"
+                        title="Show Notes"
+                    />
+                    <i class="fa fa-envelope" role="img" title="Show Messages" />
+                    <input
+                        type="checkbox"
+                        class="btn btn-link message_checkbox"
+                        style="margin-bottom:0px;"
+                        title="Show Messages"
+                    />
+                </span>
+            </t>
+        </t>
     </t>
     <!-- Show buttons in chatter -->
     <t t-extend="mail.widget.Thread.Message">
         <t t-jquery="span:last" t-operation="append">
-            <i class="fa fa-quote-left o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_quote"
-               t-att-data-message-id="message.getID()" id="quote_message" title="Quote"/>
-            <i class="fa fa-copy o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_forward"
-               t-att-data-message-id="message.getID()" id="forward_message" title="Forward"/>
-            <i class="fa fa-arrow-right o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_move"
-               t-att-data-message-id="message.getID()" id="move_message" title="Move"/>
-            <i class='fa fa-trash o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_delete'
-               t-att-data-message-id="message.getID()" id="delete_message" title="Delete"/>
+            <i
+                class="fa fa-quote-left o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_quote"
+                t-att-data-message-id="message.getID()"
+                id="quote_message"
+                title="Quote"
+            />
+            <i
+                class="fa fa-copy o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_forward"
+                t-att-data-message-id="message.getID()"
+                id="forward_message"
+                title="Forward"
+            />
+            <i
+                class="fa fa-arrow-right o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_move"
+                t-att-data-message-id="message.getID()"
+                id="move_message"
+                title="Move"
+            />
+            <i
+                class='fa fa-trash o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_delete'
+                t-att-data-message-id="message.getID()"
+                id="delete_message"
+                title="Delete"
+            />
+            <i
+                t-if="message._type !== 'notification'"
+                class='fa fa-edit o_thread_icon o_thread_message_prt_button o_thread_message_reply_composer_edit'
+                t-att-data-message-id="message.getID()"
+                id="edit_message"
+                title="Edit"
+            />
+        </t>
+        <!-- Show 'edited' notification instantly -->
+        <t t-jquery=".o_mail_info" t-operation="append">
+            <p
+                t-if="message._cx_edit_message"
+                t-att-title="message._cx_edit_message"
+                style="font-size:x-small;color:#1D8348;font-style:italic;"
+            >
+                <t t-esc="message._cx_edit_message" />
+            </p>
         </t>
     </t>
-
+    <!-- Render message thread for pre-filtered messages -->
     <t t-name="mail.widget.Thread.Content">
-        <t t-set="messages" t-value="messages"/>
-        <t t-call="mail.widget.Thread.Content.DESC"/>
+        <t t-if="is_cetmix_thread">
+            <t t-set="messages" t-value="messages" />
+            <t t-call="mail.widget.Thread.Content.DESC" />
+        </t>
+        <t t-else="">
+            <t
+                t-set="messages"
+                t-value="thread.getMessages({ 'domain': options.domain || [] })"
+            />
+            <t
+                t-if="options.displayOrder === ORDER.ASC"
+                t-call="mail.widget.Thread.Content.ASC"
+            />
+            <t t-else="" t-call="mail.widget.Thread.Content.DESC" />
+        </t>
+    </t>
+    <t t-extend="ListView.buttons">
+        <t t-jquery=".o_list_buttons" t-operation="append">
+            <t t-if="widget.is_action_enabled('preview')">
+                <button
+                    type="button"
+                    class="btn btn-icon fa fa-lg fa-eye o_cp_switch_preview"
+                    label="Preview"
+                    data-view-type="Preview"
+                    title="Preview"
+                />
+            </t>
+        </t>
+    </t>
+    <t t-name="TreeRecordPreview">
+        <div class="tree-record-preview o_mail_thread">
+            <span class="preview-body" />
+        </div>
     </t>
 </templates>

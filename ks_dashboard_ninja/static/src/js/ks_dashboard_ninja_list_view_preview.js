@@ -1,4 +1,4 @@
-odoo.define('ks_dashboard_ninja_list.ks_dashboard_ninja_list_view_preview', function (require) {
+odoo.define('ks_dashboard_ninja_list.ks_dashboard_ninja_list_view_preview', function(require) {
     "use strict";
 
     var registry = require('web.field_registry');
@@ -44,7 +44,8 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_ninja_list_view_preview', func
             }
         },
 
-        ksRenderListView: function () {
+        ksRenderListView: function() {
+            var self = this;
             var field = this.recordData;
             var ks_list_view_name;
             var list_view_data = JSON.parse(field.ks_list_view_data);
@@ -82,7 +83,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_ninja_list_view_preview', func
                     for (var j = 0; j < list_view_data.data_rows[0]["data"].length; j++) {
                         if (typeof(list_view_data.data_rows[i].data[j]) === "number" || list_view_data.data_rows[i].data[j]) {
                             if (typeof(list_view_data.data_rows[i].data[j]) === "number") {
-                                list_view_data.data_rows[i].data[j] = field_utils.format.float(list_view_data.data_rows[i].data[j], Float64Array)
+                                list_view_data.data_rows[i].data[j] = field_utils.format.float(list_view_data.data_rows[i].data[j], Float64Array, {digits: [0, field.ks_precision_digits]})
                             }
                         } else {
                             list_view_data.data_rows[i].data[j] = "";
@@ -97,6 +98,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_ninja_list_view_preview', func
                 ks_list_view_name: ks_list_view_name,
                 list_view_data: list_view_data,
                 count: count,
+                layout: self.recordData.ks_list_view_layout,
             }));
             if (!this.recordData.ks_show_records === true) {
                 $listViewContainer.find('#ks_item_info').hide();

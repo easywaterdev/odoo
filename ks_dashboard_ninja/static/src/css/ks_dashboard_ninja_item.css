@@ -68,7 +68,7 @@
 }
 
 
-.ks_dashboard_menu_container > li > button{
+.ks_dashboard_menu_container > li > button, .ks_dashboard_layout_dropdown_container > li > button{
     margin-top : 5px;
     margin-left: 2px;
     border-radius: 5px;
@@ -175,8 +175,7 @@
     border-radius: 9px;
 }
 
-
-..ks_list_view_layout_3 .ks_tr:nth-child(even),
+.ks_list_view_layout_3 .ks_tr:nth-child(even),
 .ks_list_view_layout_1 .ks_tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -187,8 +186,3 @@
     background-color: rgba(0, 0, 0, 0.26) !important;
 
 }
-
-.padding-10{
-    padding:10px !important;
-}
-

@@ -5,6 +5,11 @@
 .ks_dashboard_ninja {
       margin-bottom: 20px;
 }
+
+.ks_dashboard_main_content {
+    overflow: auto;
+    height:100%;
+}
 .ks_dashboard_ninja_header{
     text-align : right;
     display: flex ;
@@ -15,7 +20,9 @@
     margin-bottom: 25px;
 }
 
-
+.ks_overflow {
+    overflow: auto;
+}
 
 .ks_dashboard_header_name {
         margin: 0;
@@ -303,7 +310,7 @@
 }
 
 .ks_dashboard_icon_l5 > img{
-    width: 20px;
+    width: 20px !important;
     height: 20px;
     margin: 10px;
 }
@@ -385,7 +392,7 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0px;
-  z-index: 8;
+  z-index: 10;
 }
 
 .ks_dashboard_datepicker_z-index{
@@ -394,7 +401,7 @@
 
 
 /* Date Filter Selection CSS*/
-#ks_date_filter_selection{
+#ks_date_filter_selection, #ks_dn_filter_selection{
     font-family: inherit;
     font-weight: bold;
     padding: 0px 8px 0px 8px;
@@ -415,15 +422,17 @@
     align-items: center;
 }
 
-.ks_date_filter_selected > span{
+.ks_date_filter_selected > span, .ks_layout_selected > span{
     font-weight: bold;
 }
-.ks_date_filter_selected > span::before{
+.ks_date_filter_selected > span::before, .ks_layout_selected > span::before{
     font-family: FontAwesome;
     position: absolute;
     left: 6px;
     content: "\f00c";
 }
+
+ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 
 .df_selection_text{
     display: block;
@@ -454,6 +463,8 @@
 .ks_btn_middle_child{
     border-radius: 0 !important;
     height: 100%;
+    margin-right:10px;
+
 }
 
 .ks_btn_middle_child input, .ks_btn_last_child input {
@@ -543,10 +554,73 @@
     }
 }
 
-.ks_height_100 {
-    height: 100% !important;
+  .config_dropdown .dropdown-item{
+        padding: 6px 20px;
+    }
+    .config_dropdown .dropdown-item .fa{
+        opacity: 0.8;
+    }
+    .config_dropdown .dropdown-item-lable {
+        display: block;
+        width: 100%;
+        padding: 5px 20px;
+        clear: both;
+        font-weight: bold;
+        color: #495057;
+        text-align: inherit;
+        white-space: nowrap;
+        margin: 3px 0px;
+    }
+
+.button-50 {
+  appearance: button;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 4px 15px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 }
-// .o_web_client .o_main_navbar {
-//  z-index:10000000000;
-//
-// }
+
+.button-50:focus {
+  text-decoration: none;
+}
+
+.button-50:hover {
+  text-decoration: none;
+}
+
+.button-50:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.button-50:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-50 {
+    padding: 4px 15px;
+  }
+}
+
+

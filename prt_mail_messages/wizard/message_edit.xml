@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <!--#################
+   # Edit Message #
+   ######################-->
+    <!-- ## Form view ## -->
+    <record model="ir.ui.view" id="cx_message_edit_wiz_form">
+        <field name="name">cx.message.edit.wiz.form</field>
+        <field name="model">cx.message.edit.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Edit">
+                <div
+                    name="can_edit"
+                    colspan="2"
+                    class="oe_form_box_info oe_text_center"
+                    attrs="{'invisible':[('can_edit', '=', True)]}"
+                >
+                    <p>Not enough access rights to edit this message</p>
+                </div>
+                <field name="message_id" invisible="1" />
+                <field name="can_edit" invisible="1" />
+                <field
+                    name="body"
+                    nolabel="1"
+                    attrs="{'invisible':[('can_edit', '=', False)]}"
+                />
+                <footer>
+                    <button
+                        string="Save"
+                        name="save"
+                        type="object"
+                        class="btn-primary"
+                        attrs="{'invisible':[('can_edit', '=', False)]}"
+                    />
+                    <button
+                        name="cancel"
+                        string="Cancel"
+                        special="cancel"
+                        class="oe_link"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
