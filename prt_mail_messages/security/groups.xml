@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+
+        <!-- ## Categories ## -->
+
+        <!-- Category: Delete -->
+        <record model="ir.module.category" id="module_messages_easy_delete_category">
+            <field name="name">Delete Messages</field>
+            <field name="description">Manage Odoo Messages Easy</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Category: Other Settings -->
+        <record model="ir.module.category" id="module_messages_easy_category">
+            <field name="name">Messages Easy</field>
+            <field name="description">Manage Odoo Messages Easy</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- ## Groups ## -->
+
+        <!-- Delete messages -->
+        <record id="group_delete" model="res.groups">
+            <field name="name">Delete own messages</field>
+            <field name="comment">Delete own messages (must have DELETE access to record!)</field>
+            <field name="category_id" ref="module_messages_easy_delete_category"/>
+        </record>
+
+        <!-- Delete Any message -->
+        <record id="group_delete_any" model="res.groups">
+            <field name="name">Delete any message</field>
+            <field name="comment">Delete any message (must have DELETE access to record!)</field>
+            <field name="category_id" ref="module_messages_easy_delete_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_delete'))]"/>
+        </record>
+
+        <!-- Move Any message -->
+        <record id="group_move" model="res.groups">
+            <field name="name">Move any message</field>
+            <field name="comment">Move any message (must have WRITE access to records!)</field>
+            <field name="category_id" ref="module_messages_easy_category"/>
+        </record>
+
+        <!-- View technical fields -->
+        <record id="group_technical" model="res.groups">
+            <field name="name">View technical fields</field>
+            <field name="comment">Show technical fields in mail messages</field>
+            <field name="category_id" ref="module_messages_easy_category"/>
+        </record>
+
+    </data>
+</odoo>
