@@ -1,0 +1,473 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prt_mail_messages
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0-20180830\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-31 09:15+0000\n"
+"PO-Revision-Date: 2018-08-31 12:17+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:393
+#, python-format
+msgid ""
+"<div font-style=normal;><br/></div><blockquote>----- Original message ----- "
+"<br/> Date: %s <br/> From: %s <br/> Subject: %s <br/><br/>%s</blockquote>"
+msgstr ""
+"<div font-style=normal;><br/></div><blockquote>----- Исходное сообщение "
+"----- <br/> Дата: %s <br/> От: %s <br/> Тема: %s <br/><br/>%s</blockquote>"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_forward_ref
+msgid "Attach to record"
+msgstr "Привязать к записи"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Attachments"
+msgstr "Вложения"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_attachment_count
+msgid "Attachments count"
+msgstr "Кол-во вложений"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_author_display
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "Author"
+msgstr "Автор"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Body"
+msgstr "Содержимое"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,help:prt_mail_messages.action_prt_mail_messages_contacts
+msgid "Click to add a contact in your address book."
+msgstr "Кликните, чтобы добавить контакт в Вашу адресную книгу."
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Comments"
+msgstr "Комментарии"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_res_company
+msgid "Companies"
+msgstr "Компании"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.action_prt_mail_messages_contacts
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_contacts
+msgid "Contacts"
+msgstr "Контакты"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid ""
+"Copy message to other record. Original message text will be qouted and kept. "
+"Followers of the other record will be notified!"
+msgstr ""
+"Копирует сообщение в другую запись. Текст оригинального сообщения будет "
+"процитирован. Подписчики другой записи будут уведомлены!"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_create_date
+msgid "Created on"
+msgstr "Создан"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Day"
+msgstr "День"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_lead_delete
+msgid "Delete Empty Leads"
+msgstr "Удалить пустые лиды"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_opp_delete
+msgid "Delete Empty Opportunities"
+msgstr "Удалить пустые потенциальные сделки"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_company_lead_delete
+msgid "Delete empty leads"
+msgstr "Удалить пустые лиды"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Directly to Me"
+msgstr "Напрямую мне"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_display_name
+msgid "Display Name"
+msgstr "Отображаемое Имя"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Do not notify"
+msgstr "Не оповещать"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Мастер составления эл. писем"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Emails"
+msgstr "Эл.почта"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_ref_partner_ids
+msgid "Followers"
+msgstr "Подписчики"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Forward"
+msgstr "Переслать"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:617
+#, python-format
+msgid "Fwd:"
+msgstr "Fwd:"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Group By"
+msgstr "Группировать по"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_id
+msgid "ID"
+msgstr "Номер"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz_lead_delete
+#: model:ir.model.fields,help:prt_mail_messages.field_res_company_lead_delete
+msgid ""
+"If all messages are moved from lead and there are no other messages left "
+"except for notifications lead will be deleted"
+msgstr ""
+"Если все сообщения перемещены из лида и в лиде не осталось сообщений кроме "
+"оповещений, такой лид будет удалён"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz_opp_delete
+msgid ""
+"If all messages are moved from opportunity and there are no other messages "
+"left except for notifications opportunity will be deleted"
+msgstr ""
+"Если все сообщения перемещены из потенциальной сделки и в ней не осталось "
+"сообщений кроме оповещений, такой лид будет удалён"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "In thread"
+msgstr "В цепочке"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz___last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_write_uid
+msgid "Last Updated by"
+msgstr "Последний раз обновил"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Log internal note"
+msgstr "Добавить заметку"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Mark read"
+msgstr "Не прочитано"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Mark unread"
+msgstr "Прочитано"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_message
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Message"
+msgstr "Сообщение"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_record_ref
+msgid "Message Record"
+msgstr "Объект сообщения"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:145
+#: code:addons/prt_mail_messages/models/prt_mail.py:524
+#: model:ir.actions.act_window,name:prt_mail_messages.action_prt_mail_messages
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_messages
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_root
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_tree
+#, python-format
+msgid "Messages"
+msgstr "Сообщения"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_partner_messages_from_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_users_messages_from_count
+msgid "Messages From"
+msgstr "Сообщений от"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_partner_messages_to_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_users_messages_to_count
+msgid "Messages To"
+msgstr "Сообщений для"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_thread_messages_count
+msgid "Messages in thread"
+msgstr "Сообщений цепочке"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_technical
+msgid "Messages: View technical fields"
+msgstr "Сообщения: Просмотр технических полей"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Month"
+msgstr "Месяц"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Move"
+msgstr "Перемещение"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_prt_message_move_wiz
+msgid "Move Messages To Other Thread"
+msgstr "Переместить сообщения в другую запись"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.prt_contact_export
+msgid "Move message"
+msgstr "Переместить сообщение"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Move message from current to other record"
+msgstr "Переместить сообщение из текущей в другую запись"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:430
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+#, python-format
+msgid "Move messages"
+msgstr "Переместить сообщения"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_model_to
+msgid "Move to"
+msgstr "Переместить в"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:415
+#: code:addons/prt_mail_messages/models/prt_mail.py:539
+#, python-format
+msgid "New message"
+msgstr "Новое сообщение"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz_notify
+msgid "Notify"
+msgstr "Оповестить"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz_notify
+msgid "Notify followers of destination record"
+msgstr "Оповестить подписчиков другой записи"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,help:prt_mail_messages.action_prt_mail_messages_contacts
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"           a customer: discussions, history of business opportunities,\n"
+"           documents, etc."
+msgstr ""
+"Odoo позволяет легко отслеживать связанные склиентом мероприятия: \n"
+" дискуссии, история предложений, документы и т. п."
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Please purchase"
+msgstr "Пожалуйста приобретите"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid ""
+"Post new message to record. Original message text will be qouted. Record "
+"followers will be notified!"
+msgstr ""
+"Отправить сообщение в текущую запись. Текст исходного сообщения будет "
+"процитирован. Подписчики записи будут уведомлены!"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Post new message to record. Record followers will be notified!"
+msgstr ""
+"Отправить новоое сообщение в запись. Подписчики записи будут уведомлены!"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Pro Version"
+msgstr "Pro версия"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Quote"
+msgstr "Цитировать"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:617
+#, python-format
+msgid "Re:"
+msgstr "Re:"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "Recipient"
+msgstr "Получатель"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_partner_count
+msgid "Recipients count"
+msgstr "Кол-во получателей"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Related record:"
+msgstr "Относится к:"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Reply"
+msgstr "Ответить"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Send message"
+msgstr "Отправить сообщение"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Sent by Me"
+msgstr "Отправлено мной"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Star"
+msgstr "Отметить"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Starred"
+msgstr "Отмеченные"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail_subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message_subject_display
+msgid "Subject"
+msgstr "Тема"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_compose_message_thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_mail_thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_message_thread_messages_count
+msgid "Total number of messages in thread"
+msgstr "Общее кол-во сообщений в цепочке"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Unread"
+msgstr "Не прочитано"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Unstar"
+msgstr "Убрать отметку"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_technical
+msgid "View technical fields in mail messages"
+msgstr "Просмотр технических полей в сообщениях"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_search
+msgid "Week"
+msgstr "Неделя"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message_wizard_mode
+msgid "Wizard mode"
+msgstr "Режим визарда"
+
+#. module: prt_mail_messages
+#: model:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "to use this feature"
+msgstr "чтобы использовать данную возможность"

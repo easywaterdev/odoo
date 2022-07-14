@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+<!-- View lost messages -->
+    <record id="group_lost" model="res.groups">
+        <field name="name">View Lost Messages</field>
+        <field name="comment">View lost mail messages</field>
+        <field name="category_id" ref="prt_mail_messages.module_messages_easy_category"/>
+    </record>
+  </data>
+</odoo>
