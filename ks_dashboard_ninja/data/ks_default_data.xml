@@ -3,10 +3,10 @@
 
     <data>
         <!--        Default Templates -->
-<!--         <record id="ks_blank" model="ks_dashboard_ninja.board_template">
+        <record id="ks_blank" model="ks_dashboard_ninja.board_template">
             <field name="name">Blank</field>
             <field name="ks_item_count">0</field>
-        </record> -->
+        </record>
 
         <record id="ks_template_1" model="ks_dashboard_ninja.board_template">
             <field name="name">Template 1</field>
