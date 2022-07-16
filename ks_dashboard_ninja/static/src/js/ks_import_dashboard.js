@@ -12,18 +12,6 @@ var framework = require('web.framework');
 
     ListController.include({
 
-        renderButtons: function($node) {
-            this.ksIsAdmin = odoo.session_info.is_admin;
-            this._super.apply(this, arguments);
-            //On Click on our custom import button, call custom import function
-            if (this.$buttons) {
-                var import_button = this.$buttons.find('.ks_import_button');
-                var import_input_button = this.$buttons.find('.ks_input_import_button');
-                import_button.click(this.proxy('ks_import_button')) ;
-                import_input_button.change(this.proxy('ksImportFileChange')) ;
-            }
-        },
-
         // TO hide odoo default import button (it is inserted in dom by other module)
         on_attach_callback : function(){
             this._super.apply(this, arguments);
@@ -96,37 +84,6 @@ var framework = require('web.framework');
             })
          },
 
-        ks_import_button: function (e) {
-            var self = this;
-            $('.ks_input_import_button').click();
-        },
-
-        ksImportFileChange : function(e){
-            var self = this;
-            var fileReader = new FileReader();
-            fileReader.onload = function () {
-                $('.ks_input_import_button').val('');
-                self._rpc({
-                        model: 'ks_dashboard_ninja.board',
-                        method: 'ks_import_dashboard',
-                        args: [fileReader.result],
-                }).then(function (result) {
-                        if (result==="Success") {
-                            framework.blockUI();
-                            location.reload();
-                        }
-                    });
-            };
-            fileReader.readAsText($('.ks_input_import_button').prop('files')[0]);
-        },
-
-        _updateButtons : function(mode){
-            if(this.$buttons){
-                if(mode==="edit") this.$buttons.find('.ks_import_button').hide();
-                else if(mode==="readonly") this.$buttons.find('.ks_import_button').show();
-                this._super.apply(this, arguments);
-            }
-        },
     });
     core.action_registry.add('ks_dashboard_ninja.import_button', ListController);
     return ListController;

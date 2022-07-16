@@ -2,7 +2,8 @@
 
 from . import models
 from . import controllers
-from . import lib
+from . import common_lib
+from . import wizard
 
 from odoo.api import Environment, SUPERUSER_ID
 

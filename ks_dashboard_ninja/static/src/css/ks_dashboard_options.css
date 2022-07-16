@@ -68,6 +68,10 @@ i.ks-options-plus {
     text-align: start;
 }
 
+.ks_dashboard_header{
+    height: 55px;
+}
+
 .ks-dashboard-date-labels{
     font-weight: bold;
     margin-top: inherit;

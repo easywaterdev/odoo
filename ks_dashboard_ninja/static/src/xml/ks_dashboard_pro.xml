@@ -9,14 +9,14 @@
 
                 <div class="p-3 py-3 d-flex flex-row align-items-center justify-content-between ">
                     <div class="d-flex align-items-center w-50">
-                    <h6 class="m-0 font-weight-bold h3 ks_chart_heading mr-3" t-att-title="ks_chart_title">
-                        <t t-esc="ks_chart_title"/>
-                    </h6>
-                    <!--                    <div >-->
-                    <button class="ks_dashboard_item_drill_up d-none btn btn-primary" title="Drill Up" type="button"
-                            t-att-data-item-id="chart_id">Drill Up
-                        <i class="fa fa-arrow-circle-up"/>
-                    </button>
+                        <h6 class="m-0 font-weight-bold h3 ks_chart_heading mr-3" t-att-title="ks_chart_title">
+                            <t t-esc="ks_chart_title"/>
+                        </h6>
+                        <!--                    <div >-->
+                        <button class="ks_dashboard_item_drill_up d-none btn btn-primary" title="Drill Up" type="button"
+                                t-att-data-item-id="chart_id">Drill Up
+                            <i class="fa fa-arrow-circle-up"/>
+                        </button>
                     </div>
                     <!--                    </div>-->
 
@@ -96,21 +96,19 @@
                             <button class="ks_dashboard_item_delete" title="Remove Item" type="button">
                                 <i class="fa fa-times"/>
                             </button>
-
-                            <div class="ks_chart_inner_buttons ks_dashboard_more_action" t-att-data-item-id="chart_id">
-                                <button title="Export Chart" data-toggle="dropdown"
-                                        class="ks_dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
-                                        type="button"
-                                        aria-expanded="true">
-                                    <i class="fa fa-ellipsis-v"/>
-                                </button>
-                                <div role="menu" class="dropdown-menu dropdown-menu-right">
-                                    <!--Dynamic Rendering-->
-                                </div>
-                            </div>
                         </t>
+                        <div class="ks_chart_inner_buttons ks_dashboard_more_action" t-att-data-item-id="chart_id">
+                            <button title="Export Chart" data-toggle="dropdown"
+                                    class="ks_dashboard_item_action  btn dropdown-toggle btn-xs o-no-caret btn"
+                                    type="button"
+                                    aria-expanded="true">
+                                <i class="fa fa-ellipsis-v"/>
+                            </button>
+                            <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                <!--Dynamic Rendering-->
+                            </div>
+                        </div>
                     </div>
-
                 </div>
                 <div class="card-body ks_chart_card_body"/>
             </div>
@@ -165,14 +163,14 @@
                         </button>
                     </div>
                     <div class="ks_pager_name">
-                       <t t-if="ks_pager" t-call="ks_pager_template"/>
+                        <t t-if="ks_pager" t-call="ks_pager_template"/>
                     </div>
 
-                    <t t-if="ksIsDashboardManager">
-                        <!--  Dashboard Item Move/Copy Feature -->
-                        <div class="ks_dashboard_item_button_container ks_dropdown_container ks_dashboard_item_header ks_dashboard_item_header_hover chart_button_container"
-                             t-att-data-item_id="item_id">
 
+                    <!--  Dashboard Item Move/Copy Feature -->
+                    <div class="ks_dashboard_item_button_container ks_dropdown_container ks_dashboard_item_header ks_dashboard_item_header_hover chart_button_container"
+                         t-att-data-item_id="item_id">
+                        <t t-if="ksIsDashboardManager">
                             <button title="Move/Duplicate" data-toggle="dropdown" t-att-data-item-id="item_id"
                                     class="ks_dashboard_item_action btn dropdown-toggle btn-xs" type="button"
                                     aria-expanded="true">
@@ -213,41 +211,42 @@
                             <button class="ks_dashboard_item_delete" title="Remove Item" type="button">
                                 <i class="fa fa-times"/>
                             </button>
-                            <div class="ks_chart_inner_buttons">
-                                <button title="Export Item" data-toggle="dropdown"
-                                        class="ks_dashboard_item_action_export btn dropdown-toggle btn-xs o-no-caret btn ks_next_previous_bg_color"
-                                        type="button"
-                                        aria-expanded="true">
-                                    <i class="fa fa-ellipsis-v"/>
-                                </button>
-                                <div role="menu" class="dropdown-menu dropdown-menu-right">
-                                    <!--Dynamic Rendering-->
-                                    <div class="ks_chart_export_menu">
-                                        <div class="ks_chart_export_menu_header">
-                                            <span>Export</span>
-                                        </div>
-                                        <div class="chart_xls_export ks_chart_xls_csv_export ks_chart_export_menu_item" t-att-data-chart-id="item_id"
-                                             data-format="list_xls">
-                                            <i class="fa fa-file-excel-o"/>
-                                            <span>Export to Excel</span>
-                                        </div>
-                                        <div class="ks_chart_xls_csv_export ks_chart_export_menu_item" t-att-data-chart-id="item_id"
-                                             data-format="list_csv">
-                                            <i class="fa fa-file-code-o"/>
-                                            <span>Export to CSV</span>
-                                        </div>
-                                        <div class="ks_chart_json_export ks_chart_export_menu_item"
-                                             t-att-data-item-id="item_id"
-                                             data-format="chart_xls">
-                                            <i class="fa fa-file-code-o"/>
-                                            <span>Export Item</span>
-                                        </div>
+                        </t>
+                        <div class="ks_chart_inner_buttons">
+                            <button title="Export Item" data-toggle="dropdown"
+                                    class="ks_dashboard_item_action_export btn dropdown-toggle btn-xs o-no-caret btn ks_next_previous_bg_color"
+                                    type="button"
+                                    aria-expanded="true">
+                                <i class="fa fa-ellipsis-v"/>
+                            </button>
+                            <div role="menu" class="dropdown-menu dropdown-menu-right">
+                                <!--Dynamic Rendering-->
+                                <div class="ks_chart_export_menu">
+                                    <div class="ks_chart_export_menu_header">
+                                        <span>Export</span>
+                                    </div>
+                                    <div class="chart_xls_export ks_chart_xls_csv_export ks_chart_export_menu_item"
+                                         t-att-data-chart-id="item_id"
+                                         data-format="list_xls">
+                                        <i class="fa fa-file-excel-o"/>
+                                        <span>Export to Excel</span>
+                                    </div>
+                                    <div class="ks_chart_xls_csv_export ks_chart_export_menu_item"
+                                         t-att-data-chart-id="item_id"
+                                         data-format="list_csv">
+                                        <i class="fa fa-file-code-o"/>
+                                        <span>Export to CSV</span>
+                                    </div>
+                                    <div class="ks_chart_json_export ks_chart_export_menu_item"
+                                         t-att-data-item-id="item_id"
+                                         data-format="chart_xls">
+                                        <i class="fa fa-file-code-o"/>
+                                        <span>Export Item</span>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                    </t>
+                    </div>
                 </div>
                 <div class="card-body table-responsive"/>
             </div>
@@ -312,11 +311,16 @@
                                             </td>
                                         </tr>
                                     </t>
-                                    <tr t-if="count">
-                                        <td class="ks_font">
-                                            <span>(<t t-esc="count"/> records more)</span>
-                                        </td>
-                                    </tr>
+                                    <!--                                    <tr t-if="count">-->
+                                    <!--                                        <td class="ks_font">-->
+                                    <!--                                            <span>(<t t-esc="count"/> records more)</span>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr t-else="">-->
+                                    <!--                                        <td class="ks_font">-->
+                                    <!--                                            <span>(Many more records...)</span>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
                                 </tbody>
                             </table>
 
@@ -332,9 +336,18 @@
     </t>
 
 
+    <t t-name="ks_record_more">
+        <td class="ks_font">
+            <!--            <span>(Many more records...)-->
+            <!--            </span>-->
+        </td>
+    </t>
+
+
     <t t-name="ks_list_view_table">
         <t t-if="list_view_data">
-            <table id="ksListViewTable" class="table table-hover ks_list_view_layout_1" t-att-data-model="list_view_data['model']">
+            <table id="ksListViewTable" class="table table-hover ks_list_view_layout_1"
+                   t-att-data-model="list_view_data['model']">
                 <thead>
                     <tr>
                         <t t-foreach="list_view_data['label']" t-as="table_header">
@@ -357,7 +370,7 @@
     </t>
 
     <t t-name="ks_list_view_tmpl">
-       <t t-foreach="list_view_data['data_rows']" t-as="table_row">
+        <t t-foreach="list_view_data['data_rows']" t-as="table_row">
             <tr class="ks_tr" t-att-data-record-id="table_row['id']" t-att-data-domain="table_row['domain']"
                 t-att-data-item-Id="item_id"
                 t-att-data-sequence="table_row['sequence']" t-att-data-last_seq="table_row['last_seq']">

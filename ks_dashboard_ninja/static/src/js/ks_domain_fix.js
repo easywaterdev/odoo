@@ -19,10 +19,10 @@ BasicModel.include({
                 if (record._changes[fieldName].includes("%UID") || record._changes[fieldName].includes("%MYCOMPANY")) {
                     fieldName_temp = fieldName + '_temp';
                     record._changes[fieldName_temp] = record._changes[fieldName]
-                    if (record._changes[fieldName_temp].includes("%UID")){
+                    while (record._changes[fieldName_temp].includes("%UID")){
                         record._changes[fieldName_temp] = record._changes[fieldName_temp].replace('"%UID"', record.getContext().uid);
                     }
-                    if (record._changes[fieldName_temp].includes("%MYCOMPANY")){
+                    while (record._changes[fieldName_temp].includes("%MYCOMPANY")){
                         record._changes[fieldName_temp] = record._changes[fieldName_temp].replace('"%MYCOMPANY"', this.getSession().company_id)
                     }
                 }
@@ -30,10 +30,11 @@ BasicModel.include({
             } else if (record.data[fieldName] && (record.data[fieldName].includes("%UID") || record.data[fieldName].includes("%MYCOMPANY"))) {
                 fieldName_temp = fieldName + '_temp';
                 record.data[fieldName_temp] = record.data[fieldName];
-                if (record.data[fieldName_temp].includes("%UID")){
+
+                while (record.data[fieldName_temp].includes("%UID")){
                         record.data[fieldName_temp] = record.data[fieldName_temp].replace('"%UID"', record.getContext().uid);
                 }
-                if (record.data[fieldName_temp].includes("%MYCOMPANY")){
+                while (record.data[fieldName_temp].includes("%MYCOMPANY")){
                     record.data[fieldName_temp] = record.data[fieldName_temp].replace('"%MYCOMPANY"', this.getSession().company_id)
                 }
             }
@@ -46,8 +47,13 @@ BasicFields.FieldDomain.include({
 
            _onShowSelectionButtonClick: function(e) {
             if (this.value && (this.value.includes("%MYCOMPANY") || this.value && this.value.includes("%UID")) ){
-                var temp_value = this.value.includes("%MYCOMPANY") ? this.value.replace('"%MYCOMPANY"', this.getSession().company_id): this.value;
-                temp_value = temp_value.includes("%UID") ? temp_value.replace('"%UID"', this.record.getContext().uid): temp_value;
+                var temp_value = this.value;
+                while(temp_value.includes("%MYCOMPANY")){
+                    var temp_value = temp_value.includes("%MYCOMPANY") ? temp_value.replace('"%MYCOMPANY"', this.getSession().company_id): temp_value;
+                }
+                while(temp_value.includes("%UID")){
+                    temp_value = temp_value.includes("%UID") ? temp_value.replace('"%UID"', this.record.getContext().uid): temp_value;
+                }
                 e.preventDefault();
                 new view_dialogs.SelectCreateDialog(this, {
                     title: _t("Selected records"),
@@ -57,7 +63,7 @@ BasicFields.FieldDomain.include({
                     readonly: true,
                     disable_multiple_selection: true,
                 }).open();
-            }else {
+            }else{
                 this._super.apply(this, arguments);
             }
         },
