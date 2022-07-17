@@ -1,4 +1,4 @@
-odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (require) {
+odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function(require) {
     "use strict";
 
     var registry = require('web.field_registry');
@@ -21,30 +21,31 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
         resetOnAnyFieldChange: true,
 
-        init: function (parent, state, params) {
-            this._super.apply(this, arguments);
+        jsLibs: [
+            '/ks_dashboard_ninja/static/lib/js/Chart.bundle.min.js',
+            '/ks_dashboard_ninja/static/lib/js/chartjs-plugin-datalabels.js'
+        ],
+        cssLibs: [
+            '/ks_dashboard_ninja/static/lib/css/Chart.min.css'
+        ],
 
-            this.jsLibs.push('/ks_dashboard_ninja/static/lib/js/Chart.bundle.min.js',
-            '/ks_dashboard_ninja/static/lib/js/chartjs-plugin-datalabels.js',
-            );
-            this.cssLibs.push(
-                '/ks_dashboard_ninja/static/lib/css/Chart.min.css',
-            );
+        init: function(parent, state, params) {
+            this._super.apply(this, arguments);
         },
 
-        start: function () {
+        start: function() {
             var self = this;
             self.ks_set_default_chart_view();
-            core.bus.on("DOM_updated", this, function () {
-                if(self.shouldRenderChart && $.find('#ksMyChart').length>0) self.renderChart();
+            core.bus.on("DOM_updated", this, function() {
+                if (self.shouldRenderChart && $.find('#ksMyChart').length > 0) self.renderChart();
             });
             Chart.plugins.unregister(ChartDataLabels);
             return this._super();
         },
 
-        ks_set_default_chart_view: function () {
+        ks_set_default_chart_view: function() {
             Chart.plugins.register({
-                afterDraw: function (chart) {
+                afterDraw: function(chart) {
                     if (chart.data.labels.length === 0) {
                         // No data is present
                         var ctx = chart.chart.ctx;
@@ -64,30 +65,30 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
             Chart.Legend.prototype.afterFit = function() {
                 var chart_type = this.chart.config.type;
-                if(chart_type === "pie" || chart_type ==="doughnut" ) {
+                if (chart_type === "pie" || chart_type === "doughnut") {
                     this.height = this.height;
-                }else{
+                } else {
                     this.height = this.height + 20;
                 };
             }
         },
 
-        _render: function () {
+        _render: function() {
             this.$el.empty()
-            if (this.recordData.ks_dashboard_item_type !== 'ks_tile' && this.recordData.ks_dashboard_item_type !== 'ks_kpi' && this.recordData.ks_dashboard_item_type !== 'ks_list_view') {
-                if(this.recordData.ks_model_id){
+            if (this.recordData.ks_dashboard_item_type !== 'ks_tile' && this.recordData.ks_dashboard_item_type !== 'ks_kpi' && this.recordData.ks_dashboard_item_type !== 'ks_list_view' && this.recordData.ks_dashboard_item_type !== 'ks_to_do') {
+                if (this.recordData.ks_model_id) {
                     if (this.recordData.ks_chart_groupby_type == 'date_type' && !this.recordData.ks_chart_date_groupby) {
                         return this.$el.append($('<div>').text("Select Group by date to create chart based on date groupby"));
-                    }else if(this.recordData.ks_chart_data_count_type==="count" && !this.recordData.ks_chart_relation_groupby){
+                    } else if (this.recordData.ks_chart_data_count_type === "count" && !this.recordData.ks_chart_relation_groupby) {
                         this.$el.append($('<div>').text("Select Group By to create chart view"));
-                    }else if(this.recordData.ks_chart_data_count_type!=="count" && (this.recordData.ks_chart_measure_field.count === 0 || !this.recordData.ks_chart_relation_groupby)){
+                    } else if (this.recordData.ks_chart_data_count_type !== "count" && (this.recordData.ks_chart_measure_field.count === 0 || !this.recordData.ks_chart_relation_groupby)) {
                         this.$el.append($('<div>').text("Select Measure and Group By to create chart view"));
-                    }else if(!this.recordData.ks_chart_data_count_type){
+                    } else if (!this.recordData.ks_chart_data_count_type) {
                         this.$el.append($('<div>').text("Select Chart Data Count Type"));
-                    }else{
+                    } else {
                         this._getChartData();
                     }
-                }else{
+                } else {
                     this.$el.append($('<div>').text("Select a Model first."));
                 }
 
@@ -95,7 +96,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
         },
 
-        _getChartData: function () {
+        _getChartData: function() {
             var self = this;
             self.shouldRenderChart = true;
             var field = this.recordData;
@@ -106,6 +107,28 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
             this.chart_type = this.recordData.ks_dashboard_item_type.split('_')[1];
             this.chart_data = JSON.parse(this.recordData.ks_chart_data);
+
+            if (field.ks_chart_cumulative_field){
+
+                for (var i=0; i< this.chart_data.datasets.length; i++){
+                    var ks_temp_com = 0
+                    var datasets = {}
+                    var data = []
+                    if (this.chart_data.datasets[i].ks_chart_cumulative_field){
+                        for (var j=0; j < this.chart_data.datasets[i].data.length; j++)
+                            {
+                                ks_temp_com = ks_temp_com + this.chart_data.datasets[i].data[j];
+                                data.push(ks_temp_com);
+                            }
+                            datasets.label =  'Cumulative' + this.chart_data.datasets[i].label;
+                            datasets.data = data;
+                             if (field.ks_chart_cumulative){
+                                datasets.type =  'line';
+                            }
+                            this.chart_data.datasets.push(datasets);
+                    }
+                }
+            }
 
             var $chartContainer = $(QWeb.render('ks_chart_form_view_container', {
                 ks_chart_name: ks_chart_name
@@ -129,33 +152,32 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
                     break;
             }
 
-            if(this.chart_family === "circle"){
-                if (this.chart_data && this.chart_data['labels'].length > 30){
+            if (this.chart_family === "circle") {
+                if (this.chart_data && this.chart_data['labels'].length > 30) {
                     this.$el.find(".card-body").empty().append($("<div style='font-size:20px;'>Too many records for selected Chart Type. Consider using <strong>Domain</strong> to filter records or <strong>Record Limit</strong> to limit the no of records under <strong>30.</strong>"));
-                    return ;
+                    return;
                 }
             }
-            if($.find('#ksMyChart').length>0){
+            if ($.find('#ksMyChart').length > 0) {
                 this.renderChart();
             }
         },
 
-        renderChart: function(){
-             var self = this;
-            if(this.recordData.ks_chart_measure_field_2.count && this.recordData.ks_dashboard_item_type === 'ks_bar_chart'){
-                 var self = this;
-                var scales  = {}
-                scales.yAxes = [
-                    {
+        renderChart: function() {
+            var self = this;
+            if (this.recordData.ks_chart_measure_field_2.count && this.recordData.ks_dashboard_item_type === 'ks_bar_chart') {
+                var self = this;
+                var scales = {}
+                scales.yAxes = [{
                         type: "linear",
                         display: true,
                         position: "left",
                         id: "y-axis-0",
-                        gridLines:{
+                        gridLines: {
                             display: true
                         },
                         labels: {
-                            show:true,
+                            show: true,
                         }
                     },
                     {
@@ -164,24 +186,22 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
                         position: "right",
                         id: "y-axis-1",
                         labels: {
-                            show:true,
+                            show: true,
                         },
                         ticks: {
                             beginAtZero: true,
-                            callback : function(value, index, values){
+                            callback: function(value, index, values) {
                                 var ks_selection = self.chart_data.ks_selection;
-                                if (ks_selection === 'monetary'){
+                                if (ks_selection === 'monetary') {
                                     var ks_currency_id = self.chart_data.ks_currency;
-                                    var ks_data = KsGlobalFunction.ksNumFormatter(value,1);
-                                    ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
+                                    var ks_data = KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
+                                        ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
                                     return ks_data;
-                                }
-                                else if (ks_selection === 'custom'){
+                                } else if (ks_selection === 'custom') {
                                     var ks_field = self.chart_data.ks_field;
-                                    return KsGlobalFunction.ksNumFormatter(value,1) +' '+ ks_field;
-                                }
-                                else{
-                                    return KsGlobalFunction.ksNumFormatter(value,1);
+                                    return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits) + ' ' + ks_field;
+                                }else {
+                                    return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
                                 }
                             },
                         }
@@ -194,65 +214,68 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
                 chart_plugin.push(ChartDataLabels);
             }
             this.ksMyChart = new Chart($.find('#ksMyChart')[0], {
-                    type: this.chart_type === "area" ? "line" : this.chart_type,
-                    plugins: chart_plugin,
-                    data: {
-                        labels: this.chart_data['labels'],
-                        datasets: this.chart_data.datasets,
+                type: this.chart_type === "area" ? "line" : this.chart_type,
+                plugins: chart_plugin,
+                data: {
+                    labels: this.chart_data['labels'],
+                    datasets: this.chart_data.datasets,
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    animation: {
+                        easing: 'easeInQuad',
                     },
-                    options: {
-                        maintainAspectRatio: false,
-                        animation: {
-                            easing: 'easeInQuad',
+                    legend: {
+                            display: this.recordData.ks_hide_legend
                         },
-                        legend: {
-                            display: this.recordData.ks_hide_legend,
-                        },
-                        layout: {
-                                    padding: {
-                                        bottom: 0,
-                                    }
-                                },
-                        scales:scales,
-                        plugins: {
-                            datalabels: {
-                                backgroundColor: function(context) {
-                                    return context.dataset.backgroundColor;
-                                },
-                                borderRadius: 4,
-                                color: 'white',
-                                font: {
-                                    weight: 'bold'
-                                },
-                                anchor: 'center',
-                                textAlign: 'center',
-                                display: 'auto',
-                                clamp: true,
-                                formatter : function(value, ctx) {
-                                    let sum = 0;
-                                    let dataArr = ctx.dataset.data;
-                                    dataArr.map(data => {
-                                        sum += data;
-                                    });
-                                    let percentage = sum === 0 ? 0 + "%" : (value*100 / sum).toFixed(2)+"%";
-                                    return percentage;
-                                },
+                    layout: {
+                        padding: {
+                            bottom: 0,
+                        }
+                    },
+                    scales: scales,
+                    plugins: {
+                        datalabels: {
+                            backgroundColor: function(context) {
+                                return context.dataset.backgroundColor;
+                            },
+                            borderRadius: 4,
+                            color: 'white',
+                            font: {
+                                weight: 'bold'
+                            },
+                            anchor: 'center',
+                            textAlign: 'center',
+                            display: 'auto',
+                            clamp: true,
+                            formatter: function(value, ctx) {
+                                let sum = 0;
+                                let dataArr = ctx.dataset.data;
+                                dataArr.map(data => {
+                                    sum += data;
+                                });
+                                let percentage = sum === 0 ? 0 + "%" : (value * 100 / sum).toFixed(2) + "%";
+                                if(self.recordData.ks_data_label_type == 'value'){
+                                    percentage = value;
+                                }
+                                return percentage;
                             },
                         },
+                    },
 
-                    }
-                });
-            if(this.chart_data && this.chart_data["datasets"].length>0){
-               self.ksChartColors(this.recordData.ks_chart_item_color, this.ksMyChart, this.chart_type, this.chart_family,this.recordData.ks_show_data_value);
+                }
+            });
+            if (this.chart_data && this.chart_data["datasets"].length > 0) {
+                self.ksChartColors(this.recordData.ks_chart_item_color, this.ksMyChart, this.chart_type, this.chart_family, this.recordData.ks_show_data_value);
             }
         },
 
-        ksHideFunction: function(options,recordData,ksChartFamily,chartType){
+        ksHideFunction: function(options, recordData, ksChartFamily, chartType) {
             return options;
         },
 
-        ksChartColors: function (palette, ksMyChart, ksChartType, ksChartFamily,ks_show_data_value) {
-            var self =  this;
+        ksChartColors: function(palette, ksMyChart, ksChartType, ksChartFamily, ks_show_data_value) {
+            var self = this;
             var currentPalette = "cool";
             if (!palette) palette = currentPalette;
             currentPalette = palette;
@@ -321,7 +344,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
             if (palette !== "default") {
                 //Get a sorted array of the gradient keys
                 var gradientKeys = Object.keys(gradient);
-                gradientKeys.sort(function (a, b) {
+                gradientKeys.sort(function(a, b) {
                     return +a - +b;
                 });
                 for (var i = 0; i < setsCount; i++) {
@@ -358,16 +381,15 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
             options.legend.labels.usePointStyle = true;
             if (ksChartFamily == "circle") {
-                if(ks_show_data_value){
+                if (ks_show_data_value) {
                     options.legend.position = 'top';
                     options.layout.padding.top = 10;
                     options.layout.padding.bottom = 20;
-                }else{
+                } else {
                     options.legend.position = 'bottom';
                 }
 
-                options = this.ksHideFunction(options,this.recordData,ksChartFamily,chartType);
-
+                options = this.ksHideFunction(options, this.recordData, ksChartFamily, chartType);
                 options.plugins.datalabels.align = 'center';
                 options.plugins.datalabels.anchor = 'end';
                 options.plugins.datalabels.borderColor = 'white';
@@ -375,42 +397,40 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
                 options.plugins.datalabels.borderWidth = 2;
                 options.plugins.datalabels.clamp = true;
                 options.plugins.datalabels.clip = false;
-
                 options.tooltips.callbacks = {
-                                               title: function(tooltipItem, data) {
-                                                    var ks_self = self;
-                                                    var k_amount = data.datasets[tooltipItem[0].datasetIndex]['data'][tooltipItem[0].index];
-                                                    var ks_selection = ks_self.chart_data.ks_selection;
-                                                    if (ks_selection === 'monetary'){
-                                                        var ks_currency_id = ks_self.chart_data.ks_currency;
-                                                        k_amount = KsGlobalFunction.ks_monetary(k_amount, ks_currency_id);
-                                                        return data.datasets[tooltipItem[0].datasetIndex]['label']+" : " + k_amount
-                                                    }
-                                                    else if (ks_selection === 'custom'){
-                                                        var ks_field = ks_self.chart_data.ks_field;
-//                                                        ks_type = field_utils.format.char(ks_field);
-                                                        k_amount = field_utils.format.float(k_amount,Float64Array);
-                                                        return data.datasets[tooltipItem[0].datasetIndex]['label']+" : " + k_amount+" "+ ks_field;
-                                                    }
-                                                    else {
-                                                        k_amount = field_utils.format.float(k_amount,Float64Array);
-                                                        return data.datasets[tooltipItem[0].datasetIndex]['label']+" : " + k_amount
-                                                    }                                               },
-                                               label : function(tooltipItem, data) {
-                                                          return data.labels[tooltipItem.index];
-                                                        },
+                    title: function(tooltipItem, data) {
+                        var ks_self = self;
+                        var k_amount = data.datasets[tooltipItem[0].datasetIndex]['data'][tooltipItem[0].index];
+                        var ks_selection = ks_self.chart_data.ks_selection;
+                        if (ks_selection === 'monetary') {
+                            var ks_currency_id = ks_self.chart_data.ks_currency;
+                            k_amount = KsGlobalFunction.ks_monetary(k_amount, ks_currency_id);
+                            return data.datasets[tooltipItem[0].datasetIndex]['label'] + " : " + k_amount
+                        } else if (ks_selection === 'custom') {
+                            var ks_field = ks_self.chart_data.ks_field;
+                            //                                                        ks_type = field_utils.format.char(ks_field);
+                            k_amount = field_utils.format.float(k_amount, Float64Array, {digits: [0, self.recordData.ks_precision_digits]});
+                            return data.datasets[tooltipItem[0].datasetIndex]['label'] + " : " + k_amount + " " + ks_field;
+                        } else {
+                            k_amount = field_utils.format.float(k_amount, Float64Array, {digits: [0, self.recordData.ks_precision_digits]});
+                            return data.datasets[tooltipItem[0].datasetIndex]['label'] + " : " + k_amount
+                        }
+                    },
+                    label: function(tooltipItem, data) {
+                        return data.labels[tooltipItem.index];
+                    },
 
-                                             }
+                }
                 for (var i = 0; i < datasets.length; i++) {
                     datasets[i].backgroundColor = chartColors;
                     datasets[i].borderColor = "rgba(255,255,255,1)";
                 }
-                if(this.recordData.ks_semi_circle_chart && (chartType === "pie" || chartType ==="doughnut" ) ){
-                    options.rotation = 1*Math.PI;
-                    options.circumference = 1*Math.PI;
+                if (this.recordData.ks_semi_circle_chart && (chartType === "pie" || chartType === "doughnut")) {
+                    options.rotation = 1 * Math.PI;
+                    options.circumference = 1 * Math.PI;
                 }
             } else if (ksChartFamily == "square") {
-                options = this.ksHideFunction(options,this.recordData,ksChartFamily,chartType);
+                options = this.ksHideFunction(options, this.recordData, ksChartFamily, chartType);
 
                 options.scales.xAxes[0].gridLines.display = false;
                 options.scales.yAxes[0].ticks.beginAtZero = true;
@@ -418,65 +438,59 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
                 options.plugins.datalabels.formatter = function(value, ctx) {
                     var ks_self = self;
-                    var ks_selection = ks_self.chart_data.ks_selection;
-                    if (ks_selection === 'monetary'){
-                        var ks_currency_id = ks_self.chart_data.ks_currency;
-                        var ks_data = KsGlobalFunction.ksNumFormatter(value,1);
-                        ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
+                    var ks_selection = self.chart_data.ks_selection;
+                    if (ks_selection === 'monetary') {
+                        var ks_currency_id = self.chart_data.ks_currency;
+                        var ks_data = KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
+                            ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
                         return ks_data;
-                    }
-                    else if (ks_selection === 'custom'){
-                        var ks_field = ks_self.chart_data.ks_field;
-                        return KsGlobalFunction.ksNumFormatter(value,1) +' '+ ks_field;
-                    }
-                    else {
-                        return KsGlobalFunction.ksNumFormatter(value,1);
+                    } else if (ks_selection === 'custom') {
+                        var ks_field = self.chart_data.ks_field;
+                        return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits) + ' ' + ks_field;
+                    }else {
+                        return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
                     }
                 };
 
-                if(chartType==="line"){
-                    options.plugins.datalabels.backgroundColor= function(context) {
-                                    return context.dataset.borderColor;
-                                };
+                if (chartType === "line") {
+                    options.plugins.datalabels.backgroundColor = function(context) {
+                        return context.dataset.borderColor;
+                    };
                 }
 
 
-                if(chartType === "horizontalBar"){
-                    options.scales.xAxes[0].ticks.callback = function(value,index,values){
+                if (chartType === "horizontalBar") {
+                    options.scales.xAxes[0].ticks.callback = function(value, index, values) {
                         var ks_self = self;
-                        var ks_selection = ks_self.chart_data.ks_selection;
-                        if (ks_selection === 'monetary'){
-                            var ks_currency_id = ks_self.chart_data.ks_currency;
-                            var ks_data = KsGlobalFunction.ksNumFormatter(value,1);
-                            ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
+                        var ks_selection = self.chart_data.ks_selection;
+                        if (ks_selection === 'monetary') {
+                            var ks_currency_id = self.chart_data.ks_currency;
+                            var ks_data = KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
+                                ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
                             return ks_data;
-                        }
-                        else if (ks_selection === 'custom'){
-                            var ks_field = ks_self.chart_data.ks_field;
-                            return KsGlobalFunction.ksNumFormatter(value,1) +' '+ ks_field;
-                        }
-                        else{
-                            return KsGlobalFunction.ksNumFormatter(value,1);
+                        } else if (ks_selection === 'custom') {
+                            var ks_field = self.chart_data.ks_field;
+                            return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits) + ' ' + ks_field;
+                        }else {
+                            return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
                         }
                     }
                     options.scales.xAxes[0].ticks.beginAtZero = true;
-                }
-                else{
-                    options.scales.yAxes[0].ticks.callback = function(value,index,values){
+                } else {
+                    options.scales.yAxes[0].ticks.callback = function(value, index, values) {
                         var ks_self = self;
                         var ks_selection = ks_self.chart_data.ks_selection;
-                        if (ks_selection === 'monetary'){
-                            var ks_currency_id = ks_self.chart_data.ks_currency;
-                            var ks_data = KsGlobalFunction.ksNumFormatter(value,1);
-                            ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
+                        var ks_selection = self.chart_data.ks_selection;
+                        if (ks_selection === 'monetary') {
+                            var ks_currency_id = self.chart_data.ks_currency;
+                            var ks_data = KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
+                                ks_data = KsGlobalFunction.ks_monetary(ks_data, ks_currency_id);
                             return ks_data;
-                        }
-                        else if (ks_selection === 'custom'){
-                            var ks_field = ks_self.chart_data.ks_field;
-                            return KsGlobalFunction.ksNumFormatter(value,1) +' '+ ks_field;
-                        }
-                        else{
-                            return KsGlobalFunction.ksNumFormatter(value,1);
+                        } else if (ks_selection === 'custom') {
+                            var ks_field = self.chart_data.ks_field;
+                            return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits) + ' ' + ks_field;
+                        }else {
+                            return KsGlobalFunction._onKsGlobalFormatter(value, self.recordData.ks_data_format, self.recordData.ks_precision_digits);
                         }
                     }
                 }
@@ -485,20 +499,18 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
                         var ks_self = self;
                         var k_amount = data.datasets[tooltipItem.datasetIndex]['data'][tooltipItem.index];
                         var ks_selection = ks_self.chart_data.ks_selection;
-                        if (ks_selection === 'monetary'){
+                        if (ks_selection === 'monetary') {
                             var ks_currency_id = ks_self.chart_data.ks_currency;
                             k_amount = KsGlobalFunction.ks_monetary(k_amount, ks_currency_id);
-                            return data.datasets[tooltipItem.datasetIndex]['label']+" : " + k_amount
-                        }
-                        else if (ks_selection === 'custom'){
+                            return data.datasets[tooltipItem.datasetIndex]['label'] + " : " + k_amount
+                        } else if (ks_selection === 'custom') {
                             var ks_field = ks_self.chart_data.ks_field;
-                           // ks_type = field_utils.format.char(ks_field);
-                            k_amount = field_utils.format.float(k_amount,Float64Array);
-                            return data.datasets[tooltipItem.datasetIndex]['label']+" : " + k_amount+" "+ ks_field;
-                        }
-                        else {
-                            k_amount = field_utils.format.float(k_amount,Float64Array);
-                            return data.datasets[tooltipItem.datasetIndex]['label']+" : " + k_amount
+                            // ks_type = field_utils.format.char(ks_field);
+                            k_amount = field_utils.format.float(k_amount, Float64Array, {digits: [0, self.recordData.ks_precision_digits]});
+                            return data.datasets[tooltipItem.datasetIndex]['label'] + " : " + k_amount + " " + ks_field;
+                        } else {
+                            k_amount = field_utils.format.float(k_amount, Float64Array, {digits:[0,self.recordData.ks_precision_digits]});
+                            return data.datasets[tooltipItem.datasetIndex]['label'] + " : " + k_amount
                         }
                     }
                 }
@@ -507,15 +519,14 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
                     switch (ksChartType) {
                         case "bar":
                         case "horizontalBar":
-                            if (datasets[i].type && datasets[i].type=="line"){
+                            if (datasets[i].type && datasets[i].type == "line") {
                                 datasets[i].borderColor = chartColors[i];
                                 datasets[i].backgroundColor = "rgba(255,255,255,0)";
                                 datasets[i]['datalabels'] = {
                                     backgroundColor: chartColors[i],
                                 }
 
-                            }
-                            else{
+                            } else {
                                 datasets[i].backgroundColor = chartColors[i];
                                 datasets[i].borderColor = "rgba(255,255,255,0)";
                                 options.scales.xAxes[0].stacked = this.recordData.ks_bar_chart_stacked;
@@ -534,7 +545,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_graph_preview', function (requ
 
             }
             ksMyChart.update();
-            if(this.$el.find('canvas').height() < 250){
+            if (this.$el.find('canvas').height() < 250) {
                 this.$el.find('canvas').height(250);
             }
         },
