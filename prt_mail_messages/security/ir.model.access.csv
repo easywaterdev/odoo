@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cetmix_conversation_access,Conversations,model_cetmix_conversation,prt_mail_messages.group_conversation_own,1,1,1,1
