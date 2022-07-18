@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018-Today datenpol gmbh(<http://www.datenpol.at>)
+     License OPL-1 or later (https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#licenses). -->
+
+<odoo>
+
+    <record id="dp_print_zpl_view_form" model="ir.ui.view">
+        <field name="name">dp_dp_print_zpl_view_form</field>
+        <field name="model">dp.print.zpl</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <field name="print_visible" invisible="1"/>
+                        <button name="create_action" icon="fa-plus-square" string="Add in the 'Print' menu"
+                                type="object" attrs="{'invisible':[('print_visible','=',True)]}"
+                                help="Display an option on related documents to run this sever action"/>
+                        <button name="unlink_action" icon="fa-minus-square" string="Remove from the 'Print' menu"
+                                type="object" attrs="{'invisible':[('print_visible','=',False)]}"
+                                help="Remove the contextual action related to this server action"/>
+                    </div>
+                    <group>
+                        <group name="general" string="General">
+                            <field name="name"/>
+                            <field name="model"/>
+                            <field name="ip_address"/>
+                            <field name="port"/>
+                        </group>
+                        <group name="print_configuration" string="Printer Configuration">
+                            <field name="configuration_code" colspan="2" nolabel="1" placeholder="ZPL Printer Configuration"/>
+                            <button name="send_configuration" type="object" string="Send Configuration"/>
+                        </group>
+                    </group>
+                    <group name="zpl_code" string="ZPL Code">
+                        <field name="zpl_code" nolabel="1" placeholder="ZPL Code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dp_print_zpl_action" model="ir.actions.act_window">
+        <field name="name">Configure ZPL</field>
+        <field name="res_model">dp.print.zpl</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="dp_print_zpl_menu"
+              name="ZPL"
+              parent="base.menu_administration"
+              action="dp_print_zpl_action"
+              sequence="16"
+    />
+
+</odoo>

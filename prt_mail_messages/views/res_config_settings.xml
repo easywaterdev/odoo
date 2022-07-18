@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">
+            res.config.settings.view.form.inherit.cetmix.messages.easy.settings
+        </field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div
+                    class="app_settings_block"
+                    data-string="Messages Easy"
+                    string="Messages Easy"
+                    data-key="prt_mail_messages"
+                >
+                    <h2>Cetmix Mail Messages Easy</h2>
+                    <div
+                        class="row mt16 o_settings_container"
+                        id="cetmix_mail_bot_settings"
+                    >
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="messages_easy_text_preview">
+                                <label for="messages_easy_text_preview" />
+                                <div class="text-muted">
+                                    Message body preview length for List View,
+                                    characters
+                                    <br />
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="messages_easy_text_preview" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="messages_easy_color_note">
+                                <label for="messages_easy_color_note" />
+                                <div class="text-muted">
+                                    Background color for internal notes in HTML format
+                                    (e.g. #fbd78b)
+                                    <br />
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="messages_easy_color_note" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="messages_easy_empty_trash">
+                                <label for="messages_easy_empty_trash" />
+                                <div class="text-muted">
+                                    Messages in trash will be deleted after this amount
+                                    of days.
+                                    If "0" messages will not be deleted automatically
+                                    <br />
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field
+                                            name="messages_easy_empty_trash"
+                                            min="0"
+                                        />
+                                    </div>
+                                </div>
+                                <button
+                                    name="action_configure_cron"
+                                    string="Configure action"
+                                    type="object"
+                                    class="oe_link"
+                                    icon="fa-arrow-right"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <!-- ## Action ## -->
+    <record id="action_messages_config_settings" model="ir.actions.act_window">
+        <field name="name">General Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form" />
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'prt_mail_messages'}</field>
+    </record>
+    <!-- ## Menu -->
+    <menuitem
+        id="menu_messages_general_settings"
+        name="General Settings"
+        parent="prt_messages_settings"
+        sequence="0"
+        action="action_messages_config_settings"
+        groups="base.group_system"
+    />
+</odoo>

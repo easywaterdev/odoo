@@ -1,0 +1,308 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prt_mail_messages_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-23 12:23+0000\n"
+"PO-Revision-Date: 2020-10-26 00:48+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pro\n"
+"X-Generator: Poedit 2.4.1\n"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:169
+#, python-format
+msgid "%s messages moved to this record:"
+msgstr "%s Nachrichten aus diesem Datensatz"
+
+#. module: prt_mail_messages_pro
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages_pro.cx_message_assign_partner
+msgid "Assign"
+msgstr "Zuweisen"
+
+#. module: prt_mail_messages_pro
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages_pro.cx_message_assign_partner
+msgid "Assign All"
+msgstr "Alles zuweisen"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_cx_message_partner_assign_wiz
+msgid "Assign Partner to Messages"
+msgstr "Dem Partner Nachrichten zuweisen"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:32
+#, python-format
+msgid "Delete"
+msgstr "Löschen"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_company__lead_delete
+msgid "Delete empty leads"
+msgstr "Leere Leads löschen"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_company__opp_delete
+msgid "Delete empty opportunities"
+msgstr "Leere Opportunities löschen"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:34
+#, python-format
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_cx_message_edit_wiz
+msgid "Edit Message or Note"
+msgstr "Nachricht oder Notiz bearbeiten"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_mail_thread
+msgid "Email Thread"
+msgstr "E-Mail-Diskussionsfaden"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:28
+#, python-format
+msgid "Forward"
+msgstr "Weiterleiten"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_analytic_account__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_bank_statement__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_invoice__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_payment__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_cetmix_conversation__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_crm_team__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_blacklist__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_channel__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_thread__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_product__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_template__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_partner__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_users__hide_messages
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_sale_order__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_analytic_account__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_bank_statement__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_invoice__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_payment__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_cetmix_conversation__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_crm_team__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_blacklist__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_channel__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_thread__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_product__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_template__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_partner__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_users__hide_messages
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_sale_order__hide_messages
+msgid "Hide messages"
+msgstr "Nachrichten ausblenden"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_analytic_account__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_bank_statement__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_invoice__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_payment__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_cetmix_conversation__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_crm_team__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_blacklist__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_channel__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_thread__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_product__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_template__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_partner__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_users__hide_notes
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_sale_order__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_analytic_account__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_bank_statement__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_invoice__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_payment__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_cetmix_conversation__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_crm_team__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_blacklist__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_channel__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_thread__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_product__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_template__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_partner__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_users__hide_notes
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_sale_order__hide_notes
+msgid "Hide notes"
+msgstr "Notizen ausblenden"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_analytic_account__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_bank_statement__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_invoice__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_payment__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_cetmix_conversation__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_crm_team__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_blacklist__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_channel__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_thread__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_product__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_template__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_partner__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_users__hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_sale_order__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_analytic_account__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_bank_statement__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_invoice__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_payment__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_cetmix_conversation__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_crm_team__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_blacklist__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_channel__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_thread__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_product__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_template__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_partner__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_users__hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_sale_order__hide_notifications
+msgid "Hide notifications"
+msgstr "Benachrichtigungen ausblenden"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_company__lead_delete
+msgid "If all messages are moved from lead and there are no other messages left except for notifications lead will be deleted"
+msgstr "Falls alle Nachrichten vom Lead verschoben werden und außer den Benachrichtigungen keine weiteren Nachrichten mehr vorhanden sind, wird der Lead gelöscht"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_company__opp_delete
+msgid "If all messages are moved from lead and there are no other messages left except for notifications opportunity will be deleted"
+msgstr "Falls alle Nachrichten vom Lead verschoben werden und außer den Benachrichtigungen keine weiteren Nachrichten mehr vorhanden sind, wird die Opportunity gelöscht"
+
+#. module: prt_mail_messages_pro
+#: model:ir.ui.menu,name:prt_mail_messages_pro.prt_messages_lost
+msgid "Lost"
+msgstr "Verloren"
+
+#. module: prt_mail_messages_pro
+#: model:ir.actions.act_window,name:prt_mail_messages_pro.action_prt_mail_messages_lost
+msgid "Lost Messages"
+msgstr "Verlorene Nachrichten"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_mail_message
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:175
+#, python-format
+msgid "Message %s"
+msgstr "Nachrichten %s"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:7
+#, python-format
+msgid "Message Filter"
+msgstr "Nachrichtenfilter"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/js/thread_widget.js:32
+#, python-format
+msgid "Message will be deleted! Continue?"
+msgstr "Nachricht wird gelöscht! Fortsetzen?"
+
+#. module: prt_mail_messages_pro
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages_pro.prt_res_company_view_form
+msgid "Messages Settings"
+msgstr "Nachrichteneinstellungen"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:177
+#, python-format
+msgid "Messages moved"
+msgstr "Verschobene Nachrichten"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:30
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages_pro.prt_message_move_form
+#, python-format
+msgid "Move"
+msgstr "Verschieben"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_prt_message_move_wiz
+msgid "Move Messages To Other Thread"
+msgstr "Nachrichten in einen anderen Thread verschieben"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:26
+#, python-format
+msgid "Quote"
+msgstr "Zitat"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:14
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:15
+#, python-format
+msgid "Show Messages"
+msgstr "Nachrichten anzeigen"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:11
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:12
+#, python-format
+msgid "Show Notes"
+msgstr "Notizen anzeigen"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:8
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:9
+#, python-format
+msgid "Show Notifications"
+msgstr "Benachrichtigungen anzeigen"
+
+#. module: prt_mail_messages_pro
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages_pro.cx_message_assign_partner
+msgid "Update Author for all usassigned messages from this address"
+msgstr "Den Autor für alle nicht zugewiesenen Nachrichten von dieser Adresse aktualisieren"
+
+#. module: prt_mail_messages_pro
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages_pro.cx_message_assign_partner
+msgid "Update Author for this message only"
+msgstr "Autor nur für diese Nachricht aktualisieren"
+
+#. module: prt_mail_messages_pro
+#: model:res.groups,name:prt_mail_messages_pro.group_lost
+msgid "View Lost Messages"
+msgstr "Verlorene Nachrichten anzeigen"
+
+#. module: prt_mail_messages_pro
+#: model:res.groups,comment:prt_mail_messages_pro.group_lost
+msgid "View lost mail messages"
+msgstr "Verlorene E-Mail-Nachrichten anzeigen"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:123
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:237
+#, python-format
+msgid "You cannot move messages!"
+msgstr "Sie können keine Nachrichten verschieben!"
