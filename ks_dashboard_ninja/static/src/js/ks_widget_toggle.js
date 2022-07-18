@@ -4,10 +4,7 @@ odoo.define('ks_dashboard_ninja_list.ks_widget_toggle', function (require) {
     var registry = require('web.field_registry');
     var AbstractField = require('web.AbstractField');
     var core = require('web.core');
-
-
     var QWeb = core.qweb;
-
 
     var KsWidgetToggle = AbstractField.extend({
 
@@ -50,9 +47,8 @@ odoo.define('ks_dashboard_ninja_list.ks_widget_toggle', function (require) {
         _render: function () {
             var self = this;
             self.$el.empty();
-
-
             var $view = $(QWeb.render('ks_widget_toggle_kpi'));
+
             if (self.value) {
                 $view.find("input[value='" + self.value + "']").prop("checked", true);
             }
@@ -69,7 +65,6 @@ odoo.define('ks_dashboard_ninja_list.ks_widget_toggle', function (require) {
     });
 
     var KsWidgetToggleKpiTarget = AbstractField.extend({
-
         supportedFieldTypes: ['char'],
 
         events: _.extend({}, AbstractField.prototype.events, {

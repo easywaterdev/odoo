@@ -17,7 +17,7 @@ class KsDashboardNinjaBoardItemAction(models.TransientModel):
     ks_dashboard_ninja_ids = fields.Many2many("ks_dashboard_ninja.board", string="Select Dashboards")
 
     # Move or Copy item to another dashboard action
-    @api.multi
+
     def action_item_move_copy_action(self):
         if self.ks_action == 'move':
             for item in self.ks_dashboard_item_ids:

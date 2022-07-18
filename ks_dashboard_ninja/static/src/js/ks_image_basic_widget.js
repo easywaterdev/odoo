@@ -1,4 +1,4 @@
-odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) {
+odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function(require) {
     "use strict";
 
     var core = require('web.core');
@@ -10,7 +10,7 @@ odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) 
 
     var KsImageWidget = basic_fields.FieldBinaryImage.extend({
 
-        init: function (parent, state, params) {
+        init: function(parent, state, params) {
             this._super.apply(this, arguments);
             this.ksSelectedIcon = false;
             this.ks_icon_set = ['home', 'puzzle-piece', 'clock-o', 'comments-o', 'car', 'calendar', 'calendar-times-o', 'bar-chart', 'commenting-o', 'star-half-o', 'address-book-o', 'tachometer', 'search', 'money', 'line-chart', 'area-chart', 'pie-chart', 'check-square-o', 'users', 'shopping-cart', 'truck', 'user-circle-o', 'user-plus', 'sun-o', 'paper-plane', 'rss', 'gears', 'check', 'book'];
@@ -26,7 +26,7 @@ odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) 
             'keyup .ks_modal_icon_input': 'ks_modal_icon_input_enter',
         }),
 
-        _render: function () {
+        _render: function() {
             var ks_self = this;
             var url = this.placeholder;
             if (ks_self.value) {
@@ -51,7 +51,7 @@ odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) 
         },
 
         //This will show modal box on clicking on open icon button.
-        ks_image_widget_icon_container: function (e) {
+        ks_image_widget_icon_container: function(e) {
             $('#ks_icon_container_modal_id').modal({
                 show: true,
             });
@@ -59,10 +59,10 @@ odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) 
         },
 
 
-        ks_icon_container_list: function (e) {
+        ks_icon_container_list: function(e) {
             var self = this;
             self.ksSelectedIcon = $(e.currentTarget).find('span').attr('id').split('.')[1]
-            _.each($('.ks_icon_container_list'), function (selected_icon) {
+            _.each($('.ks_icon_container_list'), function(selected_icon) {
                 $(selected_icon).removeClass('ks_icon_selected');
             });
 
@@ -71,12 +71,12 @@ odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) 
         },
 
         //Imp :  Hardcoded for svg file only. If different file, change this code to dynamic.
-        ks_icon_container_open_button: function (e) {
+        ks_icon_container_open_button: function(e) {
             var ks_self = this;
             ks_self._setValue(ks_self.ksSelectedIcon);
         },
 
-        ks_fa_icon_search: function (e) {
+        ks_fa_icon_search: function(e) {
             var self = this
             self.$el.find('.ks_fa_search_icon').remove()
             var ks_fa_icon_name = self.$el.find('.ks_modal_icon_input')[0].value
@@ -88,7 +88,7 @@ odoo.define('ks_dashboard_ninja_list.ks_image_basic_widget', function (require) 
             $(ks_fa_icon_render).appendTo(self.$el.find('.ks_icon_container_grid_view'))
         },
 
-        ks_modal_icon_input_enter: function (e) {
+        ks_modal_icon_input_enter: function(e) {
             var ks_self = this
             if (e.keyCode == 13) {
                 ks_self.$el.find('.ks_fa_icon_search').click()

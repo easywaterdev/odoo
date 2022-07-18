@@ -9,14 +9,14 @@
 
                 <div class="p-3 py-3 d-flex flex-row align-items-center justify-content-between ">
                     <div class="d-flex align-items-center w-50">
-                    <h6 class="m-0 font-weight-bold h3 ks_chart_heading mr-3" t-att-title="ks_chart_title">
-                        <t t-esc="ks_chart_title"/>
-                    </h6>
-                    <!--                    <div >-->
-                    <button class="ks_dashboard_item_drill_up d-none btn btn-primary" title="Drill Up" type="button"
-                            t-att-data-item-id="chart_id">Drill Up
-                        <i class="fa fa-arrow-circle-up"/>
-                    </button>
+                        <h6 class="m-0 font-weight-bold h3 ks_chart_heading mr-3" t-att-title="ks_chart_title">
+                            <t t-esc="ks_chart_title"/>
+                        </h6>
+                        <!--                    <div >-->
+                        <button class="ks_dashboard_item_drill_up d-none btn btn-primary" title="Drill Up" type="button"
+                                t-att-data-item-id="chart_id">Drill Up
+                            <i class="fa fa-arrow-circle-up"/>
+                        </button>
                     </div>
                     <!--                    </div>-->
 
@@ -132,11 +132,11 @@
                 <i class="fa fa-file-code-o"/>
                 <span>Export to CSV</span>
             </div>
+
             <div t-att-data-chart-id="chart_id" class="ks_chart_pdf_export ks_chart_export_menu_item">
                 <i class="fa fa-file-pdf-o"/>
                 <span>Save as PDF</span>
             </div>
-
             <a class="ks_chart_export_menu_item ks_chart_image_export" t-att-href="href"
                t-att-download="download_fileName+'.png'">
                 <i class="fa fa-file-image-o"/>
@@ -149,7 +149,24 @@
             </div>
         </div>
     </t>
-    <!-- GridStack List View Item Container-->
+
+    <div t-name="ks_pager_template" class="ks_pager">
+        <span class="ks_counter">
+            <span class="ks_value">
+                <t t-esc="count"/>
+            </span>
+        </span>
+        <span class="btn-group" aria-atomic="true" t-att-data-next_offset="intial_count"
+              t-att-data-prev-offset="offset">
+            <button type="button"
+                    class="fa fa-chevron-left btn  ks_load_previous ks_event_offer_list"
+                    t-att-data-item-id="item_id" title="Previous"/>
+            <button type="button" class="fa fa-chevron-right btn  ks_load_next"
+                    t-att-data-item-id="item_id" title="Next"/>
+        </span>
+    </div>
+
+<!--     GridStack List View Item Container-->
     <t t-name="ks_gridstack_list_view_container">
         <div class="grid-stack-item" t-att-id="item_id">
             <div class="grid-stack-item-content ks_list_view_container ks_dashboard_item_hover card shadow">
@@ -165,7 +182,7 @@
                         </button>
                     </div>
                     <div class="ks_pager_name">
-                       <t t-if="ks_pager" t-call="ks_pager_template"/>
+                        <t t-if="ks_pager" t-call="ks_pager_template"/>
                     </div>
 
                     <t t-if="ksIsDashboardManager">
@@ -214,8 +231,8 @@
                                 <i class="fa fa-times"/>
                             </button>
                             <div class="ks_chart_inner_buttons">
-                                <button title="Export Item" data-toggle="dropdown"
-                                        class="ks_dashboard_item_action_export btn dropdown-toggle btn-xs o-no-caret btn ks_next_previous_bg_color"
+                                <button title="Export List" data-toggle="dropdown"
+                                        class="ks_dashboard_item_action_export  btn dropdown-toggle btn-xs o-no-caret btn"
                                         type="button"
                                         aria-expanded="true">
                                     <i class="fa fa-ellipsis-v"/>
@@ -254,18 +271,17 @@
         </div>
     </t>
 
-
     <!-- Chart preview (item creation page form view) -->
     <t t-name="ks_chart_form_view_container">
         <div class="container-fluid">
             <div class="row">
-                <div class="ks_dashboarditem_chart_container card shadow col-md-9 p-0 m-0">
-                    <div class="ks_graph_container_header">
-                        <h6 class="m-0 font-weight-bold h3 ks_chart_heading">
+                <div class="card shadow p-0 m-0 w-100">
+                    <div class="p-3 py-3 d-flex flex-row align-items-center justify-content-between ">
+                        <h6 class="m-0 font-weight-bold h3 ks_chart_heading" t-att-title="ks_chart_name">
                             <t t-esc="ks_chart_name"/>
                         </h6>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="ksChart">
                         <canvas id="ksMyChart" height="250px"/>
                     </div>
                 </div>
@@ -273,14 +289,13 @@
         </div>
     </t>
 
-
     <!-- List View (item creation page form view) -->
     <t t-name="ks_list_view_container">
         <div class="container-fluid">
             <div class="row">
-                <div class="card shadow ks_dashboarditem_chart_container col-md-9 p-0 m-0">
-                    <div class="ks_graph_container_header padding-10">
-                        <h6 class="m-0 font-weight-bold h3 ks_chart_heading">
+                <div class="card shadow col-md-9 p-0 m-0">
+                    <div class="p-3 py-3 d-flex flex-row align-items-center justify-content-between ">
+                        <h6 class="m-0 font-weight-bold h3 ks_chart_heading" t-att-title="ks_list_view_name">
                             <t t-esc="ks_list_view_name"/>
                         </h6>
                     </div>
@@ -300,11 +315,22 @@
                                 </thead>
                                 <tbody>
                                     <t t-foreach="list_view_data['data_rows']" t-as="table_row">
-                                        <tr t-att-data-record-id="table_row['id']">
+                                        <tr class="ks_tr" t-att-data-record-id="table_row['id']">
+                                            <t t-set="ks_rec_count" t-value="0"/>
                                             <t t-foreach="table_row['data']" t-as="row_data">
-                                                <td>
-                                                    <t t-esc="row_data"/>
-                                                </td>
+
+                                                <t t-if="table_row['ks_column_type'][ks_rec_count]==='html'">
+                                                    <td>
+                                                        <t t-out="row_data"/>
+                                                    </td>
+                                                    <t t-set="ks_rec_count" t-value="ks_rec_count+1"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <td>
+                                                        <t t-esc="row_data"/>
+                                                    </td>
+                                                    <t t-set="ks_rec_count" t-value="ks_rec_count+1"/>
+                                                </t>
                                             </t>
                                             <td>
                                                 <i id="ks_item_info" t-att-data-model="list_view_data['model']"
@@ -314,17 +340,18 @@
                                     </t>
                                     <tr t-if="count">
                                         <td class="ks_font">
-                                            <span>(<t t-esc="count"/> records more)</span>
+<!--                                            <span>(-->
+<!--                                                <t t-esc="count"/>-->
+<!--                                                records more)-->
+<!--                                            </span>-->
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-
                         </t>
                         <t t-else="">
                             No Data Present
                         </t>
-
                     </div>
                 </div>
             </div>
@@ -336,17 +363,10 @@
         <t t-if="list_view_data">
             <table id="ksListViewTable" class="table table-hover ks_list_view_layout_1" t-att-data-model="list_view_data['model']">
                 <thead>
-                    <tr>
-                        <t t-foreach="list_view_data['label']" t-as="table_header">
-                            <th>
-                                <t t-esc="table_header"/>
-                            </th>
-                        </t>
-                        <th/>
-                    </tr>
+                    <t t-call="ks_list_view_header"/>
                 </thead>
-                <tbody>
-                    <t t-call="ks_list_view_tmpl"></t>
+                <tbody class="ks_table_body">
+<!--                    <t t-call="ks_list_view_tmpl"/>-->
                 </tbody>
             </table>
 
@@ -356,42 +376,48 @@
         </t>
     </t>
 
+    <t t-name="ks_list_view_header">
+        <tr>
+            <t t-foreach="list_view_data['label']" t-as="table_header">
+                <th>
+                    <t t-esc="table_header"/>
+                </th>
+            </t>
+            <th/>
+        </tr>
+    </t>
+
     <t t-name="ks_list_view_tmpl">
-       <t t-foreach="list_view_data['data_rows']" t-as="table_row">
+        <t t-foreach="list_view_data['data_rows']" t-as="table_row">
             <tr class="ks_tr" t-att-data-record-id="table_row['id']" t-att-data-domain="table_row['domain']"
                 t-att-data-item-Id="item_id"
                 t-att-data-sequence="table_row['sequence']" t-att-data-last_seq="table_row['last_seq']">
+                <t t-set="ks_rec_count" t-value="0"/>
                 <t t-foreach="table_row['data']" t-as="row_data">
-                    <td class="ks_list_canvas_click">
-                        <t t-esc="row_data"/>
-                    </td>
+                    <t t-if="table_row['ks_column_type'][ks_rec_count]=='html'">
+                        <td class="ks_list_canvas_click">
+                            <t t-out="row_data"/>
+                        </td>
+                        <t t-set="ks_rec_count" t-value="ks_rec_count+1"/>
+                    </t>
+                    <t t-else="">
+                        <td class="ks_list_canvas_click">
+                            <t t-esc="row_data"/>
+                        </td>
+                        <t t-set="ks_rec_count" t-value="ks_rec_count+1"/>
+                    </t>
                 </t>
-                <td>
+                <td class="ks_info">
                     <i id="ks_item_info" t-att-data-model="list_view_data['model']"
                        t-att-data-list-type="list_view_data['list_view_type']"
                        t-att-data-groupby="list_view_data['groupby']"
                        t-att-data-record-id="table_row['id']" t-att-data-item-id="item_id"
                        t-att-data-list-view-type="list_type"
+                       t-att-data-domain="table_row['domain']"
                        class="fa fa-pencil"/>
                 </td>
             </tr>
         </t>
     </t>
-
-    <div t-name="ks_pager_template" class="ks_pager">
-        <span class="ks_counter">
-            <span class="ks_value">
-                <t t-esc="count"/>
-            </span>
-            <span class="btn-group" aria-atomic="true" t-att-data-next_offset="intial_count"
-                  t-att-data-prev-offset="offset">
-                <button type="button"
-                        class="fa fa-chevron-left btn  ks_load_previous ks_event_offer_list ks_next_previous_bg_color"
-                        t-att-data-item-id="item_id" title="Previous"/>
-                <button type="button" class="fa fa-chevron-right btn  ks_load_next ks_next_previous_bg_color"
-                        t-att-data-item-id="item_id" title="Next"/>
-            </span>
-        </span>
-    </div>
 
 </templates>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <data>
+        <!-- Own Conversations Read, Write, Create -->
+        <record model="ir.rule" id="rule_cetmix_conversations_own_cru">
+            <field name="name">Access own Conversations only CRU</field>
+            <field name="model_id" ref="model_cetmix_conversation" />
+            <field name="groups" eval="[(4, ref('group_conversation_own'))]" />
+            <field name="domain_force">
+                [('partner_ids', 'in', [user.partner_id.id])]
+            </field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="False" />
+        </record>
+        <!-- Own Conversations Unlink -->
+        <record model="ir.rule" id="rule_cetmix_conversations_own_d">
+            <field name="name">Access own Conversations only D</field>
+            <field name="model_id" ref="model_cetmix_conversation" />
+            <field name="groups" eval="[(4, ref('group_conversation_own'))]" />
+            <field name="domain_force">[('author_id', '=', user.partner_id.id)]</field>
+            <field name="perm_read" eval="False" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="True" />
+        </record>
+        <!-- Any Conversation -->
+        <record model="ir.rule" id="rule_cetmix_conversations_any">
+            <field name="name">Any Conversation</field>
+            <field name="model_id" ref="model_cetmix_conversation" />
+            <field name="groups" eval="[(4, ref('group_conversation_all'))]" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+    </data>
+</odoo>

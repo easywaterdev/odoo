@@ -1,4 +1,4 @@
-odoo.define('ks_dashboard_ninja_list.ks_dashboard_item_theme', function (require) {
+odoo.define('ks_dashboard_ninja_list.ks_dashboard_item_theme', function(require) {
     "use strict";
 
     var registry = require('web.field_registry');
@@ -16,7 +16,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_item_theme', function (require
             'click .ks_dashboard_theme_input_container': 'ks_dashboard_theme_input_container_click',
         }),
 
-        _render: function () {
+        _render: function() {
             var self = this;
             self.$el.empty();
             var $view = $(QWeb.render('ks_dashboard_theme_view'));
@@ -30,7 +30,7 @@ odoo.define('ks_dashboard_ninja_list.ks_dashboard_item_theme', function (require
             }
         },
 
-        ks_dashboard_theme_input_container_click: function (e) {
+        ks_dashboard_theme_input_container_click: function(e) {
             var self = this;
             var $box = $(e.currentTarget).find(':input');
             if ($box.is(":checked")) {

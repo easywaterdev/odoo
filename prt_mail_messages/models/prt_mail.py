@@ -24,7 +24,7 @@ class MailThread(models.AbstractModel):
     _inherit = "mail.thread"
 
     # -- Add context to unlink
-    @api.multi
+    
     def unlink(self):
         return super(MailThread, self.with_context(force_delete=True)).unlink()
 
@@ -57,20 +57,20 @@ class PRTMailMessage(models.Model):
     ref_partner_ids = fields.Many2many(string="Followers", comodel_name='res.partner',
                                        compute='_message_followers')
     ref_partner_count = fields.Integer(string="Followers", compute='_ref_partner_count')
-    mail_mail_ids = fields.One2many(strting="Email Message", comodel_name='mail.mail', inverse_name='mail_message_id',
+    mail_mail_ids = fields.One2many(string="Email Message", comodel_name='mail.mail', inverse_name='mail_message_id',
                                     auto_join=True)
     is_error = fields.Boolean(string="Sending Error", compute='_get_send_error')
 
     # -- Check if error while sending TODO check log
     @api.depends('notification_ids')
-    @api.multi
+    
     def _get_send_error(self):
         for rec in self.filtered(lambda m: m.notification_ids.mapped('email_status') not in ['sent']):
             if len(rec.mail_mail_ids.filtered(lambda m: m.state == 'exception')) > 0:
                 rec.is_error = True
 
     # -- Unlink
-    @api.multi
+    
     def unlink(self):
 
         # Superuser?
@@ -130,7 +130,7 @@ class PRTMailMessage(models.Model):
         return super(PRTMailMessage, self).unlink()
 
     # -- Count ref Partners
-    @api.multi
+    
     def _ref_partner_count(self):
         for rec in self:
             rec.ref_partner_count = len(rec.ref_partner_ids)
@@ -142,7 +142,7 @@ class PRTMailMessage(models.Model):
 
     # -- Get allowed author
     @api.depends('author_id')
-    @api.multi
+    
     def _get_author_allowed(self):
         forbidden_partners = self.env['res.partner']
         for rec in self:
@@ -156,7 +156,7 @@ class PRTMailMessage(models.Model):
 
     # -- Get allowed recipients
     @api.depends('attachment_ids')
-    @api.multi
+    
     def _get_attachments_allowed(self):
         forbidden_records = []
         for rec in self:
@@ -178,7 +178,7 @@ class PRTMailMessage(models.Model):
 
     # -- Get allowed recipients
     @api.depends('partner_ids')
-    @api.multi
+    
     def _get_partners_allowed(self):
         forbidden_partners = self.env['res.partner']
         for rec in self:
@@ -203,7 +203,7 @@ class PRTMailMessage(models.Model):
     """
 
     @api.depends('record_ref')
-    @api.multi
+    
     def _message_followers(self):
         forbidden_partners = self.env['res.partner']
         approved_models = []
@@ -229,13 +229,13 @@ class PRTMailMessage(models.Model):
                 rec.ref_partner_ids = followers_allowed
 
     # -- Dummy
-    @api.multi
+    
     def dummy(self):
         return
 
     # -- Get Subject for tree view
     @api.depends('subject')
-    @api.multi
+    
     def _subject_display(self):
 
         # Get model names first. Use this method to get translated values
@@ -271,28 +271,28 @@ class PRTMailMessage(models.Model):
 
     # -- Get Author for tree view
     @api.depends('author_allowed_id')
-    @api.multi
+    
     def _author_display(self):
         for rec in self:
             rec.author_display = rec.author_allowed_id.name if rec.author_allowed_id else rec.email_from
 
     # -- Count recipients
     @api.depends('partner_allowed_ids')
-    @api.multi
+    
     def _partner_count(self):
         for rec in self:
             rec.partner_count = len(rec.partner_allowed_ids)
 
     # -- Count attachments
     @api.depends('attachment_ids')
-    @api.multi
+    
     def _attachment_count(self):
         for rec in self:
             rec.attachment_count = len(rec.attachment_ids)
 
     # -- Count messages in same thread
     @api.depends('res_id')
-    @api.multi
+    
     def _thread_messages_count(self):
         for rec in self:
             rec.thread_messages_count = self.search_count(['&', '&',
@@ -307,7 +307,7 @@ class PRTMailMessage(models.Model):
 
     # -- Compose reference
     @api.depends('res_id')
-    @api.multi
+    
     def _record_ref(self):
         for rec in self:
             if rec.model:
@@ -343,7 +343,7 @@ class PRTMailMessage(models.Model):
         return FORBIDDEN_MODELS[:]
 
     # -- Open messages of the same thread
-    @api.multi
+    
     def thread_messages(self):
         self.ensure_one()
 
@@ -420,7 +420,7 @@ class PRTMailMessage(models.Model):
         Following keys in context are used:
         - 'check_messages_access': if not set legacy 'search' is performed
     """
-    @api.multi
+    
     def read(self, fields=None, load='_classic_read'):
 
         if not self._context.get('check_messages_access', False):
@@ -672,7 +672,7 @@ class PRTMailMessage(models.Model):
         return res_allowed
 
     # -- Prepare context for reply or quote message
-    @api.multi
+    
     def reply_prep_context(self):
         self.ensure_one()
         body = False
@@ -696,7 +696,7 @@ class PRTMailMessage(models.Model):
         return ctx
 
     # -- Reply or quote message
-    @api.multi
+    
     def reply(self):
         self.ensure_one()
 
@@ -711,7 +711,7 @@ class PRTMailMessage(models.Model):
 
 
     # -- Move message
-    @api.multi
+    
     def move(self):
         self.ensure_one()
 
@@ -724,7 +724,7 @@ class PRTMailMessage(models.Model):
         }
 
     # -- Assign author
-    @api.multi
+    
     def assign_author(self):
         addr = parseaddr(self.email_from)
         return {
@@ -915,7 +915,7 @@ class PRTPartner(models.Model):
 
     # -- Count messages from
     @api.depends('message_ids')
-    @api.multi
+    
     def _messages_from_count(self):
         for rec in self:
             if rec.id:
@@ -927,7 +927,7 @@ class PRTPartner(models.Model):
 
     # -- Count messages from
     @api.depends('message_ids')
-    @api.multi
+    
     def _messages_to_count(self):
         for rec in self:
             rec.messages_to_count = self.env['mail.message'].search_count([('partner_ids', 'in', [rec.id]),
@@ -935,7 +935,7 @@ class PRTPartner(models.Model):
                                                                            ('model', '!=', 'mail.channel')])
 
     # -- Open related
-    @api.multi
+    
     def partner_messages(self):
         self.ensure_one()
 
@@ -974,7 +974,7 @@ class PRTPartner(models.Model):
         }
 
     # -- Send email from partner's form view
-    @api.multi
+    
     def send_email(self):
         self.ensure_one()
 
@@ -1027,7 +1027,7 @@ class PRTMailComposer(models.TransientModel):
 
     # -- Record ref change
     @api.onchange('forward_ref')
-    @api.multi
+    
     def ref_change(self):
         self.ensure_one()
         if self.forward_ref:
