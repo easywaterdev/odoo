@@ -8,7 +8,7 @@
                t-att-autofocus="widget.attrs.autofocus"
                t-att-placeholder="widget.attrs.placeholder"
                t-att-maxlength="widget.field.size"
-               t-att-value="widget.value or ''"
+               t-att-value="widget.value"
                class="o_input"
                t-if="widget.mode !== 'readonly'"/>
             <t t-else="">

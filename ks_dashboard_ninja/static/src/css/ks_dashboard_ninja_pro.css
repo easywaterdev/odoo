@@ -9,20 +9,11 @@
     font-size: 125%;
 }
 
-.ks_dashboard_item_action {
-    color: black;
-}
-
 .ks_group_width {
     width : 40% !important;
 }
-.ks_dashboard_quick_edit_action_popup {
-    color: black;
-}
 
-.ks_dashboard_item_button_container > .ks_chart_inner_buttons > button {
-    color:black;
-}
+
 /* Chart No Content Css */
 .ks_chart_nocontent_form {
     display: inherit !important;
@@ -67,14 +58,10 @@
     right: 10px;
 }
 
-.ks_chart_json_export {
-    padding-right: 10px !important;
-}
-
 
 .ks_chart_card_body{
     position: absolute;
-    top: 53px;
+    top: 50px;
     left: 8px;
     right: 8px;
     bottom: 8px;
@@ -99,24 +86,10 @@ table#ksListViewTable {
 }
 
 .ks_chart_heading{
-    /*width: 50%; */
+    width: 50%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.ks_dashboard_item_drill_up {
-    min-width:110px;
-}
-
-.ks_list_view_heading{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.ks_pager {
-    min-width:98px;
 }
 
 .ks_dashboard_item_hover:hover .ks_dashboard_item_header_hover > .ks_chart_inner_buttons{
@@ -171,7 +144,7 @@ table#ksListViewTable {
 }
 
 .ks_chart_export_menu_item{
-    padding: 5px 14px 5px 14px;
+    padding: 5px 10px 5px 10px;
     cursor : pointer;
 }
 
@@ -195,9 +168,43 @@ table#ksListViewTable {
     padding-right: 10px;
 }
 
+.ks_overflow {
+    overflow: auto;
+}
 
-.ks_date_filters_menu_drop_down {
-    max-height: 300px !important;
-    overflow: auto !important;
-    background-clip:unset;
+.ks_pager {
+    min-width:98px;
+}
+
+.ks_next_previous_bg_color{
+    background-color: transparent ! important;
+}
+
+.ks_list_view_heading{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media(max-width: 767px){
+    .dropdown-max-height {
+     max-height: 240px !important;
+     overflow:auto;
+    }
+}
+
+@media(max-width: 767px){
+    .ks_date_input_fields{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 767px){
+    .ks_date_filter_selection_input{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }

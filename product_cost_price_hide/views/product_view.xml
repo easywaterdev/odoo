@@ -63,7 +63,7 @@
             </field>
         </record>
         
-         <!-- <record id="view_change_standard_price_inheritcostprice" model="ir.ui.view">
+         <record id="view_change_standard_price_inheritcostprice" model="ir.ui.view">
             <field name="name">stock.change.standard.price.inherit_costprice</field>
             <field name="model">stock.change.standard.price</field>
             <field name="inherit_id" ref="stock_account.view_change_standard_price"/>
@@ -72,7 +72,7 @@
                    <attribute name="groups">product_cost_price_hide.group_cost_price_manager</attribute>
                 </xpath>
             </field>
-        </record> -->
+        </record>
         
     </data>
 </odoo>

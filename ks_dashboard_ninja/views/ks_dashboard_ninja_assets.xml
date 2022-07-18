@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="Ks MyDashboard assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_dashboard_ninja.scss"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_dashboard_ninja_item.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_icon_container_modal.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_dashboard_item_theme.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_toggle_icon.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_dashboard_options.css"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_global_functions.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_dashboard_ninja.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_color_picker.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_dashboard_ninja_item_preview.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_image_basic_widget.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_dashboard_item_theme.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_widget_toggle.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_import_dashboard.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_domain_fix.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_quick_edit_view.js"/>
+            <script type="text/javascript" src="/ks_dashboard_ninja/static/src/js/ks_dashboard_ninja_kpi_preview.js"/>
+            <!--            for some reason gridstack css is not laoding from the js. #FIXME-->
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/lib/css/gridstack.min.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_dashboard_ninja_pro.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/css/ks_dashboard_gridstack.css"/>
+            <link rel="stylesheet" href="/ks_dashboard_ninja/static/src/scss/ks_dn_gridstack.scss"/>
+            <script type="text/javascript"
+                    src="/ks_dashboard_ninja/static/src/js/ks_dashboard_ninja_graph_preview.js"/>
+            <script type="text/javascript"
+                    src="/ks_dashboard_ninja/static/src/js/ks_dashboard_ninja_list_view_preview.js"/>
+        </xpath>
+    </template>
+</odoo>

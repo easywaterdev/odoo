@@ -1,4 +1,4 @@
-odoo.define('ks_dashboard_ninja_list.ks_color_picker', function(require) {
+odoo.define('ks_dashboard_ninja_list.ks_color_picker', function (require) {
     "use strict";
 
     require('web.dom_ready');
@@ -21,14 +21,17 @@ odoo.define('ks_dashboard_ninja_list.ks_color_picker', function(require) {
             'input .ks_color_opacity': '_ksOnOpacityInput'
         }),
 
-        jsLibs: [
-            '/ks_dashboard_ninja/static/lib/js/spectrum.js'
-        ],
-        cssLibs: [
-            '/ks_dashboard_ninja/static/lib/css/spectrum.css',
-        ],
+        init: function (parent, state, params) {
+            this._super.apply(this, arguments);
 
-        _render: function() {
+            this.jsLibs.push('/ks_dashboard_ninja/static/lib/js/spectrum.js');
+
+            this.cssLibs.push('/ks_dashboard_ninja/static/lib/css/spectrum.css');
+
+        },
+
+
+        _render: function () {
             this.$el.empty();
             var ks_color_value = '#376CAE';
             var ks_color_opacity = '0.99';
@@ -64,15 +67,15 @@ odoo.define('ks_dashboard_ninja_list.ks_color_picker', function(require) {
 
 
 
-        _ksOnColorChange: function(e, tinycolor) {
+        _ksOnColorChange: function (e, tinycolor) {
             this._setValue(tinycolor.toHexString().concat("," + this.value.split(',')[1]));
         },
 
-        _ksOnOpacityChange: function(event) {
+        _ksOnOpacityChange: function (event) {
             this._setValue(this.value.split(',')[0].concat("," + event.currentTarget.value));
         },
 
-        _ksOnOpacityInput: function(event) {
+        _ksOnOpacityInput: function (event) {
             var self = this;
             var color;
             if (self.name == "ks_background_color") {
@@ -91,7 +94,7 @@ odoo.define('ks_dashboard_ninja_list.ks_color_picker', function(require) {
             }
         },
 
-        get_color_opacity_value: function(color, val) {
+        get_color_opacity_value: function (color, val) {
             if (color) {
                 return color.replace(color.split(',')[3], val + ")");
             } else {
