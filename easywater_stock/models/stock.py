@@ -18,7 +18,7 @@ class PickingType(models.Model):
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    @api.multi
+    @api.model
     def action_assign(self):
         res = super(StockPicking, self).action_assign()
         # If the type is auto_packing and the delivery method is set
@@ -38,7 +38,7 @@ class StockMove(models.Model):
     _inherit = "stock.move"
 
     # Logic to find the best fit package type, returns index
-    @api.multi
+    @api.model
     def find_fit_index(self, cur_res_qty, pack_list):
         for i in range(0, len(pack_list)):
             cur_pack_qty = pack_list[i].qty
@@ -51,7 +51,7 @@ class StockMove(models.Model):
         return -1
 
     # Logic to create packages and auto fill the package details
-    @api.multi
+    @api.model
     def do_auto_pack(self, pack_list, fit_index, qty_to_pack):
         pack_no_type = self.picking_id.put_in_pack()
         quant_pack = self.env['stock.quant.package']
@@ -63,7 +63,7 @@ class StockMove(models.Model):
             _logger.error('There was no package for the current stock.move, %s', self._name)
 
     # Logic to pack the current move, ensure everything is correctly sorted
-    @api.multi
+    @api.model
     def pack_move(self, cur_res_qty, pack_list):
         self.ensure_one()
         if not cur_res_qty:
