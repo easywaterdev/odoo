@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <!--################
+      # Mail.Message #
+      ################-->
+
+<!--## Form ##-->
+    <record id="prt_mail_message_form" model="ir.ui.view">
+        <field name="name">prt.mail.message.form</field>
+        <field name="model">mail.message</field>
+        <field name="inherit_id" ref="prt_mail_messages.prt_mail_message_form"/>
+        <field name="arch" type="xml">
+          <button name="move" position="attributes">
+            <attribute name="invisible">0</attribute>
+          </button>
+        </field>
+      </record>
+
+<!--## Action Lost Messages ##-->
+    <record id="action_prt_mail_messages_lost" model="ir.actions.act_window">
+      <field name="name">Lost Messages</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">mail.message</field>
+      <field name="domain">[('message_type', '!=', 'notification'),('model', '=', False)]</field>
+      <field name="context">{'check_messages_access': True,'get_lost': True}</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+          (0, 0, {'view_mode': 'tree', 'view_id': ref('prt_mail_messages.prt_mail_message_tree')}),
+          (0, 0, {'view_mode': 'form', 'view_id': ref('prt_mail_messages.prt_mail_message_form')})]"/>
+    </record>
+
+<!--## Menu ##-->
+  <menuitem id="prt_mail_messages.prt_messages_root"
+    name="Messages"
+    groups="base.group_user,base.group_partner_manager"
+    sequence="1"
+    web_icon="prt_mail_messages_pro,static/description/icon_menu.png"/>
+
+  <menuitem id="prt_messages_lost"
+      name="Lost"
+      action="action_prt_mail_messages_lost"
+      parent="prt_mail_messages.prt_messages_root"
+      groups="prt_mail_messages_pro.group_lost"
+      sequence="5"/>
+
+<!--#######################
+    # Message Move Wizard #
+    #######################-->
+
+<!-- ## Form view ## -->
+    <record model="ir.ui.view" id="prt_message_move_form">
+     <field name="name">prt.message.move.form</field>
+     <field name="model">prt.message.move.wiz</field>
+     <field name="inherit_id" ref="prt_mail_messages.prt_message_move_form"/>
+     <field name="arch" type="xml">
+       <div name="pro" position="replace"/>
+       <button name="message_move" position="replace">
+         <button string="Move" name="message_move" type="object" class="btn-primary"/>
+       </button>
+     </field>
+    </record>
+
+
+  <!--###############
+     # Res.Company #
+     ###############-->
+
+  <!--## Form ##-->
+  <record id="prt_res_company_view_form" model="ir.ui.view">
+     <field name="name">prt.res.company.form</field>
+     <field name="model">res.company</field>
+     <field name="inherit_id" ref="base.view_company_form"/>
+     <field name="arch" type="xml">
+         <xpath expr="//notebook" position="inside">
+             <page name="messages" string="Messages Settings">
+               <group name="leads">
+                   <field name="lead_delete"/>
+                   <field name="opp_delete" attrs="{'invisible':[('lead_delete', '=', False)]}"/>
+               </group>
+             </page>
+         </xpath>
+     </field>
+  </record>
+
+</odoo>

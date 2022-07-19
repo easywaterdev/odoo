@@ -1,0 +1,206 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prt_mail_messages_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0-20180613\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-17 14:58+0000\n"
+"PO-Revision-Date: 2018-07-17 17:58+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:103
+#, python-format
+msgid "%s messages moved to this record:"
+msgstr "%s сообщений перемещено к данной записи:"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:11
+#, python-format
+msgid "Activity"
+msgstr "Действие"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_res_company
+msgid "Companies"
+msgstr "Компании"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_mail_thread
+msgid "Email Thread"
+msgstr "Цепочка эл.почты"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:14
+#, python-format
+msgid "Hide"
+msgstr "Скрыть"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:14
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:15
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_analytic_account_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_bank_statement_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_invoice_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_account_payment_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_calendar_event_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_crm_lead_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_crm_team_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_gamification_badge_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_gamification_challenge_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_channel_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_test_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_test_simple_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_mail_thread_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_product_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_product_template_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_project_project_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_project_task_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_prt_mail_message_draft_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_purchase_order_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_partner_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_res_users_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_sale_order_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_stock_picking_hide_notifications
+#: model:ir.model.fields,field_description:prt_mail_messages_pro.field_stock_production_lot_hide_notifications
+#, python-format
+msgid "Hide notifications"
+msgstr "Скрыть уведомления"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_analytic_account_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_bank_statement_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_invoice_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_account_payment_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_calendar_event_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_crm_lead_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_crm_team_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_gamification_badge_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_gamification_challenge_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_channel_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_test_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_test_simple_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_mail_thread_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_product_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_product_template_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_project_project_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_project_task_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_prt_mail_message_draft_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_purchase_order_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_partner_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_res_users_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_sale_order_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_stock_picking_hide_notifications
+#: model:ir.model.fields,help:prt_mail_messages_pro.field_stock_production_lot_hide_notifications
+msgid "Hide notifications - display messages only"
+msgstr "Скрыть уведомления - показывать только сообщения"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:7
+#, python-format
+msgid "Log a note. Followers will not be notified."
+msgstr "Добавить заметку. Подписчики не будут уведомлены."
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:7
+#, python-format
+msgid "Log note"
+msgstr "Добавить заметку"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:10
+#, python-format
+msgid "Log or schedule an activity"
+msgstr "Записать или запланировать действие"
+
+#. module: prt_mail_messages_pro
+#: model:ir.ui.menu,name:prt_mail_messages_pro.prt_messages_lost
+msgid "Lost"
+msgstr "Потерянные"
+
+#. module: prt_mail_messages_pro
+#: model:ir.actions.act_window,name:prt_mail_messages_pro.action_prt_mail_messages_lost
+msgid "Lost Messages"
+msgstr "Потерянные сообщения"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_mail_message
+msgid "Message"
+msgstr "Сообщение"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:109
+#, python-format
+msgid "Message %s"
+msgstr "Сообщение %s"
+
+#. module: prt_mail_messages_pro
+#: model:ir.ui.view,arch_db:prt_mail_messages_pro.prt_res_company_view_form
+msgid "Messages Settings"
+msgstr "Настройки сообщений"
+
+#. module: prt_mail_messages_pro
+#: code:addons/prt_mail_messages_pro/models/prt_mail_pro.py:111
+#, python-format
+msgid "Messages moved"
+msgstr "Сообщения перемещены"
+
+#. module: prt_mail_messages_pro
+#: model:res.groups,name:prt_mail_messages_pro.group_lost
+msgid "Messages: View Lost Messages"
+msgstr "Сообщения: Смотреть потерянные сообщения"
+
+#. module: prt_mail_messages_pro
+#: model:ir.ui.view,arch_db:prt_mail_messages_pro.prt_message_move_form
+msgid "Move"
+msgstr "Перемещение"
+
+#. module: prt_mail_messages_pro
+#: model:ir.model,name:prt_mail_messages_pro.model_prt_message_move_wiz
+msgid "Move Messages To Other Thread"
+msgstr "Переместить сообщения в другую запись"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:11
+#, python-format
+msgid "Schedule activity"
+msgstr "Запланировать действие"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:4
+#, python-format
+msgid "Send a message"
+msgstr "Отправить сообщение"
+
+#. module: prt_mail_messages_pro
+#. openerp-web
+#: code:addons/prt_mail_messages_pro/static/src/xml/qweb.xml:4
+#, python-format
+msgid "Send message"
+msgstr "Отправить сообщение"
+
+#. module: prt_mail_messages_pro
+#: model:res.groups,comment:prt_mail_messages_pro.group_lost
+msgid "View lost mail messages"
+msgstr "Смотреть потерянные сообщения"
