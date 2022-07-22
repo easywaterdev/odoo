@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <!--###########
+        # Partner #
+        ###########-->
+    <!--## Form ##-->
+    <record id="prt_res_partner_view_form" model="ir.ui.view">
+        <field name="name">prt.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="partner_messages"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-envelope"
+                    attrs="{'invisible': [('messages_from_count', '=', 0)]}"
+                    context="{'open_mode': 'from'}"
+                >
+                    <field
+                        name="messages_from_count"
+                        widget="statinfo"
+                        string="Author"
+                    />
+                </button>
+                <button
+                    name="partner_messages"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-envelope"
+                    attrs="{'invisible': [('messages_to_count', '=', 0)]}"
+                    context="{'open_mode': 'to'}"
+                >
+                    <field
+                        name="messages_to_count"
+                        widget="statinfo"
+                        string="Recipient"
+                    />
+                </button>
+            </div>
+            <xpath expr="//field[@name='email']" position="replace">
+                <!--                <label for="email"/>-->
+                <div class="o_row">
+                    <span style="display:contents!important">
+                        <field name="email" />
+                    </span>
+                    <button
+                        type="object"
+                        name="send_email"
+                        class="btn-xs btn-link mb4 fa fa-envelope-o"
+                        attrs="{'invisible':[('email', '=', False)]}"
+                        context="{'field_name': 'email'}"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <!--## Search ##-->
+    <record id="prt_res_partner_view_search" model="ir.ui.view">
+        <field name="name">prt.res.partner.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <filter name="inactive" position="before">
+                <filter
+                    name="filter_conversations"
+                    domain="[('category_id', '=', 'Conversations')]"
+                    string="From Conversations"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>

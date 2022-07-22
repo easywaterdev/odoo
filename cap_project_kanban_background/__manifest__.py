@@ -1,23 +1,17 @@
 
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*
+# Changed version number for V15 upgrade. No other changes made. OYBI 2022-07-19
 {
     "name": """Project Task - Kanban Background Color """,
     "summary": """""",
     "category": "project",
-    "images": ['static/description/icon.png'],
-    "version": "12.0",
-
+    "version": "15.0.0.0.3",
     "author": "Sakie and Nathan",
     "license": "LGPL-3",
     "website": "https://captivea.us",
-
     "depends": [
-        "project",
     ],
-
-    "external_dependencies": {"python": [], "bin": []},
     "data": [
-        'views/project_kanban_view.xml',
     ],
     "qweb": [],
     "demo": [],

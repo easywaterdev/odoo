@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <template id="report_mailmessage_body">
+        <t t-call="web.html_container">
+            <div class="article" t-att-data-oe-model="docs and docs._name">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="container">
+                        <hr />
+                        <p t-field="doc.body" />
+                        <hr />
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+    <template id="report_mailmessage_template">
+        <t t-set="doc" t-value="doc.with_context({'lang':user.partner_id.lang})" />
+        <style>
+            div.header-block {
+            display: inline-block;
+            vertical-align: top;
+            }
+            .subject {
+            padding-left: 10px;
+            }
+            .top {
+            margin-top: 5px;
+            }
+        </style>
+        <div class="oe_structure" />
+        <div class="container">
+            <h2>
+                <t t-esc="doc.subject" />
+            </h2>
+            <div>
+                <div class="header-block" t-if="doc.author_avatar">
+                    <img
+                        t-att-src="'data:image/*;base64,'+ doc.author_avatar.decode()"
+                        class="oe_avatar"
+                        style="height: 40px;"
+                    />
+                </div>
+                <div class="header-block subject">
+                    <b>From:</b>
+                    <span class="m-0" t-field="doc.author_id.name" />
+                    <div t-if="doc.ref_partner_ids">
+                        <b>Partners:</b>
+                        <span t-foreach="doc.partner_ids" t-as="partner">
+                            <t t-esc="partner.email_formatted" />
+                            <t t-if="not partner_last">,</t>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <i t-field="doc.date" style="float: right;" />
+            <hr />
+            <p t-field="doc.body" />
+        </div>
+        <div class="oe_structure" />
+    </template>
+    <template id="report_mailmessage">
+        <t t-call="web.html_container">
+            <div
+                class="article o_report_layout_standard"
+                t-att-data-oe-model="docs and docs._name"
+            >
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="prt_mail_messages.report_mailmessage_template" />
+                </t>
+            </div>
+        </t>
+    </template>
+    <!--Reports -->
+    <record id="action_report_mail_message_all" model="ir.actions.report">
+        <field name="name">All fields</field>
+        <field name="model">mail.message</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">prt_mail_messages.report_mailmessage</field>
+        <field name="report_file">prt_mail_messages.report_mailmessage</field>
+        <field name="print_report_name">'%s' % (object.subject)</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="binding_type">report</field>
+        <field
+            name="paperformat_id"
+            ref="prt_mail_messages.paperformat_a4_mail_message_tn_portrait"
+        />
+    </record>
+    <record id="action_report_mail_message_only_body" model="ir.actions.report">
+        <field name="name">Body only</field>
+        <field name="model">mail.message</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">prt_mail_messages.report_mailmessage_body</field>
+        <field name="report_file">prt_mail_messages.report_mailmessage_body</field>
+        <field name="print_report_name">'%s' % (object.subject)</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="binding_type">report</field>
+        <field
+            name="paperformat_id"
+            ref="prt_mail_messages.paperformat_a4_mail_message_tn_portrait"
+        />
+    </record>
+</odoo>

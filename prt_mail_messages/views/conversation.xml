@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <!--################
+        # Conversation #
+        ################-->
+    <!--## Actions ##-->
+    <record id="action_conversations" model="ir.actions.act_window">
+        <field name="name">Conversations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cetmix.conversation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--## Tree ##-->
+    <record id="cetmix_conversation_tree" model="ir.ui.view">
+        <field name="name">cetmix.conversation.tree</field>
+        <field name="model">cetmix.conversation</field>
+        <field name="arch" type="xml">
+            <tree string="Conversations" decoration-bf="message_needaction==True">
+                <field name="subject_display" />
+                <field name="message_needaction" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <!--## Form ##-->
+    <record id="cetmix_conversation_form" model="ir.ui.view">
+        <field name="name">cetmix.conversation.form</field>
+        <field name="model">cetmix.conversation</field>
+        <field name="arch" type="xml">
+            <form string="Conversation">
+                <header>
+                    <button
+                        name="join"
+                        type="object"
+                        string="Join"
+                        confirm="Are you sure?"
+                        class="btn-primary"
+                        attrs="{'invisible' : [('is_participant', '=', True)]}"
+                    />
+                    <button
+                        name="leave"
+                        type="object"
+                        string="Leave"
+                        confirm="Are you sure?"
+                        class="btn-primary"
+                        attrs="{'invisible' : [('is_participant', '=', False)]}"
+                    />
+                    <button
+                        name="move"
+                        type="object"
+                        string="Move Messages"
+                        confirm="Conversation will be deleted after messages are moved! Are you sure?"
+                        class="btn-primary"
+                    />
+                    <button
+                        name="unlink"
+                        type="object"
+                        icon="fa-trash"
+                        string="Delete"
+                        confirm="Are you sure?"
+                    />
+                    <button
+                        name="archive"
+                        type="object"
+                        icon="fa-archive"
+                        string="Archive"
+                        confirm="Are you sure?"
+                        attrs="{'invisible' : [('active', '=', False)]}"
+                    />
+                    <button
+                        name="archive"
+                        type="object"
+                        icon="fa-archive"
+                        string="Unarchive"
+                        confirm="Are you sure?"
+                        attrs="{'invisible' : [('active', '=', True)]}"
+                    />
+                </header>
+                <sheet class="custom_sheet">
+                    <div
+                        name="caption"
+                        colspan="2"
+                        class="oe_form_box_info oe_text_center"
+                    >
+                        <p>
+                            Posted messages will be sent to all participants
+                            <br />
+                            If all messages are moved or deleted from Conversation it
+                            will be deleted
+                        </p>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Subject..." />
+                        </h1>
+                        <label for="author_id" string="Started by" />
+                        <field name="author_id" readonly="1" />
+                        <field name="active" invisible="1" />
+                        <field name="is_participant" invisible="1" />
+                    </div>
+                    <b>Participants</b>
+                    <field
+                        name="partner_ids"
+                        widget="many2many"
+                        options="{'not_delete': True}"
+                    >
+                        <kanban quick_create="false" create="true" delete="true">
+                            <field name="color" />
+                            <field name="name" />
+                            <field name="title" />
+                            <field name="email" />
+                            <field name="function" />
+                            <field name="phone" />
+                            <field name="mobile" />
+                            <field name="image_128" />
+                            <templates>
+                                <t t-name="kanban-box">
+                                    <t
+                                        t-set="color"
+                                        t-value="kanban_color(record.color.raw_value)"
+                                    />
+                                    <div
+                                        t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'"
+                                    >
+                                        <a
+                                            t-if="!read_only_mode"
+                                            type="delete"
+                                            class="fa fa-times pull-right"
+                                        />
+                                        <div class="o_kanban_image">
+                                            <img
+                                                t-if="record.image_128.raw_value"
+                                                t-att-src="'data:image/png;base64,'+record.image_128.raw_value"
+                                            />
+                                            <t t-if="!record.image_128.raw_value">
+
+                                            </t>
+                                        </div>
+                                        <div class="oe_kanban_details">
+                                            <field name="name" />
+                                            <div t-if="record.function.raw_value">
+                                                <field name="function" />
+                                            </div>
+                                            <div t-if="record.email.raw_value">
+                                                <field name="email" widget="email" />
+                                            </div>
+                                            <div t-if="record.phone.raw_value">
+                                                <field name="phone" />
+                                            </div>
+                                            <div t-if="record.mobile.raw_value">
+                                                <field name="mobile" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                    </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <!--                    <field name="message_follower_ids" widget="mail_followers"/>-->
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <!--## Search ##-->
+    <record id="cetmix_conversation_search" model="ir.ui.view">
+        <field name="name">cetmix.conversation.search</field>
+        <field name="model">cetmix.conversation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="author_id" />
+                <field name="last_message_by" />
+                <field name="partner_ids" />
+                <filter
+                    string="Unread Messages"
+                    name="message_needaction"
+                    domain="[('message_needaction','=',True)]"
+                />
+                <separator />
+                <filter
+                    string="I participate"
+                    name="participate"
+                    domain="[('partner_ids', 'in', [uid])]"
+                />
+                <separator />
+                <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active', '=', False)]"
+                />
+                <group string="Group By">
+                    <filter
+                        string="Author"
+                        name='groupby_author'
+                        domain="[]"
+                        context="{'group_by':'author_id'}"
+                    />
+                    <separator />
+                    <filter
+                        string="Last Message"
+                        name='groupby_lastmessage'
+                        domain="[]"
+                        context="{'group_by':'last_message_post'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <!--## Menu ##-->
+    <menuitem
+        id="menu_conversations"
+        name="Conversations"
+        action="action_conversations"
+        parent="prt_messages_root"
+        groups="group_conversation_own"
+        sequence="1"
+    />
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.ChatterTopbar" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='chatter.hasActivities']" position="after">
+            <t t-if="chatter.threadView">
+                <span
+                    class="btn btn-link o_ChatterTopbar_buttonFilters"
+                    title="Message Filters"
+                >
+                    <i
+                        class="fa fa-info-circle"
+                        role="img"
+                        title="Show Notifications"
+                    />
+                    <input
+                        type="checkbox"
+                        class="btn btn-link o_ChatterTopbar_buttonShowNotifications"
+                        title="Show Notifications"
+                        t-on-click="chatter.onClickShowNotifications.bind(chatter)"
+                        t-model="chatter.thread.displayNotifications"
+                    />
+                    <i class="fa fa-edit" role="img" title="Show Notes" />
+                    <input
+                        type="checkbox"
+                        class="btn btn-link o_ChatterTopbar_buttonShowNotes"
+                        title="Show Notes"
+                        t-on-click="chatter.onClickShowNotes.bind(chatter)"
+                        t-model="chatter.thread.displayNotes"
+                    />
+                    <i class="fa fa-envelope" role="img" title="Show Messages" />
+                    <input
+                        type="checkbox"
+                        class="btn btn-link o_ChatterTopbar_buttonShowMessages"
+                        title="Show Messages"
+                        t-on-click="chatter.onClickShowMessages.bind(chatter)"
+                        t-model="chatter.thread.displayMessages"
+                    />
+                </span>
+            </t>
+        </xpath>
+    </t>
+</templates>

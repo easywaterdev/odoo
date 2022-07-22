@@ -4,7 +4,7 @@
 
 {
     'name': 'Bill of Material Cost Price Hide/Show',
-    'version': '1.2.2',
+    'version': '3.2.4',
     'price': 69.0,
     'currency': 'EUR',
     'license': 'Other proprietary',
@@ -13,7 +13,7 @@
     'support': 'contact@probuse.com',
     'author' : 'Probuse Consulting Service Pvt. Ltd.',
     'website' : 'www.probuse.com',
-    'live_test_url': 'https://youtu.be/JLHFYxfLFAg',
+    'live_test_url': 'https://probuseappdemo.com/probuse_apps/bom_cost_price_hide/1029',#'https://youtu.be/JLHFYxfLFAg',
     'images': ['static/description/img1.png'],
     'description': """
     Product cost price hide on BoM Structure & Cost 
@@ -23,11 +23,12 @@ bom cost price hide
 bom cost hide
 price hide
 cost price hide bom
+
     """,
     'depends': [
         'mrp',
         'product_cost_price_hide',
-        'mrp_bom_cost',
+        'mrp_account',
      ],
     'data': [
         'views/mrp_report_bom_structure.xml',

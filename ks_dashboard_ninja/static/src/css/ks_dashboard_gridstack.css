@@ -1,4 +1,5 @@
 /*rtl:begin:ignore*/
+/* Gridstack container custom css */
 .ks_o_graph_svg_container{
     height:calc(100% - 25px);
     width:100%;
@@ -30,4 +31,6 @@
 .grid-stack > .grid-stack-item > .grid-stack-item-content {
 
 }
+
+
 /*rtl:end:ignore*/

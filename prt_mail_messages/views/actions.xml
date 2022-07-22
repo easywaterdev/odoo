@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+    Copyright (C) Cetmix OÜ
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU LESSER GENERAL PUBLIC LICENSE for more details.
+
+    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <!-- == "More" menu == -->
+    <!-- Mark read -->
+    <record id="message_mark_read_multi" model="ir.actions.server">
+        <field name="name">Mark read</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="model_id" ref="model_mail_message" />
+        <field name="state">code</field>
+        <field name="code">records.mark_read_multi()</field>
+    </record>
+    <!-- Star/Unstar messages -->
+    <record id="message_star_multi" model="ir.actions.server">
+        <field name="name">Star/Unstar</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="model_id" ref="model_mail_message" />
+        <field name="state">code</field>
+        <field name="code">records.star_multi()</field>
+    </record>
+    <!-- Move messages -->
+    <record id="message_move_multi" model="ir.actions.act_window">
+        <field name="name">Move</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="binding_type">action</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="res_model">prt.message.move.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <!-- Move conversations -->
+    <record id="conversation_move_multi" model="ir.actions.act_window">
+        <field name="name">Move</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="binding_type">action</field>
+        <field name="binding_model_id" ref="model_cetmix_conversation" />
+        <field name="res_model">prt.message.move.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <!-- Delete messages -->
+    <record id="message_unlink_pro" model="ir.actions.server">
+        <field name="name">Delete</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="model_id" ref="model_mail_message" />
+        <field name="state">code</field>
+        <field name="code">records.unlink_pro()</field>
+    </record>
+    <!-- Undelete message -->
+    <record id="message_undelete" model="ir.actions.server">
+        <field name="name">Undelete</field>
+        <field name="binding_model_id" ref="model_mail_message" />
+        <field name="model_id" ref="model_mail_message" />
+        <field name="state">code</field>
+        <field name="code">records.undelete()</field>
+    </record>
+</odoo>

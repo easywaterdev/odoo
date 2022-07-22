@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cetmix_conversation_access,Conversations,model_cetmix_conversation,group_conversation_own,1,1,1,1
+cx_message_move_user,Move Messages User,model_prt_message_move_wiz,base.group_user,1,1,1,1
+cx_message_edit_user,Edit Messages User,model_cx_message_edit_wiz,base.group_user,1,1,1,1
+cx_partner_assign_user,Assign Partner User,model_cx_message_partner_assign_wiz,base.group_user,1,1,1,1

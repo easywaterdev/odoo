@@ -15,6 +15,11 @@
     text-align: center;
  }
 
+ .ks_font {
+    font-weight: bold;
+    min-width: 129px
+ }
+
 
 .ks_icon_container_list:hover {
     transform: scale(1.2);
@@ -82,8 +87,9 @@
     }
 }
 
-.ks_font {
-    font-weight: bold;
-    min-width: 129px
- }
-
+@media (max-width: 1024px) {
+     .dropdown-max-height {
+        max-height: 40vh;
+        overflow: auto;
+    }
+}

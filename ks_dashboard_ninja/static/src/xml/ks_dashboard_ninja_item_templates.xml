@@ -438,7 +438,7 @@
                             <span class="target_deviation">
                                 <t t-esc="target_deviation"/>
                                 <t t-if="pre_arrow">
-                                        <i t-att-class="'fa fa-arrow-'+ pre_arrow"/>
+                                    <i t-att-class="'fa fa-arrow-'+ pre_arrow"/>
                                 </t>
                             </span>
                         </div>

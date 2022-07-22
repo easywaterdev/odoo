@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.MessageActionList" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_MessageActionList')]" position="inside">
+            <t t-if="messageActionList.message.message_type !== 'notification'">
+                <span
+                    class="o_MessageActionList_action o_MessageActionList_actionReply p-2 fa fa-lg fa-quote-left"
+                    title="Quote"
+                    t-on-click="messageActionList.onClickMessageQuote.bind(messageActionList)"
+                />
+                <span
+                    class="o_MessageActionList_action o_MessageActionList_actionReply p-2 fa fa-lg fa-copy"
+                    title="Forward"
+                    t-on-click="messageActionList.onClickMessageForward.bind(messageActionList)"
+                />
+                <span
+                    class="o_MessageActionList_action o_MessageActionList_actionReply p-2 fa fa-lg fa-arrow-right"
+                    title="Move"
+                    t-on-click="messageActionList.onClickMessageMove.bind(messageActionList)"
+                />
+<!--                <t t-esc="messageActionList.messageView.threadView.thread.model"/>-->
+                <t
+                    t-if="messageActionList.messageView.threadView.thread.model != 'mail.channel'"
+                >
+                    <span
+                        class="o_MessageActionList_action o_MessageActionList_actionReply p-2 fa fa-lg fa-trash"
+                        title="Delete"
+                        t-on-click="messageActionList.onClickMessageDelete.bind(messageActionList)"
+                    />
+                    <span
+                        class="o_MessageActionList_action o_MessageActionList_actionReply p-2 fa fa-lg fa-edit"
+                        title="Edit"
+                        t-on-click="messageActionList.onClickMessageEdit.bind(messageActionList)"
+                    />
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>
