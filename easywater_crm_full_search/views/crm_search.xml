@@ -1,0 +1,12 @@
+<odoo>
+    <record model="ir.ui.view" id="view_crm_leads_filter_full_search">
+        <field name="name">crm.leads.fulll.search</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="model">crm.lead</field>
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[@name='name']" position="before">
+                <field name="full_search"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
