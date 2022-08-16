@@ -5,13 +5,6 @@ class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
     full_search = fields.Char(string='Full Search', store=True, compute="_compute_full_search", search='_search_full_search')
-    # mobile_sanitized = fields.Char(string='Sanitized Mobile Number', readonly=True, compute='_compute_mobile_sanitized')
-    #
-    # @api.depends('mobile')
-    # def _compute_mobile_sanitized(self):
-    #     for record in self:
-    #         if record.mobile:
-    #             record.mobile_sanitized = str(record.mobile).replace("-", "")
 
     @api.depends('name', 'partner_id.name', 'email_from', 'phone', 'mobile')
     def _compute_full_search(self):
