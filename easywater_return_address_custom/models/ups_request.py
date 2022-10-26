@@ -12,6 +12,7 @@ import re
 from zeep import Client, Plugin
 from zeep.exceptions import Fault
 from zeep.wsdl.utils import etree_to_string
+from odoo.api import Environment as env
 
 from odoo import _, _lt
 
@@ -438,7 +439,7 @@ class UPSRequest():
         shipment.ShipFrom.Phone = self.factory_ns2.ShipPhoneType()
         shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
 
-        user = self.env['res.users'].search(['user_ids.id', '=', ship_to.id])
+        user = request.env['res.users'].search(['user_ids.id', '=', ship_to.id])
 
         shipment.ShipTo = self.factory_ns2.ShipToType()
         shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
