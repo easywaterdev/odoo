@@ -10,112 +10,117 @@ from .ups_request import UPSRequest, Package
 class ProviderUPS(models.Model):
     _inherit = 'delivery.carrier'
 
-    def ups_get_return_label(self, picking, tracking_number=None, origin_date=None):
-        res = []
-        superself = self.sudo()
-        srm = UPSRequest(self.log_xml, superself.ups_username, superself.ups_passwd, superself.ups_shipper_number, superself.ups_access_number, self.prod_environment)
-        ResCurrency = self.env['res.currency']
-        packages = []
-        package_names = []
-        if picking.is_return_picking:
-            weight = picking._get_estimated_weight()
-            packages.append(Package(self, weight))
+    def send_shipping(self, shipment_info, packages, shipper, ship_from, ship_to, packaging_type, service_type,
+                      saturday_delivery, duty_payment, cod_info=None, label_file_type='GIF', ups_carrier_account=False):
+        client = self._set_client(self.ship_wsdl, 'Ship', 'ShipmentRequest')
+        request = self.factory_ns3.RequestType()
+        request.RequestOption = 'nonvalidate'
+
+        request_type = "shipping"
+        label = self.factory_ns2.LabelSpecificationType()
+        label.LabelImageFormat = self.factory_ns2.LabelImageFormatType()
+        label.LabelImageFormat.Code = label_file_type
+        label.LabelImageFormat.Description = label_file_type
+        if label_file_type != 'GIF':
+            label.LabelStockSize = self.factory_ns2.LabelStockSizeType()
+            label.LabelStockSize.Height = '6'
+            label.LabelStockSize.Width = '4'
+
+        shipment = self.factory_ns2.ShipmentType()
+        shipment.Description = shipment_info.get('description')
+
+        for package in self.set_package_detail(client, packages, packaging_type, ship_from, ship_to, cod_info,
+                                               request_type):
+            shipment.Package.append(package)
+
+        shipment.Shipper = self.factory_ns2.ShipperType()
+        shipment.Shipper.Address = self.factory_ns2.ShipAddressType()
+        shipment.Shipper.AttentionName = (shipper.name or '')[:35]
+        shipment.Shipper.Name = (shipper.parent_id.name or shipper.name or '')[:35]
+        shipment.Shipper.Address.AddressLine = [l for l in [shipper.street or '', shipper.street2 or ''] if l]
+        shipment.Shipper.Address.City = shipper.city or ''
+        shipment.Shipper.Address.PostalCode = shipper.zip or ''
+        shipment.Shipper.Address.CountryCode = shipper.country_id.code or ''
+        if shipper.country_id.code in ('US', 'CA', 'IE'):
+            shipment.Shipper.Address.StateProvinceCode = shipper.state_id.code or ''
+        shipment.Shipper.ShipperNumber = self.shipper_number or ''
+        shipment.Shipper.Phone = self.factory_ns2.ShipPhoneType()
+        shipment.Shipper.Phone.Number = self._clean_phone_number(shipper.phone)
+
+        shipment.ShipFrom = self.factory_ns2.ShipFromType()
+        shipment.ShipFrom.Address = self.factory_ns2.ShipAddressType()
+        shipment.ShipFrom.AttentionName = (ship_from.name or '')[:35]
+        shipment.ShipFrom.Name = (ship_from.parent_id.name or ship_from.name or '')[:35]
+        shipment.ShipFrom.Address.AddressLine = [l for l in [ship_from.street or '', ship_from.street2 or ''] if l]
+        shipment.ShipFrom.Address.City = ship_from.city or ''
+        shipment.ShipFrom.Address.PostalCode = ship_from.zip or ''
+        shipment.ShipFrom.Address.CountryCode = ship_from.country_id.code or ''
+        if ship_from.country_id.code in ('US', 'CA', 'IE'):
+            shipment.ShipFrom.Address.StateProvinceCode = ship_from.state_id.code or ''
+        shipment.ShipFrom.Phone = self.factory_ns2.ShipPhoneType()
+        shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
+
+        shipment.ShipTo = self.factory_ns2.ShipToType()
+        shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
+        shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
+        shipment.ShipTo.Name = (ship_to.parent_id.name or ship_to.name or '')[:35]
+        shipment.ShipTo.Address.AddressLine = [l for l in [ship_to.street or '', ship_to.street2 or ''] if l]
+        shipment.ShipTo.Address.City = ship_to.city or ''
+        shipment.ShipTo.Address.PostalCode = ship_to.zip or ''
+        shipment.ShipTo.Address.CountryCode = ship_to.country_id.code or ''
+        if ship_to.country_id.code in ('US', 'CA', 'IE'):
+            shipment.ShipTo.Address.StateProvinceCode = ship_to.state_id.code or ''
+        shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
+        shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
+        if not ship_to.commercial_partner_id.is_company:
+            shipment.ShipTo.Address.ResidentialAddressIndicator = None
+
+        shipment.Service = self.factory_ns2.ServiceType()
+        shipment.Service.Code = service_type or ''
+        shipment.Service.Description = 'Service Code'
+        if service_type == "96":
+            shipment.NumOfPiecesInShipment = int(shipment_info.get('total_qty'))
+        shipment.ShipmentRatingOptions = self.factory_ns2.RateInfoType()
+        shipment.ShipmentRatingOptions.NegotiatedRatesIndicator = 1
+
+        # Shipments from US to CA or PR require extra info
+        if ship_from.country_id.code == 'US' and ship_to.country_id.code in ['CA', 'PR']:
+            shipment.InvoiceLineTotal = self.factory_ns2.CurrencyMonetaryType()
+            shipment.InvoiceLineTotal.CurrencyCode = shipment_info.get('itl_currency_code')
+            shipment.InvoiceLineTotal.MonetaryValue = shipment_info.get('ilt_monetary_value')
+
+        # set the default method for payment using shipper account
+        payment_info = self.factory_ns2.PaymentInfoType()
+        shipcharge = self.factory_ns2.ShipmentChargeType()
+        shipcharge.Type = '01'
+
+        # Bill Recevier 'Bill My Account'
+        if ups_carrier_account:
+            shipcharge.BillReceiver = self.factory_ns2.BillReceiverType()
+            shipcharge.BillReceiver.Address = self.factory_ns2.BillReceiverAddressType()
+            shipcharge.BillReceiver.AccountNumber = ups_carrier_account
+            shipcharge.BillReceiver.Address.PostalCode = ship_to.zip
         else:
-            if picking.package_ids:
-                # Create all packages
-                for package in picking.package_ids:
-                    packages.append(Package(self, package.shipping_weight, quant_pack=package.package_type_id, name=package.name))
-                    package_names.append(package.name)
-            # Create one package with the rest (the content that is not in a package)
-            if picking.weight_bulk:
-                packages.append(Package(self, picking.weight_bulk))
+            shipcharge.BillShipper = self.factory_ns2.BillShipperType()
+            shipcharge.BillShipper.AccountNumber = self.shipper_number or ''
 
-        invoice_line_total = 0
-        for move in picking.move_lines:
-            invoice_line_total += picking.company_id.currency_id.round(move.product_id.lst_price * move.product_qty)
+        payment_info.ShipmentCharge = [shipcharge]
 
-        shipment_info = {
-            'description': picking.origin,
-            'total_qty': sum(sml.qty_done for sml in picking.move_line_ids),
-            'ilt_monetary_value': '%d' % invoice_line_total,
-            'itl_currency_code': self.env.company.currency_id.name,
-            'phone': picking.partner_id.mobile or picking.partner_id.phone or picking.sale_id.partner_id.mobile or picking.sale_id.partner_id.phone,
-        }
-        if picking.sale_id and picking.sale_id.carrier_id != picking.carrier_id:
-            ups_service_type = picking.carrier_id.ups_default_service_type or self.ups_default_service_type
+        if duty_payment == 'SENDER':
+            duty_charge = self.factory_ns2.ShipmentChargeType()
+            duty_charge.Type = '02'
+            duty_charge.BillShipper = self.factory_ns2.BillShipperType()
+            duty_charge.BillShipper.AccountNumber = self.shipper_number or ''
+            payment_info.ShipmentCharge.append(duty_charge)
+
+        shipment.PaymentInformation = payment_info
+
+        if saturday_delivery:
+            shipment.ShipmentServiceOptions = self.factory_ns2.ShipmentServiceOptionsType()
+            shipment.ShipmentServiceOptions.SaturdayDeliveryIndicator = saturday_delivery
         else:
-            ups_service_type = self.ups_default_service_type
-        ups_carrier_account = False
-        if self.ups_bill_my_account:
-            ups_carrier_account = picking.partner_id.with_company(picking.company_id).property_ups_carrier_account
-
-        if picking.carrier_id.ups_cod:
-            cod_info = {
-                'currency': picking.partner_id.country_id.currency_id.name,
-                'monetary_value': picking.sale_id.amount_total,
-                'funds_code': self.ups_cod_funds_code,
-            }
-        else:
-            cod_info = None
-
-        check_value = srm.check_required_value(picking.partner_id, picking.partner_id, picking.picking_type_id.warehouse_id.partner_id)
-        if check_value:
-            raise UserError(check_value)
-
-        package_type = picking.package_ids and picking.package_ids[0].package_type_id.shipper_package_code or self.ups_default_package_type_id.shipper_package_code
-
-        user = picking.partner_id.user_id
-
-        if user.private_street and user.private_city and user.private_zip and user.private_state_id and user.private_country_id:
-            srm.send_shipping(
-                shipment_info=shipment_info, packages=packages, shipper=picking.partner_id,
-                ship_from=picking.partner_id,
-                ship_to=user, packaging_type=package_type,
-                service_type=ups_service_type, duty_payment='RECIPIENT', label_file_type=self.ups_label_file_type,
-                ups_carrier_account=ups_carrier_account,
-                saturday_delivery=picking.carrier_id.ups_saturday_delivery, cod_info=cod_info)
-            srm.return_label()
-        else:
-            srm.send_shipping(
-                shipment_info=shipment_info, packages=packages, shipper=picking.partner_id,
-                ship_from=picking.partner_id,
-                ship_to=picking.partner_id, packaging_type=package_type,
-                service_type=ups_service_type, duty_payment='RECIPIENT', label_file_type=self.ups_label_file_type,
-                ups_carrier_account=ups_carrier_account,
-                saturday_delivery=picking.carrier_id.ups_saturday_delivery, cod_info=cod_info)
-            srm.return_label()
-        result = srm.process_shipment()
-        if result.get('error_message'):
-            raise UserError(result['error_message'].__str__())
-
-        order = picking.sale_id
-        company = order.company_id or picking.company_id or self.env.company
-        currency_order = picking.sale_id.currency_id
-        if not currency_order:
-            currency_order = picking.company_id.currency_id
-
-        if currency_order.name == result['currency_code']:
-            price = float(result['price'])
-        else:
-            quote_currency = ResCurrency.search([('name', '=', result['currency_code'])], limit=1)
-            price = quote_currency._convert(
-                float(result['price']), currency_order, company, order.date_order or fields.Date.today())
-
-        package_labels = []
-        for track_number, label_binary_data in result.get('label_binary_data').items():
-            package_labels = package_labels + [(track_number, label_binary_data)]
-
-        carrier_tracking_ref = "+".join([pl[0] for pl in package_labels])
-        logmessage = _("Return label generated<br/>"
-                       "<b>Tracking Numbers:</b> %s<br/>"
-                       "<b>Packages:</b> %s") % (carrier_tracking_ref, ','.join(package_names))
-        if self.ups_label_file_type != 'GIF':
-            attachments = [('%s-%s-%s.%s' % (self.get_return_label_prefix(), pl[0], index, self.ups_label_file_type), pl[1]) for index, pl in enumerate(package_labels)]
-        if self.ups_label_file_type == 'GIF':
-            attachments = [('%s-%s-%s.%s' % (self.get_return_label_prefix(), package_labels[0][0], 1, 'pdf'), pdf.merge_pdf([pl[1] for pl in package_labels]))]
-        picking.message_post(body=logmessage, attachments=attachments)
-        shipping_data = {
-            'exact_price': price,
-            'tracking_number': carrier_tracking_ref}
-        res = res + [shipping_data]
-        return res
+            shipment.ShipmentServiceOptions = ''
+        self.shipment = shipment
+        self.label = label
+        self.request = request
+        self.label_file_type = label_file_type

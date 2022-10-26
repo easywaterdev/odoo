@@ -468,7 +468,7 @@ class UPSRequest():
             shipment.ShipTo.Address.PostalCode = ship_to.zip or ''
             shipment.ShipTo.Address.CountryCode = ship_to.country_id.code or ''
             if ship_to.country_id.code in ('US', 'CA', 'IE'):
-                shipment.ShipTo.Address.StateProvinceCode = ship_to.state_id.code or ''
+                shipment.ShipTo.Address.StateProvinceCode = ship_to_state_id.code or ''
             shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
             shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
             if not ship_to.commercial_partner_id.is_company:
