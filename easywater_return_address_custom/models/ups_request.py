@@ -12,7 +12,6 @@ import re
 from zeep import Client, Plugin
 from zeep.exceptions import Fault
 from zeep.wsdl.utils import etree_to_string
-from odoo import models
 
 from odoo import _, _lt
 
@@ -439,40 +438,20 @@ class UPSRequest():
         shipment.ShipFrom.Phone = self.factory_ns2.ShipPhoneType()
         shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
 
-        user = ship_to.user_id
-
-        if user.private_street and user.private_city and user.private_zip and user.private_state_id and user.private_country_id:
-            shipment.ShipTo = self.factory_ns2.ShipToType()
-            shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
-            shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
-            shipment.ShipTo.Name = (ship_to.parent_id.name or ship_to.name or '')[:35]
-            shipment.ShipTo.Address.AddressLine = [l for l in [user.private_street or '', user.private_street2 or ''] if
-                                                   l]
-            shipment.ShipTo.Address.City = user.private_city or ''
-            shipment.ShipTo.Address.PostalCode = user.private_zip or ''
-            shipment.ShipTo.Address.CountryCode = user.private_country_id.code or ''
-            if user.private_country_id.code in ('US', 'CA', 'IE'):
-                shipment.ShipTo.Address.StateProvinceCode = user.private_state_id.code or ''
-            shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
-            shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
-            if not ship_to.commercial_partner_id.is_company:
-                shipment.ShipTo.Address.ResidentialAddressIndicator = None
-        else:
-            shipment.ShipTo = self.factory_ns2.ShipToType()
-            shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
-            shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
-            shipment.ShipTo.Name = (ship_to.parent_id.name or ship_to.name or '')[:35]
-            shipment.ShipTo.Address.AddressLine = [l for l in [ship_to.street or '', ship_to.street2 or ''] if
-                                                   l]
-            shipment.ShipTo.Address.City = ship_to.city or ''
-            shipment.ShipTo.Address.PostalCode = ship_to.zip or ''
-            shipment.ShipTo.Address.CountryCode = ship_to.country_id.code or ''
-            if ship_to.country_id.code in ('US', 'CA', 'IE'):
-                shipment.ShipTo.Address.StateProvinceCode = ship_to_state_id.code or ''
-            shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
-            shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
-            if not ship_to.commercial_partner_id.is_company:
-                shipment.ShipTo.Address.ResidentialAddressIndicator = None
+        shipment.ShipTo = self.factory_ns2.ShipToType()
+        shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
+        shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
+        shipment.ShipTo.Name = (ship_to.parent_id.name or ship_to.name or '')[:35]
+        shipment.ShipTo.Address.AddressLine = [l for l in [ship_to.street or '', ship_to.street2 or ''] if l]
+        shipment.ShipTo.Address.City = ship_to.city or ''
+        shipment.ShipTo.Address.PostalCode = ship_to.zip or ''
+        shipment.ShipTo.Address.CountryCode = ship_to.country_id.code or ''
+        if ship_to.country_id.code in ('US', 'CA', 'IE'):
+            shipment.ShipTo.Address.StateProvinceCode = ship_to.state_id.code or ''
+        shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
+        shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
+        if not ship_to.commercial_partner_id.is_company:
+            shipment.ShipTo.Address.ResidentialAddressIndicator = None
 
         shipment.Service = self.factory_ns2.ServiceType()
         shipment.Service.Code = service_type or ''
