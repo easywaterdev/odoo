@@ -64,8 +64,8 @@ class ProviderUPS(models.Model):
 
         package_type = picking.package_ids and picking.package_ids[0].package_type_id.shipper_package_code or self.ups_default_package_type_id.shipper_package_code
         srm.send_shipping(
-            shipment_info=shipment_info, packages=packages, shipper=picking.partner_id, ship_from=picking.picking_type_id.warehouse_id.partner_id,
-            ship_to=picking.partner_id, packaging_type=package_type,
+            shipment_info=shipment_info, packages=packages, shipper=picking.partner_id, ship_from=picking.partner_id,
+            ship_to=picking.picking_type_id.warehouse_id.partner_id, packaging_type=package_type,
             service_type=ups_service_type, duty_payment='RECIPIENT', label_file_type=self.ups_label_file_type,
             ups_carrier_account=ups_carrier_account,
             saturday_delivery=picking.carrier_id.ups_saturday_delivery, cod_info=cod_info)
