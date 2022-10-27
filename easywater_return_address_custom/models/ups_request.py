@@ -14,7 +14,7 @@ from zeep.exceptions import Fault
 from zeep.wsdl.utils import etree_to_string
 
 from odoo import _, _lt
-
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 # uncomment to enable logging of SOAP requests and responses
@@ -439,6 +439,7 @@ class UPSRequest():
         shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
 
         if ship_to.private_street and ship_to.private_city and ship_to.private_state_id and ship_to.private_zip and ship_to.private_country_id:
+            raise UserError("1")
             shipment.ShipTo = self.factory_ns2.ShipToType()
             shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
             shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
@@ -454,6 +455,7 @@ class UPSRequest():
             if not ship_to.commercial_partner_id.is_company:
                 shipment.ShipTo.Address.ResidentialAddressIndicator = None
         else:
+            raise UserError("2")
             shipment.ShipTo = self.factory_ns2.ShipToType()
             shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
             shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
