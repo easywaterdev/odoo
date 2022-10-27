@@ -438,7 +438,7 @@ class UPSRequest():
         shipment.ShipFrom.Phone = self.factory_ns2.ShipPhoneType()
         shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
 
-        if ship_to.private_street and ship_to.private_city and ship_to.private_state_id and ship_to.private_zip and ship_to.private_country_id:
+        if not ship_to.user_id and ship_to.private_street and ship_to.private_city and ship_to.private_state_id and ship_to.private_zip and ship_to.private_country_id:
             shipment.ShipTo = self.factory_ns2.ShipToType()
             shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
             shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
