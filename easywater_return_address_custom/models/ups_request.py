@@ -390,7 +390,7 @@ class UPSRequest():
         except IOError as e:
             return self.get_error_message('0', 'UPS Server Not Found:\n%s' % e)
 
-    def send_shipping(self, shipment_info, packages, shipper, ship_from, ship_to, packaging_type, service_type, saturday_delivery, duty_payment, cod_info=None, label_file_type='GIF', ups_carrier_account=False):
+    def send_shipping(self, shipment_info, packages, shipper, ship_from, ship_to, packaging_type, service_type, saturday_delivery, duty_payment, return_type, cod_info=None, label_file_type='GIF', ups_carrier_account=False):
         client = self._set_client(self.ship_wsdl, 'Ship', 'ShipmentRequest')
         request = self.factory_ns3.RequestType()
         request.RequestOption = 'nonvalidate'
@@ -438,21 +438,22 @@ class UPSRequest():
         shipment.ShipFrom.Phone = self.factory_ns2.ShipPhoneType()
         shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
 
-        if ship_to.partner_id and ship_to.private_street and ship_to.private_city and ship_to.private_state_id and ship_to.private_zip and ship_to.private_country_id:
-            shipment.ShipTo = self.factory_ns2.ShipToType()
-            shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
-            shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
-            shipment.ShipTo.Name = (ship_to.parent_id.name or ship_to.name or '')[:35]
-            shipment.ShipTo.Address.AddressLine = [l for l in [ship_to.private_street or '', ship_to.private_street2 or ''] if l]
-            shipment.ShipTo.Address.City = ship_to.private_city or ''
-            shipment.ShipTo.Address.PostalCode = ship_to.private_zip or ''
-            shipment.ShipTo.Address.CountryCode = ship_to.private_country_id.code or ''
-            if ship_to.private_country_id.code in ('US', 'CA', 'IE'):
-                shipment.ShipTo.Address.StateProvinceCode = ship_to.private_state_id.code or ''
-            shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
-            shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
-            if not ship_to.commercial_partner_id.is_company:
-                shipment.ShipTo.Address.ResidentialAddressIndicator = None
+        if return_type == "to_employee":
+            if ship_to.private_street and ship_to.private_city and ship_to.private_state_id and ship_to.private_zip and ship_to.private_country_id:
+                shipment.ShipTo = self.factory_ns2.ShipToType()
+                shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
+                shipment.ShipTo.AttentionName = (ship_to.name or '')[:35]
+                shipment.ShipTo.Name = (ship_to.parent_id.name or ship_to.name or '')[:35]
+                shipment.ShipTo.Address.AddressLine = [l for l in [ship_to.private_street or '', ship_to.private_street2 or ''] if l]
+                shipment.ShipTo.Address.City = ship_to.private_city or ''
+                shipment.ShipTo.Address.PostalCode = ship_to.private_zip or ''
+                shipment.ShipTo.Address.CountryCode = ship_to.private_country_id.code or ''
+                if ship_to.private_country_id.code in ('US', 'CA', 'IE'):
+                    shipment.ShipTo.Address.StateProvinceCode = ship_to.private_state_id.code or ''
+                shipment.ShipTo.Phone = self.factory_ns2.ShipPhoneType()
+                shipment.ShipTo.Phone.Number = self._clean_phone_number(shipment_info['phone'])
+                if not ship_to.commercial_partner_id.is_company:
+                    shipment.ShipTo.Address.ResidentialAddressIndicator = None
         else:
             shipment.ShipTo = self.factory_ns2.ShipToType()
             shipment.ShipTo.Address = self.factory_ns2.ShipToAddressType()
