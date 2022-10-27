@@ -9,4 +9,20 @@
             </xpath>
         </field>
     </record>
+
+
+<!--    <record model="ir.ui.view" id="view_crm_lead_test">-->
+<!--        <field name="name">crm.leads.full.search</field>-->
+<!--        <field name="inherit_id" ref="crm.crm_lead_view_form"/>-->
+<!--        <field name="model">crm.lead</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//group[@name='lead_info']" position="after">-->
+<!--                <group>-->
+<!--                    <field name="full_search"/>-->
+<!--                    <field name="phone_sanitized"/>-->
+<!--&lt;!&ndash;                    <field name="mobile_sanitized"/>&ndash;&gt;-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
 </odoo>
