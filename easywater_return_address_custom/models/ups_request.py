@@ -469,8 +469,6 @@ class UPSRequest():
             if not ship_to.commercial_partner_id.is_company:
                 shipment.ShipTo.Address.ResidentialAddressIndicator = None
 
-        raise UserError("Test 3")
-
         shipment.Service = self.factory_ns2.ServiceType()
         shipment.Service.Code = service_type or ''
         shipment.Service.Description = 'Service Code'
