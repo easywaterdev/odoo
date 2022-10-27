@@ -438,7 +438,7 @@ class UPSRequest():
         shipment.ShipFrom.Phone = self.factory_ns2.ShipPhoneType()
         shipment.ShipFrom.Phone.Number = self._clean_phone_number(ship_from.phone)
 
-        user = ship_to.partner_id.user_id
+        user = ship_to.user_id
 
         if user.private_street and user.private_city and user.private_state_id and user.private_zip and user.private_country_id:
             shipment.ShipTo = self.factory_ns2.ShipToType()
