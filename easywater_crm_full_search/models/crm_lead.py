@@ -20,8 +20,9 @@ class CrmLead(models.Model):
             search = []
             if record.name:
                 search.append(f"{record.name}")
-            if record.partner_id.name:
-                search.append("|~|" + record.partner_id.name)
+            if record.partner_id:
+                if record.partner_id.name:
+                    search.append("|~|" + record.partner_id.name)
             if record.email_from:
                 search.append(f"|~|{record.email_from}")
             if record.phone_sanitized:
