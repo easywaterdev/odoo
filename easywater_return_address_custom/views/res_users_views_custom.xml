@@ -5,7 +5,7 @@
             <field name="inherit_id" ref="hr.res_users_view_form_profile"/>
             <field name="model">res.users</field>
             <field name="arch" type="xml">
-                <xpath expr="//form[1]/notebook[3]/page[@name='personal_information']/group[1]/group[1]/div[1]" position="after">
+                <xpath expr="//form[1]/notebook[3]/page[@name='personal_information']/group[1]/group[1]" position="after">
                     <field name="use_address_for_returns"/>
                 </xpath>
             </field>
