@@ -10,7 +10,7 @@
     'author': "OYBI",
     'website': "https://www.oybi.com",
     'category': 'Extra Tools',
-    'version': '15.0.0.46',
+    'version': '15.0.0.47',
     'license': 'OPL-1',
     'application': False,
     'installable': True,
@@ -22,6 +22,6 @@
     ],
 
     'data': [
-
+        'views/res_users_views_custom.xml',
     ]
 }
