@@ -10,6 +10,8 @@ class SaleOrder(models.Model):
         user = self.env['res.users'].search([('id', '=', self._uid)])
         if user.team_id.name == 'Commercial Sales':
             return self.env['delivery.carrier'].search([('name', '=', 'Custom Freight Quote')]).id
+        else:
+            return ''
 
     carrier_id = fields.Many2one(default=_default_carrier_id, required=True)
 
