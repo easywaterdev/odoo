@@ -8,6 +8,10 @@
                 <xpath expr="//field[@name='payment_term_id']" position="after">
                     <field name="carrier_id"/>
                 </xpath>
+                <xpath expr="//field[@name='carrier_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="required">1</attribute>
+                </xpath>
             </field>
         </record>
     </data>
