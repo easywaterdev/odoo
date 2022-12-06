@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    carrier_id = fields.Many2one(default="_default_carrier_id")
+    carrier_id = fields.Many2one(default="_default_carrier_id", required=True)
 
     def action_quotation_send(self):
         if not self.carrier_id:
@@ -15,5 +15,5 @@ class SaleOrder(models.Model):
 
     def _default_carrier_id(self):
         for record in self:
-            if record.team_id.name == 'Commercial Sales':
+            if record.team_id.name == 'Residential Sales':
                 record.carrier_id = 'Custom Freight Quote'
