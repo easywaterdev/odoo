@@ -19,3 +19,7 @@ class SaleOrder(models.Model):
             if record.team_id:
                 if record.team_id.name == 'Commercial Sales':
                     record.carrier_id = record.env['delivery.carrier'].search([('name', '=', 'Custom Freight Quote')]).id
+                else:
+                    record.carrier_id = ''
+            else:
+                record.carrier_id = ''
