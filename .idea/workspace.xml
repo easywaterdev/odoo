@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cap_remove_private_address/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cap_remove_private_address/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easywater_sale_order_custom/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/easywater_sale_order_custom/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easywater_sale_order_custom/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/easywater_sale_order_custom/models/sale_order.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../oybi/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../oybi/.idea/oybi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/.idea/oybi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../oybi/auto_cancel_expired_quotes/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/auto_cancel_expired_quotes/__manifest__.py" afterDir="false" />
@@ -230,7 +231,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672411025205</updated>
-      <workItem from="1672411027321" duration="849000" />
+      <workItem from="1672411027321" duration="1677000" />
     </task>
     <servers />
   </component>
