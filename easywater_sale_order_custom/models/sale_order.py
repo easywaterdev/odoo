@@ -16,7 +16,7 @@ class SaleOrder(models.Model):
 
 #   this event is when using the action "Mark Quotation as Sent"
     def action_quotation_sent(self):
-        res = super(SaleOrder, self).action_quotation_send()
+        res = super(SaleOrder, self).action_quotation_sent()
         for record in self:
             if not record.team_id or not record.team_id.name == "Commercial Sales":
                 if not record.carrier_id:
