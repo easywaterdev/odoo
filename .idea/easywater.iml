@@ -4,5 +4,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Odoo Source Code" />
+    <orderEntry type="module" module-name="oybi" />
   </component>
 </module>

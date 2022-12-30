@@ -1,16 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="" />
+    <list default="true" id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/easywater.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easywater.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easywater_sale_order_custom/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/easywater_sale_order_custom/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easywater_sale_order_custom/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/easywater_sale_order_custom/models/sale_order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/.idea/oybi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/.idea/oybi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/auto_cancel_expired_quotes/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/auto_cancel_expired_quotes/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/.theia/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/.theia/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/models/account_invoice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/tests/test_invoice_margin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_invoice_margin/views/account_invoice_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_rec_set_partner/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_rec_set_partner/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_rec_set_partner/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_rec_set_partner/models/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/account_rec_set_partner/views/account_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/controllers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/controllers/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/models/res_users.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/views/res_users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/wizard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/wizard/portal_wizard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/auth_admin/wizard/portal_wizard_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/models/base_exception.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/security/base_exception_security.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/tests/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/tests/purchase_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/tests/test_base_exception_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/views/base_exception_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/wizard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/wizard/base_exception_confirm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/base_exception_user/wizard/base_exception_confirm_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/api/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/api/opencart.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/backend_adapter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/binder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/exporter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/importer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/components/mapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/data/connector_opencart_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/delivery/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/delivery/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/opencart/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/opencart/backend.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/opencart/backend_importer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/opencart/binding.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/opencart/store.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/opencart/store_importer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/product/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/product/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/product/importer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/sale_order/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/sale_order/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/sale_order/importer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/stock_picking/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/stock_picking/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/models/stock_picking/exporter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/views/delivery_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/views/opencart_backend_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/views/opencart_product_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/views/product_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/connector_opencart/views/sale_order_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/debian/odoo.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/models/delivery_fedex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/models/fedex_request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/models/stock.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_fedex_hibou/views/stock_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gls_nl/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gls_nl/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gls_nl/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gls_nl/models/delivery_gls_nl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gls_nl/models/gls_nl_request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gls_nl/views/delivery_gls_nl_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/models/delivery_gso.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/models/requests_gso.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_gso/views/delivery_gso_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/models/delivery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/models/stock.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/tests/test_delivery_hibou.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/views/delivery_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_hibou/views/stock_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/models/delivery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner/views/delivery_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/models/delivery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_dhl/tests/test_dhl_account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/models/delivery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_fedex/tests/test_fedex_account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/models/delivery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/tests/test_ups_account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_partner_ups/views/delivery_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/services.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/wsdls/stamps_v111.test.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/api/wsdls/stamps_v111.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/models/delivery_stamps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_stamps/views/delivery_stamps_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/Error1.1.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/IFWS.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/LBRecovery.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/LabelRecoveryWS.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/RateWS.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/RateWebServiceSchema.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/Ship.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/ShipWebServiceSchema.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/TNTWS.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/TimeInTransitWebServiceSchema.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/UPSSecurity.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/Void.wsdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/VoidWebServiceSchema.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/api/common.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/models/delivery_ups.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/models/stock.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/models/ups_request_patch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/delivery_ups_hibou/views/stock_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/models/helpdesk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/tests/test_helpdesk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_rma/views/helpdesk_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/models/helpdesk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/views/helpdesk_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/sale_order_archive/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/sale_order_archive/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oybi/update_task_assignee/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/update_task_assignee/models/models.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../odoo15/custom/sql_query" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JdbhHtwr4He5l4wQZPXHpVgs4j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/GitHub/oybi"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="" />
+      <created>1672411025205</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672411025205</updated>
+      <workItem from="1672411027321" duration="723000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

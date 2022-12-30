@@ -7,7 +7,7 @@ class SaleOrder(models.Model):
 
     def action_quotation_send(self):
         if not self.carrier_id:
-            raise UserError("You cannot mark quotations as sent until you enter a carrier!")
+            raise UserError("You cannot mark Quotations as sent until you enter a delivery method!")
         else:
             return super(SaleOrder, self).action_quotation_send()
 
@@ -21,3 +21,12 @@ class SaleOrder(models.Model):
                     record.carrier_id = ''
             else:
                 record.carrier_id = ''
+
+    def action_confirm(self):
+        res = super(SaleOrder, self).action_confirm()
+        if self.state == "sale":
+            if record.team_id:
+                if record.team_id.name != 'Commercial Sales':
+                    if not self.carrier_id:
+                        raise ValidationError("You cannot confirm a Sales Order until you enter a delivery method!")
+        return res
