@@ -5,7 +5,17 @@ from odoo.exceptions import ValidationError
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+#   this event is when sending via email
     def action_quotation_send(self):
+        res = super(SaleOrder, self).action_quotation_send()
+        for record in self:
+            if not record.team_id or not record.team_id.name == "Commercial Sales":
+                if not record.carrier_id:
+                    raise ValidationError("You cannot mark Quotations as sent until you enter a delivery method!")
+        return res
+
+#   this event is when using the action "Mark Quotation as Sent"
+    def action_quotation_sent(self):
         res = super(SaleOrder, self).action_quotation_send()
         for record in self:
             if not record.team_id or not record.team_id.name == "Commercial Sales":
