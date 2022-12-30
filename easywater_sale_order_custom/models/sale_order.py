@@ -7,8 +7,10 @@ class SaleOrder(models.Model):
 
     def action_quotation_send(self):
         res = super(SaleOrder, self).action_quotation_send()
-        if not self.carrier_id:
-            raise ValidationError("You cannot mark Quotations as sent until you enter a delivery method!")
+        for record in self:
+            if not record.team_id or not record.team_id.name = "Commercial Sales":
+                if not record.carrier_id:
+                    raise ValidationError("You cannot mark Quotations as sent until you enter a delivery method!")
         return res
 
     @api.onchange('team_id')
