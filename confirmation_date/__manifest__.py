@@ -8,7 +8,7 @@
         current date unless there is already a date in the field. This field is also copied to the sale.report 
         model for reporting.
     """,
-    'version': '16.0.0.2',
+    'version': '16.0.0.4',
     'author': 'OYBI',
     'website': 'https://www.oybi.com',
     'category': 'Sales',
