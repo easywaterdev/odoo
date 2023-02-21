@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+    <record id="view_order_form_inherit_orig_conf" model="ir.ui.view">
+        <field name="name">view.order.form.inherit.orig.conf</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='order_details']/field[@name='date_order']" position="after">
+                <field name="check_is_admin" invisible="1"/>
+                <field name="original_confirmation_date"
+                       attrs="{'readonly': [('check_is_admin', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_tree_inherit_orig_conf" model="ir.ui.view">
+        <field name="name">view.order.tree.inherit.orig.conf</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="check_is_admin" invisible="1"/>
+                <field name="original_confirmation_date"
+                       attrs="{'readonly': [('check_is_admin', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+  </data>3
+</odoo>
