@@ -6,7 +6,7 @@ from datetime import date
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    original_confirmation_date = fields.Date(string="Original Confirmation", copy=False)
+    original_confirmation_date = fields.Date(string="Original Confirmation", copy=False, tracking=True)
 
     def action_confirm(self):
         for record in self:
