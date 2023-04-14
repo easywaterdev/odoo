@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/easywater.iml" filepath="$PROJECT_DIR$/.idea/easywater.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/easywater_crm_full_search.iml" filepath="$PROJECT_DIR$/.idea/easywater_crm_full_search.iml" />
     </modules>
   </component>
 </project>
