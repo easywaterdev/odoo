@@ -25,10 +25,13 @@ class ProductProduct(models.Model):
                         elif value_description:
                             product_name += ', ' + value_description
                 if 'Flow Rate' in variant_attributes.keys():
-                    default_code += '-' + self._get_attribute_value(variant_attributes['Flow Rate'], True)
+                    return_string = self._get_attribute_value(variant_attributes['Flow Rate'], True)
+                    if not isinstance(return_string, bool):
+                        default_code += '-' + return_string
                 if 'Array' in variant_attributes.keys():
-                    default_code += '-' + self._get_attribute_value(variant_attributes['Array'], True)
-
+                    return_string = self._get_attribute_value(variant_attributes['Array'], True)
+                    if not isinstance(return_string, bool):
+                        default_code += '-' + return_string
                 if default_code and product_name:
                     record.default_code = default_code
                     record.display_name = product_name
