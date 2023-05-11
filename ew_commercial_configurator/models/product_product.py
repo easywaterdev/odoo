@@ -12,7 +12,7 @@ class ProductProduct(models.Model):
         for record in self:
             variant_attributes = {}
             record_index += 1
-            if 'Commercial Products' in record.product_tmpl_id.categ_id.complete_name:
+            if 'Commercial Products' in record.product_tmpl_id.categ_id.complete_name and record.product_tmpl_id.product_short_code:
                 default_code = record.product_tmpl_id.product_short_code
                 product_name = False
                 for product_template_attribute_value_id in record.product_template_attribute_value_ids:
