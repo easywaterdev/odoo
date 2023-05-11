@@ -10,7 +10,7 @@
     'author': "OYBI",
     'website': "https://www.oybi.com",
     'category': 'Extra Tools',
-    'version': '15.0.0.60',
+    'version': '15.0.0.62',
     'license': 'OPL-1',
     'application': False,
     'installable': True,
