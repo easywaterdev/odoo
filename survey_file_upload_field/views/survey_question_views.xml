@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_question_attachment_field_form" model="ir.ui.view">
+        <field name="name">Form view for survey question</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_preview_questions')]" position="inside">
+                <!-- Upload File Attachment -->
+                <div attrs="{'invisible': [('question_type', '!=', 'upload_file')]}">
+                    <p class="o_upload_file">Upload Files
+                        <i class="fa fa-upload fa-2x"/>
+                    </p>
+                </div>
+            </xpath>
+            <field name="constr_error_msg" position="after">
+                <field name="upload_multiple_file" attrs="{'invisible': [('question_type', '!=', 'upload_file')]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

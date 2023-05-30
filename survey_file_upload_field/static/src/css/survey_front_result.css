@@ -1,0 +1,12 @@
+div.o_survey_file_container {
+    background-color: #E9ECEF;
+    border-color: transparent;
+    border-radius: 0.25rem;
+    cursor: default;
+    color: white;
+    font-weight: bold;
+    padding: 6px 12px;
+}
+div.o_survey_file_container i.fa {
+    padding-right: 10px;
+}

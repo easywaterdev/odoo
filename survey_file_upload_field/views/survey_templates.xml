@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="question_upload_file" name="Question: Upload File">
+        <div class="o_survey_comment_container p-0">
+            <input type="file" class="form-control o_survey_question_upload_file bg-transparent text-dark rounded-0 p-0" t-att-data-name="question.id" t-att-data-question-type="question.question_type" t-att-id="'file_name_%d' % question.id" t-att-multiple="question.upload_multiple_file" />
+            <t t-foreach="answer_lines.user_binary_line" t-as="file">
+                <div>
+                    <a t-attf-href="/web/binary/download/#{file.id}" aria-label="Download" title="Download">
+                        <i class="fa fa-download" />
+                        <span><t t-esc="file.binary_filename" /></span>
+                    </a>
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="review_upload_file" name="Review: Upload File">
+        <div class="o_survey_file_container">
+            <t t-foreach="answer_lines.user_binary_line" t-as="file">
+                <div>
+                    <a t-attf-href="/web/binary/download/#{file.id}" aria-label="Download" title="Download">
+                        <i class="fa fa-download" />
+                        <span><t t-esc="file.binary_filename" /></span>
+                    </a>
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="question_container" inherit_id="survey.question_container">
+        <xpath expr="//div[hasclass('o_survey_question_error')]" position="before">
+            <t t-if="question.question_type == 'upload_file'"><t t-call="survey_file_upload_field.question_upload_file"/></t>
+        </xpath>
+    </template>
+
+    <template id="survey_page_print" inherit_id="survey.survey_page_print">
+        <xpath expr="//div[hasclass('o_survey_question_error')]" position="before">
+            <t t-if="question.question_type == 'upload_file'"><t t-call="survey_file_upload_field.review_upload_file"/></t>
+        </xpath>
+    </template>
+</odoo>

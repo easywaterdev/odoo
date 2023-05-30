@@ -1,0 +1,7 @@
+.o_preview_questions .o_upload_file {
+    border: 1px solid #D8D7D7;
+    margin-bottom: 5px;
+}
+.o_preview_questions .o_upload_file i.fa{
+    margin-left: 30px;
+}

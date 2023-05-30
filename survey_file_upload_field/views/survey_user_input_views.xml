@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_user_input_line_attachment_view_form" model="ir.ui.view">
+        <field name="name">survey.user_input.line.attachment.view.form</field>
+        <field name="model">survey.user_input.line</field>
+        <field name="inherit_id" ref="survey.survey_user_input_line_view_form"/>
+        <field name="arch" type="xml">
+            <field name="suggested_answer_id" position="after">
+                <field name="answer_type" invisible="1"/>
+                <field name="user_binary_line" attrs="{'invisible': [('answer_type', '!=', 'upload_file')]}">
+                    <tree create="0" edit="0">
+                        <field name="binary_filename" invisible="1"/>
+                        <field name="binary_data" widget="binary" filename="binary_filename"/>
+                    </tree>
+                </field>
+            </field>
+        </field>
+   </record>
+</odoo>
