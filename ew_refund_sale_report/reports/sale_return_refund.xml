@@ -1,0 +1,161 @@
+<odoo>
+    <data>
+        <!-- Menu item -->
+
+        <!-- Action to launch the custom wizard -->
+        <record id="action_return_refund_sales_wizard" model="ir.actions.act_window">
+            <field name="name">Return/Refund Sales Report</field>
+            <field name="res_model">return.refund.sales.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_return_refund_sales_report" sequence="2" name="Return/Refund Sales Report" parent="sale.menu_sale_report" action="ew_refund_sale_report.action_return_refund_sales_wizard"/>
+
+
+        <!-- View for the custom wizard -->
+        <record id="view_return_refund_sales_wizard_form" model="ir.ui.view">
+            <field name="name">return.refund.sales.wizard.form</field>
+            <field name="model">return.refund.sales.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Return/Refund Sales Report">
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to execute the report logic -->
+
+
+         <report
+            id="action_sales_return_refund"
+            string="Sales Return/Refund Report"
+            model="return.refund.sales.wizard"
+            report_type="qweb-pdf"
+            file="ew_refund_sale_report.report_sales_return_refund"
+            name="ew_refund_sale_report.report_sales_return_refund"
+        />
+        <template id="report_sales_return_refund">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <style>
+            </style>
+            <t class="page">
+                <div class="oe_structure"/>
+                <center>
+                    <b>
+                        <h3>Return/Refund Sales Report</h3>
+                    </b>
+                </center>
+                <t t-if="start_date and end_date">
+                    <center>
+                        <span t-esc="start_date"/>
+                        To
+                        <span t-esc="end_date"/>
+                    </center>
+                </t>
+                <table class="table table-condensed table-hover">
+<!--                    <thead>-->
+<!--                        <tr>-->
+<!--                            <th>Salesperson</th>-->
+<!--                            <th>Date</th>-->
+<!--                            <th>Sales Order Number</th>-->
+<!--                            <th>Line (Sequence)</th>-->
+<!--                            <th>Name</th>-->
+<!--                            <th>Quantity</th>-->
+<!--                            <th>Price</th>-->
+<!--                            <th>Total</th>-->
+<!--                        </tr>-->
+<!--                    </thead>-->
+                    <tbody>
+                        <t t-set="current_salesperson" t-value="None"/>
+                        <t t-set="salesperson_total" t-value="0"/>
+                        <t t-set="grand_total" t-value="0"/>
+                        <t t-foreach="sorted(report_data, key=lambda r: (r['salesperson'], r['date'],r['order_number']))" t-as="row">
+                            <t t-if="row['salesperson'] != current_salesperson">
+                                <t t-if="current_salesperson != None">
+                                    <tr>
+                                        <td colspan="6" style="text-align: right;">Subtotal</td>
+                                        <td style="text-align: right;"><span t-esc="'%.2f' % salesperson_total"/></td>
+                                    </tr>
+                                </t>
+                                <t t-set="current_salesperson" t-value="row['salesperson']"/>
+                                <t t-set="salesperson_total" t-value="0"/>
+                                <tr>
+                                    <td colspan="8">
+                                                <center>
+                                                     <b>
+                                                        <span style="font-size: 22px;">Salesperson: </span>
+                                                        <span t-esc="row['salesperson_name']" style="font-size: 22px;"/>
+                                                    </b>
+                                                </center>
+                                    </td>
+                                </tr>
+                                <tr>
+<!--                                    <th>Salesperson</th>-->
+                                    <th>Date</th>
+                                    <th>Sales Order/ Credit Memo</th>
+                                    <th>Line (Sequence)</th>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </t>
+                            <tr>
+<!--                                <td><span t-esc="row['salesperson']"/></td>-->
+                                <td><span t-esc="row['date']"/></td>
+                                <td><span t-esc="row['order_number']"/></td>    
+                                <td><span t-esc="row['line_sequence']"/></td>
+                                <td><span t-esc="row['product_name']"/></td>
+                                <td><span t-esc="row['quantity']"/></td>
+                                <td style="text-align: right;"><span t-esc="'%.2f' % row['price']"/></td>
+                                <td style="text-align: right;"><span t-esc="'%.2f' % row['total']"/></td>
+
+<!--                                <td><span t-esc="row['price']"/></td>-->
+<!--                                <td><span t-esc="row['total']"/></td>-->
+                            </tr>
+                            <t t-set="salesperson_total" t-value="salesperson_total + row['total']"/>
+                            <t t-set="grand_total" t-value="grand_total + row['total']"/>
+                        </t>
+                        <tr>
+<!--                            <td colspan="7">Subtotal</td>-->
+<!--                            <td><span t-esc="salesperson_total"/></td>-->
+                            <td colspan="6" style="text-align: right;">Subtotal</td>
+                            <td style="text-align: right;"><span t-esc="'%.2f' % salesperson_total"/></td>
+
+                        </tr>
+                    </tbody>
+<!--                    <tfoot>-->
+<!--                        <tr>-->
+<!--                            <th colspan="7">Grand Total</th>-->
+<!--                            <td><span t-esc="grand_total"/></td>-->
+<!--                        </tr>-->
+<!--                    </tfoot>-->
+                </table>
+               <div class="page-break"/>
+                <center>
+                    <div style="text-align: right;">
+                        <b>Grand Total: <span t-esc="'%.2f' % grand_total"/></b>
+                    </div>
+                </center>
+
+
+            </t>
+        </t>
+    </t>
+</template>
+
+
+
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

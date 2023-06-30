@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/easywater_avatax_fix/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/easywater_avatax_fix/__manifest__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/easywater_avatax_fix/models/__init__.py" afterDir="false" />
@@ -199,6 +200,9 @@
       <change beforePath="$PROJECT_DIR$/../oybi/hibou-suite/helpdesk_sales/views/helpdesk_views.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../oybi/sale_order_archive/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/sale_order_archive/__manifest__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../oybi/update_task_assignee/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../oybi/update_task_assignee/models/models.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +245,12 @@
       <workItem from="1686588002750" duration="153000" />
       <workItem from="1686597064037" duration="12000" />
       <workItem from="1686666262911" duration="498000" />
+<<<<<<< Updated upstream
       <workItem from="1686701081669" duration="1067000" />
+>>>>>>> Stashed changes
+=======
+      <workItem from="1686701081669" duration="348000" />
+      <workItem from="1687978443636" duration="669000" />
 >>>>>>> Stashed changes
     </task>
     <servers />

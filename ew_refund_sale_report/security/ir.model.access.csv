@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_return_refund_sales_wizard,access_return_refund_sales_wizard,model_return_refund_sales_wizard,,1,1,1,1
+
+
+
+
+
+
+
+
+
