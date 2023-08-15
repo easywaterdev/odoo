@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+export_bom_structure_excel_omax.access_export_mrp_bom_structure_excel,access_export_mrp_bom_structure_excel,export_bom_structure_excel_omax.model_export_mrp_bom_structure_excel,,1,1,1,1

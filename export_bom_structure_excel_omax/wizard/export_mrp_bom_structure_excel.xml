@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ir_actions_mrp_bom_structure_xls_file" model="ir.actions.server">
+            <field name="name">Export Bom Details Xls Report</field>
+            <field name="model_id" ref="export_bom_structure_excel_omax.model_mrp_bom"/>
+            <field name="binding_model_id" ref="mrp.model_mrp_bom"/>
+            <!--binding_model_id replace with ir.values-->
+            <field name="state">code</field>
+            <field name="code">action = model.print_export_bom_details_xls()</field>
+        </record>
+        
+    </data>
+</odoo>
