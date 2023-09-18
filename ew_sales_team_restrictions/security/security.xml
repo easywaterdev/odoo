@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_allow_restriction_in_sales_team_new" model="res.groups">
+        <field name="name">Allow Restriction in Sales Team</field>
+        <field name="comment">This Group is for Sales Team Restriction.</field>
+    </record>
+</odoo>
