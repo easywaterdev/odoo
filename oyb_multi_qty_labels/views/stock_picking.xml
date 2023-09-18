@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_picking_form_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page/field[@name='move_ids_without_package']/tree/button[@name='action_assign_serial']" position="after">
+                    <button string="Print Labels" type="object" name="action_open_label_type"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Replaced custom_quantity and add o2m for label quantity-->
+        <record id="product_label_inherit_template" model="ir.ui.view">
+            <field name="name">product.label.layout.form</field>
+            <field name="model">product.label.layout</field>
+            <field name="inherit_id" ref="product.product_label_layout_form"/>
+            <field name="arch" type="xml">
+                <field name="custom_quantity" position="replace">
+                        <field name="part_number"/>
+                        <field name="total_product_quantity"/>
+                        <field name="label_quantity"/>
+                        <field name="labels" mode="tree">
+                            <tree editable="bottom">
+                                <field name="product_qty"/>
+                            </tree>
+                        </field>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_product_label_new,access_custom_product_label_new,model_custom_product_label_new,,1,1,1,1
+
+
+
+
+
+
+
+
+
