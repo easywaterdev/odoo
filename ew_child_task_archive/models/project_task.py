@@ -5,6 +5,15 @@ from odoo import fields, models, api
 class Task(models.Model):
     _inherit = 'project.task'
 
+    ancestor_id = fields.Many2one('project.task', string='Ancestor Task', compute='_compute_ancestor_id',
+                                  index='btree_not_null', recursive=True, store=True)
+
+    @api.depends('parent_id.ancestor_id')
+    def _compute_ancestor_id(self):
+        for task in self:
+            task.ancestor_id = task.parent_id.ancestor_id or task.parent_id
+
+        
     def write(self, vals):
         res = super(Task, self).write(vals)
         if 'tag_ids' in vals.keys():

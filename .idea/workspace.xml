@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="" />
+    <list default="true" id="2793a796-d296-4dd7-9c90-d24e90654f31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/ew_child_task_archive/models/project_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/ew_child_task_archive/models/project_task.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +18,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2R74tdOQU1GgTppEkW7lc4AcSlS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,6 +51,7 @@
       <workItem from="1686597064037" duration="12000" />
       <workItem from="1686666262911" duration="498000" />
       <workItem from="1686701081669" duration="348000" />
+      <workItem from="1700165878280" duration="40000" />
     </task>
     <servers />
   </component>
