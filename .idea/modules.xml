@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Odoo Source Code/.idea/Odoo Source Code.iml" filepath="$PROJECT_DIR$/../Odoo Source Code/.idea/Odoo Source Code.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/easywater.iml" filepath="$PROJECT_DIR$/.idea/easywater.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../oybi/.idea/oybi.iml" filepath="$PROJECT_DIR$/../oybi/.idea/oybi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/easywater-odoo.iml" filepath="$PROJECT_DIR$/.idea/easywater-odoo.iml" />
     </modules>
   </component>
 </project>
